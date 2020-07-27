@@ -1,0 +1,14 @@
+﻿@model List<Proba.Models.Client>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Clients</h2>
+<ul>
+    @foreach (var client in Model)
+    {
+        <li>
+            @client.ClientName
+        </li>
+    }
+</ul>
