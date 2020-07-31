@@ -27,6 +27,7 @@ namespace Proba.Models
             [Required]
             [Display(Name = "Пол")]
             public Gender Gender { get; set; }
+
             [Required]
             [Display(Name = "Датум на раѓање")]
             [DataType(DataType.Date)]
@@ -35,7 +36,7 @@ namespace Proba.Models
             [Required]
             [Display(Name = "Град")]
             public string City { get; set; }
-            [Display(Name = "Слика")]
+            
 
             public virtual ApplicationUser User { get; set; }
         [Key]

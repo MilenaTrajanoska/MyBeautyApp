@@ -252,6 +252,10 @@
     <Compile Include="Migrations\202007261634311_addedRelationalProperty.Designer.cs">
       <DependentUpon>202007261634311_addedRelationalProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007311212284_mig.cs" />
+    <Compile Include="Migrations\202007311212284_mig.Designer.cs">
+      <DependentUpon>202007311212284_mig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -396,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007261634311_addedRelationalProperty.resx">
       <DependentUpon>202007261634311_addedRelationalProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007311212284_mig.resx">
+      <DependentUpon>202007311212284_mig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
