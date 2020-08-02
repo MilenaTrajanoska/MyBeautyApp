@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Proba.Controllers
         public AccountController()
         {
             _context = new ApplicationDbContext();
+
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -234,6 +236,67 @@ namespace Proba.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        [AllowAnonymous]
+        public ActionResult RegisterSalon()
+        {
+            RegisterSalonViewModel model = new RegisterSalonViewModel();
+            return View(model);
+        }
+
+        
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterSalon(RegisterSalonViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var user = new ApplicationUser() { Email = model.Email, UserName = model.Email, PhoneNumber = model.PhoneNumber };
+                var Salon = new Salon()
+                {
+                    Name = model.Name,
+                    Address = model.Address,
+                    City = model.City,
+                    Services = new List<Service>()
+ 
+                };
+
+                foreach(var service in model.SelectedServices)
+                {
+                    
+                    Salon.Services.Add(new Service() { Name = service.ToString(), TypeOfService = service });
+                }
+                
+
+                var result = await UserManager.CreateAsync(user, model.Password);
+
+                Salon.User = UserManager.FindByEmail(user.Email);
+                Salon.UserId = Salon.User.Id;
+
+
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Create", "Salons", Salon);
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
 
         //
         // GET: /Account/ConfirmEmail

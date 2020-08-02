@@ -18,6 +18,7 @@ namespace Proba.Models
             return userIdentity;
         }
         public virtual Client Client { get; set; }
+        public virtual Salon Salon { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -39,6 +40,8 @@ namespace Proba.Models
 
        public DbSet<Client> Clients { get; set; }
 
-      
+        public System.Data.Entity.DbSet<Proba.Models.Salon> Salons { get; set; }
+        public DbSet<Service> Services { get; set; }
+        
     }
 }
