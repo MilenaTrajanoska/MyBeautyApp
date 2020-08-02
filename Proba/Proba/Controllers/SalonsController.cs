@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Proba.Models;
 
 namespace Proba.Controllers
@@ -13,6 +15,7 @@ namespace Proba.Controllers
     public class SalonsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        
 
         // GET: Salons
         public ActionResult Index()
@@ -49,23 +52,26 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         
         
-        public ActionResult Create(Salon salon)
+        public ActionResult Create([Bind(Include = "UserId, User,Name,Address,City,Services")] Salon salon)
         {
-            if (ModelState.IsValid)
-            {
+                //salon.User = (ApplicationUser)TempData["User"];
+                //salon.Services = (List<Service>)TempData["Services"];
+            
                 db.Salons.Add(salon);
-          
-                foreach (var service in salon.Services)
-                {
-                     db.Services.Add(service);
-               
-                }
                 db.SaveChanges();
+                
+                foreach (var service in (List<Service>)TempData["Services"])
+
+                {
+                    db.Services.Add(service);
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
-           }
+            
         
-           ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
-           return View(salon);
+           //ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
+          // return View(salon);
         }
 
         // GET: Salons/Edit/5

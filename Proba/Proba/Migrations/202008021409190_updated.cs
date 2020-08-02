@@ -3,7 +3,7 @@ namespace Proba.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class changedSelected : DbMigration
+    public partial class updated : DbMigration
     {
         public override void Up()
         {

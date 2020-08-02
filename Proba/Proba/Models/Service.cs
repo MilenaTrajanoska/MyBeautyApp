@@ -18,18 +18,22 @@ namespace Proba.Models
     }
     public class Service
     {
-        [Key]
+
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         public int Id { get; set; }
         [Required]
-        [Display(Name="Име на сервис")]
+        [Display(Name = "Име на сервис")]
         public string Name { get; set; }
         [Required]
-        [Display(Name="Tип на сервис")]
+        [Display(Name = "Tип на сервис")]
         public Type TypeOfService { get; set; }
-        [Display(Name="Цена на услуга")]
+        [Display(Name = "Цена на услуга")]
+        [Range(1, 10000)]
         public int Price { get; set; }
-        public Salon Salon { get; set; }
+        public virtual Salon Salon {get; set;}
         [ForeignKey("Salon")]
-        public string SalonId { get; set; }
+        public string UserId { get; set; }
+
+        
     }
 }

@@ -263,19 +263,23 @@ namespace Proba.Controllers
                     Services = new List<Service>()
  
                 };
-
-                foreach(var service in model.SelectedServices)
-                {
-                    
-                    Salon.Services.Add(new Service() { Name = service.ToString(), TypeOfService = service });
-                }
+                
                 
 
                 var result = await UserManager.CreateAsync(user, model.Password);
 
+                ApplicationUser u = UserManager.FindByEmail(user.Email);
                 Salon.User = UserManager.FindByEmail(user.Email);
                 Salon.UserId = Salon.User.Id;
 
+                List<Service> services = new List<Service>();
+                foreach (Models.Type service in model.SelectedServices)
+                {
+                    services.Add(new Service() { Name = service.ToString(), TypeOfService = service, Price = 1, UserId = Salon.UserId });
+                }
+
+                TempData["User"] = u;
+                TempData["Services"] = services;
 
                 if (result.Succeeded)
                 {

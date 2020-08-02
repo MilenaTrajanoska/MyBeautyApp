@@ -19,6 +19,7 @@ namespace Proba.Models
         [Display(Name = "Град")]
         public string City { get; set; }
         [Display(Name="Број на вработени")]
+        [Range(0,1000)]
         public int numChairs { get; set; }
 
         public virtual ApplicationUser User { get; set; }
@@ -26,10 +27,11 @@ namespace Proba.Models
         [ForeignKey("User")]
         public string UserId { get; set; }
         [Display(Name="Услуги")]
-        public List<Service> Services { get; set; }
+        public virtual List<Service> Services { get; set; }
         public Salon()
         {
             Services = new List<Service>();
+            numChairs = 0;
         }
     }
    

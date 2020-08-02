@@ -3,7 +3,7 @@ namespace Proba.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class inti : DbMigration
     {
         public override void Up()
         {
@@ -101,11 +101,12 @@ namespace Proba.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
                         TypeOfService = c.Int(nullable: false),
-                        Salon_UserId = c.String(maxLength: 128),
+                        Price = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Salon", t => t.Salon_UserId)
-                .Index(t => t.Salon_UserId);
+                .ForeignKey("dbo.Salon", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -124,12 +125,12 @@ namespace Proba.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Client", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Salon", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Service", "Salon_UserId", "dbo.Salon");
+            DropForeignKey("dbo.Service", "UserId", "dbo.Salon");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Service", new[] { "Salon_UserId" });
+            DropIndex("dbo.Service", new[] { "UserId" });
             DropIndex("dbo.Salon", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });

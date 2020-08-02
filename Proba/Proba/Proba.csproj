@@ -185,25 +185,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008011807354_initial.cs" />
-    <Compile Include="Migrations\202008011807354_initial.Designer.cs">
-      <DependentUpon>202008011807354_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202008021402349_inti.cs" />
+    <Compile Include="Migrations\202008021402349_inti.Designer.cs">
+      <DependentUpon>202008021402349_inti.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008011809566_changedService.cs" />
-    <Compile Include="Migrations\202008011809566_changedService.Designer.cs">
-      <DependentUpon>202008011809566_changedService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008012316077_changedType.cs" />
-    <Compile Include="Migrations\202008012316077_changedType.Designer.cs">
-      <DependentUpon>202008012316077_changedType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008012345548_changedSelected.cs" />
-    <Compile Include="Migrations\202008012345548_changedSelected.Designer.cs">
-      <DependentUpon>202008012345548_changedSelected.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008012353038_changedTypes.cs" />
-    <Compile Include="Migrations\202008012353038_changedTypes.Designer.cs">
-      <DependentUpon>202008012353038_changedTypes.cs</DependentUpon>
+    <Compile Include="Migrations\202008021409190_updated.cs" />
+    <Compile Include="Migrations\202008021409190_updated.Designer.cs">
+      <DependentUpon>202008021409190_updated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,20 +295,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008011807354_initial.resx">
-      <DependentUpon>202008011807354_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008021402349_inti.resx">
+      <DependentUpon>202008021402349_inti.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008011809566_changedService.resx">
-      <DependentUpon>202008011809566_changedService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008012316077_changedType.resx">
-      <DependentUpon>202008012316077_changedType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008012345548_changedSelected.resx">
-      <DependentUpon>202008012345548_changedSelected.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008012353038_changedTypes.resx">
-      <DependentUpon>202008012353038_changedTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008021409190_updated.resx">
+      <DependentUpon>202008021409190_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

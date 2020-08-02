@@ -7,13 +7,13 @@ namespace Proba.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changedType : IMigrationMetadata
+    public sealed partial class inti : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(inti));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008012316077_changedType"; }
+            get { return "202008021402349_inti"; }
         }
         
         string IMigrationMetadata.Source
