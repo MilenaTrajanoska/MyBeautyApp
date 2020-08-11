@@ -14,6 +14,24 @@
     float: right;
 }
 
+.div-logo{
+    float:left;
+}
+
 .margin-y-1p {
     margin: 1% 0 1% 0;
 }
+
+
+.margin-y-1p {
+    margin: 1% 0 1% 0;
+}
+
+.margin-x-1p {
+    margin: 0 1% 0 1%;
+}
+
+.colum-30p {
+    width: 30%;
+}
+
