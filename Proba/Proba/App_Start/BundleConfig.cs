@@ -24,7 +24,8 @@ namespace Proba
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/css-stilovi/StyleSheet1.css"));
         }
     }
 }
