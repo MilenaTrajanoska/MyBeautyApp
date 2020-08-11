@@ -6,3 +6,14 @@
     border-color: white !important;
 }
 
+.container body-content {
+    background-color: #F58566 !important;
+}
+
+.tekst-footer {
+    float: right;
+}
+
+.margin-y-1p {
+    margin: 1% 0 1% 0;
+}
