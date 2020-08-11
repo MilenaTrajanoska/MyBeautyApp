@@ -14,24 +14,67 @@
     float: right;
 }
 
-.div-logo{
-    float:left;
-}
-
-.margin-y-1p {
-    margin: 1% 0 1% 0;
+.div-logo {
+    float: left;
 }
 
 
+
+/*     veronika     */
+.navbar-inverse {
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.default {
+    border-color: #e0e0e0 !important;
+    background: #e0e0e0;
+    color: #0F1A20 !important;
+}
+
+.default:hover, .default:focus, .default:active, .default:visited {
+    border-color: #F58566 !important;
+    background: #F58566 !important;
+    color: #ffffff !important;
+}
+
+.default span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+        .default span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .default:hover span {
+        padding-right: 25px;
+    }
+
+        .default:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
 .margin-y-1p {
-    margin: 1% 0 1% 0;
+    margin: 1% 0 1% 0 !important;
 }
 
 .margin-x-1p {
-    margin: 0 1% 0 1%;
+    margin: 0 1% 0 1% !important;
 }
 
 .colum-30p {
-    width: 30%;
+    width: 30% !important;
 }
-
