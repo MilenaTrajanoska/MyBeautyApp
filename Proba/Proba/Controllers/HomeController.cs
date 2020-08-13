@@ -26,5 +26,14 @@ namespace Proba.Controllers
 
             return View();
         }
+
+        public ActionResult Saloni()
+        {
+            ViewBag.Message = "Salons.";
+
+            return View();
+        }
+
+
     }
 }

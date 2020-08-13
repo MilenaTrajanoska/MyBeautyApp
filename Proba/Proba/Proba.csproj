@@ -278,6 +278,7 @@
     <Content Include="Views\Salons\Details.cshtml" />
     <Content Include="Views\Salons\Edit.cshtml" />
     <Content Include="Views\Salons\Index.cshtml" />
+    <Content Include="Views\Home\Saloni.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
