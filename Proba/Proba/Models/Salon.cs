@@ -28,6 +28,9 @@ namespace Proba.Models
         public string UserId { get; set; }
         [Display(Name="Услуги")]
         public virtual List<Service> Services { get; set; }
+        [Required]
+        [Display(Name = "Слика")]
+        public string ImagePath { get; set; }
         public Salon()
         {
             Services = new List<Service>();

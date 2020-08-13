@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Policy;
+using System.Web;
 
 namespace Proba.Models
 {
@@ -117,6 +118,9 @@ namespace Proba.Models
         [Display(Name = "Потврдете ја лозинката")]
         [Compare("Password", ErrorMessage = "Внесените лозинки не се совпаѓаат.")]
         public string ConfirmPassword { get; set; }
+        [Display(Name = "Прикачете слика")]
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
     }
     public class RegisterSalonViewModel
@@ -159,6 +163,9 @@ namespace Proba.Models
         [Display(Name="Услуги")]
         public IEnumerable<Type> SelectedServices { get; set; }
         public IEnumerable<Service> Services { get; set; }
+        [Display(Name = "Прикачете слика")]
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFileS { get; set; }
         public RegisterSalonViewModel()
         {
             Services = new List<Service>()

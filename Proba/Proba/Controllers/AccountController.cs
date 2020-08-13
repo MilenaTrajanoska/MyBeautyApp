@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity.Validation;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -197,19 +199,45 @@ namespace Proba.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                string FileName = "default_male.jpg";
+                if(model.Gender == Gender.ЖЕНСКИ)
+                {
+                    FileName = "default_female.jpg";
+                }
                 var user = new ApplicationUser() { Email = model.Email, UserName = model.Email };
+                if(model.ImageFile != null)
+                {
+                    FileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+
+                    //To Get File Extension  
+                    string FileExtension = Path.GetExtension(model.ImageFile.FileName);
+
+                    //Add Current Date To Attached File Name  
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                    //Get Upload path from Web.Config file AppSettings.  
+                    string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
+
+                    //Its Create complete path to store in server.  
+                    model.ImagePath = UploadPath + FileName;
+
+                    // To copy and save file into server.  
+                    model.ImageFile.SaveAs(model.ImagePath);
+
+                }
+               
+
+            
                 var Client = new Client()
                 {
                     ClientName = model.ClientName,
                     ClientSurname = model.ClientSurname,
                     Gender = model.Gender,
                     DateOfBirth = model.DateOfBirth,
-                    City = model.City
+                    City = model.City,
+                    ImagePath = FileName
                 };
 
                 
-
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
                 Client.User = UserManager.FindByEmail(user.Email);
@@ -253,6 +281,27 @@ namespace Proba.Controllers
         {
             if (ModelState.IsValid)
             {
+                string FileName = "default_salon.jpg";
+
+                if (model.ImageFileS != null)
+                {
+                    FileName = Path.GetFileNameWithoutExtension(model.ImageFileS.FileName);
+
+                    //To Get File Extension  
+                    string FileExtension = Path.GetExtension(model.ImageFileS.FileName);
+
+                    //Add Current Date To Attached File Name  
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                    //Get Upload path from Web.Config file AppSettings.  
+                    string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
+
+                    //Its Create complete path to store in server.  
+                    model.ImagePath = UploadPath + FileName;
+
+                    // To copy and save file into server.  
+                    model.ImageFileS.SaveAs(model.ImagePath);
+
+                }
 
                 var user = new ApplicationUser() { Email = model.Email, UserName = model.Email, PhoneNumber = model.PhoneNumber };
                 var Salon = new Salon()
@@ -260,8 +309,8 @@ namespace Proba.Controllers
                     Name = model.Name,
                     Address = model.Address,
                     City = model.City,
-                    Services = new List<Service>()
- 
+                    Services = new List<Service>(),
+                    ImagePath = FileName
                 };
                 
                 

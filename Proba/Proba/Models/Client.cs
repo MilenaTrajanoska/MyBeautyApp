@@ -4,13 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Proba.Models
 {
     public enum Gender
     {
-        MALE,
-        FEMALE,
+        МАШКИ,
+        ЖЕНСКИ,
     }
 
     public class Client
@@ -43,6 +44,12 @@ namespace Proba.Models
         [ForeignKey("User")]
 
         public string UserId { get; set; }
+        [Required]
+        [Display(Name = "Слика")]
+        [AllowHtml]
+        public string ImagePath { get; set; }
+        
+
         public Client()
            {
 

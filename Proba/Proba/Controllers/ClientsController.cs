@@ -48,10 +48,11 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         
         
-       public ActionResult Create([Bind(Include = "UserId,ClientName,ClientSurname,Gender,DateOfBirth,City")] Client client)
+       public ActionResult Create([Bind(Include = "UserId,ClientName,ClientSurname,Gender,DateOfBirth,City, ImagePath")] Client client)
         {
             if (ModelState.IsValid)
             {
+                
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -193,6 +193,46 @@
     <Compile Include="Migrations\202008021409190_updated.Designer.cs">
       <DependentUpon>202008021409190_updated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008132143419_addedProps.cs" />
+    <Compile Include="Migrations\202008132143419_addedProps.Designer.cs">
+      <DependentUpon>202008132143419_addedProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132155129_changed-view-model.cs" />
+    <Compile Include="Migrations\202008132155129_changed-view-model.Designer.cs">
+      <DependentUpon>202008132155129_changed-view-model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132202460_changed-models.cs" />
+    <Compile Include="Migrations\202008132202460_changed-models.Designer.cs">
+      <DependentUpon>202008132202460_changed-models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132211111_changed-type.cs" />
+    <Compile Include="Migrations\202008132211111_changed-type.Designer.cs">
+      <DependentUpon>202008132211111_changed-type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132218422_change.cs" />
+    <Compile Include="Migrations\202008132218422_change.Designer.cs">
+      <DependentUpon>202008132218422_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132231541_allowedHtml.cs" />
+    <Compile Include="Migrations\202008132231541_allowedHtml.Designer.cs">
+      <DependentUpon>202008132231541_allowedHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132244300_changedEnum.cs" />
+    <Compile Include="Migrations\202008132244300_changedEnum.Designer.cs">
+      <DependentUpon>202008132244300_changedEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132302069_changed-salon-model.cs" />
+    <Compile Include="Migrations\202008132302069_changed-salon-model.Designer.cs">
+      <DependentUpon>202008132302069_changed-salon-model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132310297_view-model-change.cs" />
+    <Compile Include="Migrations\202008132310297_view-model-change.Designer.cs">
+      <DependentUpon>202008132310297_view-model-change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008132313306_req.cs" />
+    <Compile Include="Migrations\202008132313306_req.Designer.cs">
+      <DependentUpon>202008132313306_req.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -282,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -302,6 +343,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008021409190_updated.resx">
       <DependentUpon>202008021409190_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132143419_addedProps.resx">
+      <DependentUpon>202008132143419_addedProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132155129_changed-view-model.resx">
+      <DependentUpon>202008132155129_changed-view-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132202460_changed-models.resx">
+      <DependentUpon>202008132202460_changed-models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132211111_changed-type.resx">
+      <DependentUpon>202008132211111_changed-type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132218422_change.resx">
+      <DependentUpon>202008132218422_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132231541_allowedHtml.resx">
+      <DependentUpon>202008132231541_allowedHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132244300_changedEnum.resx">
+      <DependentUpon>202008132244300_changedEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132302069_changed-salon-model.resx">
+      <DependentUpon>202008132302069_changed-salon-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132310297_view-model-change.resx">
+      <DependentUpon>202008132310297_view-model-change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008132313306_req.resx">
+      <DependentUpon>202008132313306_req.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.numChairs)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
         <th></th>
     </tr>
 
@@ -45,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.numChairs)
+        </td>
+        <td>
+            <img src="~/UserImages/@item.ImagePath" style="max-width:200px"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |

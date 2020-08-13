@@ -52,14 +52,17 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         
         
-        public ActionResult Create([Bind(Include = "UserId, User,Name,Address,City,Services")] Salon salon)
+        public ActionResult Create([Bind(Include = "UserId, User,Name,Address,City,Services,ImagePath")] Salon salon)
         {
-                //salon.User = (ApplicationUser)TempData["User"];
-                //salon.Services = (List<Service>)TempData["Services"];
-            
+            //salon.User = (ApplicationUser)TempData["User"];
+            //salon.Services = (List<Service>)TempData["Services"];
+           // if (ModelState.IsValid)
+           // {
+
+
                 db.Salons.Add(salon);
                 db.SaveChanges();
-                
+
                 foreach (var service in (List<Service>)TempData["Services"])
 
                 {
@@ -68,9 +71,9 @@ namespace Proba.Controllers
                 }
 
                 return RedirectToAction("Index");
-            
+          //  }
         
-           //ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
+          // ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
           // return View(salon);
         }
 
