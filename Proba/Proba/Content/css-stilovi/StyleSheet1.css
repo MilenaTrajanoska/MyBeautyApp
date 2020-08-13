@@ -27,7 +27,12 @@
     padding-left: 10px;
 }
 
-
+#input-grad{
+    width:430px;
+    border-radius:6px;
+    align-content:center;
+    font-size:medium;
+}
 
 
 
