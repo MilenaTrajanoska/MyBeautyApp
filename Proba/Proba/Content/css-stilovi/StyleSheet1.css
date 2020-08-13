@@ -19,6 +19,17 @@
 }
 
 
+#div-isprati-poraka {
+    float: right;
+    background: #e8e4d8;
+    border-radius: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+
+
 
 /*     veronika     */
 
@@ -78,3 +89,4 @@ a:hover {
 .colum-30p {
     width: 30% !important;
 }
+
