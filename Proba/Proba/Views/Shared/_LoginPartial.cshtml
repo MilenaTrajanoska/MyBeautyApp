@@ -7,7 +7,33 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Здраво " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @{ 
+                var path = "";
+                if (User.IsInRole(Proba.Models.RoleName.Client))
+                {
+                    path = Html.Action("UserPhotos", "Home").ToHtmlString();
+                }
+                else
+                {
+                    path = Html.Action("SalonPhotos", "Home").ToHtmlString();
+                }
+
+            }
+            <img src="@path" style="max-width:40px;border-radius:50%;margin-top:5px"/>
+        </li>
+        <li>
+            @{ 
+                var fullname = "";
+                if (User.IsInRole(Proba.Models.RoleName.Salon))
+                {
+                    fullname = Html.Action("SalonName", "Home").ToHtmlString();
+                }
+                else
+                {
+                    fullname = Html.Action("UserFullName", "Home").ToHtmlString();
+                }
+            }
+            @Html.ActionLink(fullname , "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a></li>
     </ul>

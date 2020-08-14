@@ -242,8 +242,9 @@ namespace Proba.Controllers
                 
                 Client.User = UserManager.FindByEmail(user.Email);
                 Client.UserId = Client.User.Id;
-                
-                
+
+                var u = UserManager.FindByEmail(user.Email);
+                await UserManager.AddToRoleAsync(u.Id, RoleName.Client);
                 
 
                 if (result.Succeeded)
@@ -316,11 +317,12 @@ namespace Proba.Controllers
                 
 
                 var result = await UserManager.CreateAsync(user, model.Password);
+               
 
                 ApplicationUser u = UserManager.FindByEmail(user.Email);
                 Salon.User = UserManager.FindByEmail(user.Email);
                 Salon.UserId = Salon.User.Id;
-
+                await UserManager.AddToRoleAsync(u.Id, RoleName.Salon);
                 List<Service> services = new List<Service>();
                 foreach (Models.Type service in model.SelectedServices)
                 {
