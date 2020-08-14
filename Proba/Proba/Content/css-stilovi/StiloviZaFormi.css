@@ -1,0 +1,60 @@
+﻿body {
+}
+/*           STILOVI ZA FORMI          */
+
+.naslov-formi {
+    padding: 7.5%;
+    background-color: #F58566 !important;
+    color: white;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+    border-radius: 6px;
+    font-size: 300% !important;
+}
+
+.div-formi {
+    border-radius: 6px;
+    background: #e8e4d8;
+    padding-left: 7.5% !important;
+}
+
+
+.default .kopce-formi {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+    .default .kopce-formi:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+.default:hover .kopce-formi {
+    padding-right: 25px;
+}
+
+    .default:hover .kopce-formi:after {
+        opacity: 1;
+        right: 0;
+    }
+
+
+
+.nazad-formi {
+    color: black !important;
+    border-radius: 6px;
+    padding: 2px;
+    font-size: medium;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+a {
+    color: black !important;
+}
+

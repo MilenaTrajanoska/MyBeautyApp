@@ -46,6 +46,12 @@ a:hover {
     color: #F58566 !important;
 }
 
+a{
+    color: black !important;
+}
+
+
+/*   k o p c e ?  */
 .default {
     border-color: #e0e0e0 !important;
     background: #e0e0e0;
