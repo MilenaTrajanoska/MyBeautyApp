@@ -330,6 +330,7 @@
     <Content Include="Views\Salons\Edit.cshtml" />
     <Content Include="Views\Salons\Index.cshtml" />
     <Content Include="Views\Home\Saloni.cshtml" />
+    <Content Include="Views\Home\Uslugi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

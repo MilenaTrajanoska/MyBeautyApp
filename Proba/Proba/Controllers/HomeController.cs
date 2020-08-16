@@ -37,6 +37,15 @@ namespace Proba.Controllers
 
             return View();
         }
+
+        public ActionResult Uslugi()
+        {
+            ViewBag.Message = "Uslugi.";
+
+            return View();
+        }
+
+
         public ActionResult UserPhotos()
         {
             if (User.Identity.IsAuthenticated)
