@@ -31,10 +31,34 @@ namespace Proba.Models
         [Required]
         [Display(Name = "Слика")]
         public string ImagePath { get; set; }
+
+        public float Rating { get; set; }
+        public int NumReviews { get; set; }
+
+        public Dictionary<string,int> VotersMap { get; set; }
+        public float getRating()
+        {
+            return Rating / NumReviews;
+        }
+
+        public void addVote(string voter,int n)
+        {
+            if (VotersMap.ContainsKey(voter))
+            {
+                return;
+            }
+            VotersMap.Add(voter,n);
+            Rating += n;
+            ++NumReviews;
+        }
+
         public Salon()
         {
             Services = new List<Service>();
+            VotersMap = new Dictionary<string,int>();
             numChairs = 0;
+            NumReviews = 0;
+            Rating = 0;
         }
     }
    

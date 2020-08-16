@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SalonsController.cs" />
+    <Compile Include="Controllers\SalonsControllerAPI.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,6 +237,10 @@
     <Compile Include="Migrations\202008141459504_added-roles.cs" />
     <Compile Include="Migrations\202008141459504_added-roles.Designer.cs">
       <DependentUpon>202008141459504_added-roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161706325_votes.cs" />
+    <Compile Include="Migrations\202008161706325_votes.Designer.cs">
+      <DependentUpon>202008161706325_votes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -382,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008141459504_added-roles.resx">
       <DependentUpon>202008141459504_added-roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161706325_votes.resx">
+      <DependentUpon>202008161706325_votes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
