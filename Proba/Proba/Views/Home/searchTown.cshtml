@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Proba.Models.Salon>
+
+@{
+    ViewBag.Title = "searchTownTable";
+}
+
+<div id="searchResults">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+</div>

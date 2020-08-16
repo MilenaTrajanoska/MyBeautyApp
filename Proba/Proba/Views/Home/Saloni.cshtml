@@ -14,12 +14,30 @@
                 <h3><b>ПРЕБАРУВАЈТЕ ПО ГРАД</b></h3>
                 <h5>Внесете го градот во празното поле за кој што сакате да пребарате салони.</h5>
 
-                <div id="searchTable"></div>
+                <div>
+                    @using (Ajax.BeginForm("searchTown", "Home",
+                                new AjaxOptions
+                                {
+                                    InsertionMode = InsertionMode.Replace,
+                                    HttpMethod = "GET",
+                                    OnFailure = "searchFailed",
+                                    LoadingElementId = "ajax-loader",
+                                    UpdateTargetId = "searchResults"
+                                }))
+                    {
+                        <input type="text" name="town" />
+                        <input type="submit" value="search" />
+                        <img id="ajax-loader" src="@Url.Content("~/Images/ajax-loader.gif")"
+                             style="display:none" />
+                    }
+
+                </div>
+                <div id="searchResults"></div>
             </div>
             <div class="col-lg-6 h-100 d-inline-block">
 
                 <div class="panel-body" style="align-content:center">
-                   <input type="text" id="input-grad" />
+                    <input type="text" id="input-grad" />
                 </div>
 
                 <div class="panel-footer bg-transparent">
@@ -59,3 +77,45 @@
 
 </div>
 
+@section Scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+}
+
+@*
+
+
+
+
+        public ActionResult searchTown(string town)
+        {
+            var salons = GetSalons(town);
+            return PartialView(salons);
+        }
+        private List<Salon> GetSalons(string town)
+        {
+            return _context.Salons.Where(s => s.City.Contains(town)).ToList();
+        }
+
+
+
+
+
+         @model IEnumerable<Proba.Models.Salon>
+
+    @{
+        ViewBag.Title = "searchTownTable";
+    }
+
+        <div id="searchResults">
+            <ul>
+                @foreach(var item in Model)
+                {
+                    <li>@item.Name</li>
+                }
+            </ul>
+        </div>
+
+
+*@

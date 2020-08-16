@@ -331,6 +331,7 @@
     <Content Include="Views\Salons\Index.cshtml" />
     <Content Include="Views\Home\Saloni.cshtml" />
     <Content Include="Views\Home\Uslugi.cshtml" />
+    <Content Include="Views\Home\searchTown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

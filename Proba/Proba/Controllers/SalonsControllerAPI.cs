@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using Proba.Models;
 
 namespace Proba.Controllers
@@ -21,6 +22,19 @@ namespace Proba.Controllers
         {
             return db.Salons;
         }
+
+/*
+        public ActionResult searchTown(string town)
+        {
+            var salons = GetSalons(town);
+            return PartialView(salons);
+        }
+        
+        private List<Salon> GetSalons(string town)
+        {
+            return db.Salons.Where(s => s.City.Contains(town)).ToList();
+        }
+*/
 
         // GET: api/SalonsControllerAPI/5
         [ResponseType(typeof(Salon))]

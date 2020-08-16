@@ -109,5 +109,19 @@ namespace Proba.Controllers
             }
         }
 
+
+
+
+        public ActionResult searchTown(string town)
+        {
+            var salons = GetSalons(town);
+            return PartialView(salons);
+        }
+        private List<Salon> GetSalons(string town)
+        {
+            return _context.Salons.Where(s => s.City.Contains(town)).ToList();
+        }
+
+
     }
 }
