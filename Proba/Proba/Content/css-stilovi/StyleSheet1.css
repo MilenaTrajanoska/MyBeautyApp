@@ -1,6 +1,4 @@
-﻿body {
-}
-
+﻿
 
 /*     anastasija     */
 
@@ -31,11 +29,11 @@
     padding-left: 10px;
 }
 
-#input-grad{
-    width:430px;
-    border-radius:6px;
-    align-content:center;
-    font-size:medium;
+#input-grad {
+    width: 430px;
+    border-radius: 6px;
+    align-content: center;
+    font-size: medium;
 }
 
 
@@ -46,7 +44,7 @@ a:hover {
     color: #F58566 !important;
 }
 
-a{
+a {
     color: black !important;
 }
 
@@ -58,18 +56,18 @@ a{
     color: #0F1A20 !important;
 }
 
-.default:hover, .default:focus, .default:active, .default:visited {
-    border-color: #F58566 !important;
-    background: #F58566 !important;
-    color: #ffffff !important;
-}
+    .default:hover, .default:focus, .default:active, .default:visited {
+        border-color: #F58566 !important;
+        background: #F58566 !important;
+        color: #ffffff !important;
+    }
 
-.default span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
+    .default span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
 
         .default span:after {
             content: '\00bb';
@@ -104,4 +102,3 @@ a{
 .colum-30p {
     width: 30% !important;
 }
-

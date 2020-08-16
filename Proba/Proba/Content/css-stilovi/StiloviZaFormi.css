@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 /*           STILOVI ZA FORMI          */
 
 .naslov-formi {
@@ -56,6 +55,32 @@
 
 a {
     color: black !important;
-    
 }
 
+
+
+.borderUs:focus {
+        border-color: #F58566 !important;
+        box-shadow: 0 0px 1px #F58566, 0 0 8px #F58566 !important;
+}
+
+/*
+.borderUs option:checked {
+   color:red;
+}
+.borderUs option:active {
+    color: black;
+}
+.borderUs option:visited {
+    color: red;
+}
+.borderUs option:focus {
+    color: red;
+}
+
+
+select option:active {
+    background-color: white !important;
+    color: #F58566 !important;
+}
+*/

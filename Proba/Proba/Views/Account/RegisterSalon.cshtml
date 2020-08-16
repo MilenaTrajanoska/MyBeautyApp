@@ -78,9 +78,11 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Services, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.ListBoxFor(m => m.SelectedServices, new MultiSelectList(Model.Services, "TypeOfService", "Name"), new { @class = "form-control" })
+            @Html.ListBoxFor(m => m.SelectedServices, new MultiSelectList(Model.Services, "TypeOfService", "Name"), new { @class = "form-control borderUs" })
             @Html.ValidationMessageFor(model => model.SelectedServices, "", new { @class = "text-danger" })
         </div>
+        <br /><br /><br /><br /><br />
+
         <div class="form-group">
             @Html.LabelFor(m => m.ImagePath, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
