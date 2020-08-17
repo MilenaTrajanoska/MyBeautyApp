@@ -133,7 +133,7 @@ namespace Proba.Controllers
 
         public ActionResult ServiceK(Type type)
         {
-            ViewBag.Message = "УСЛУГА " + type;
+            ViewBag.Message = "Usluga KOSA";
             var saloni = getSaloniSoUsluga(type);
             return View(saloni);
         }
