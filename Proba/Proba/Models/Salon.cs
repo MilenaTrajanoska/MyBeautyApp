@@ -31,11 +31,14 @@ namespace Proba.Models
         [Required]
         [Display(Name = "Слика")]
         public string ImagePath { get; set; }
-
+        
+        [Display(Name = "Оцена")]
         public float Rating { get; set; }
         public int NumReviews { get; set; }
 
         public Dictionary<string,int> VotersMap { get; set; }
+        
+  
         public float getRating()
         {
             return Rating / NumReviews;

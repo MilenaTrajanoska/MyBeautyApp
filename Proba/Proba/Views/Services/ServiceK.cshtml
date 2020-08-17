@@ -11,7 +11,7 @@
 <table id="table" class="table">
     <thead>
         <tr>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -21,11 +21,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.City)
             </th>
-            
+
             <th>
-                
+
             </th>
+
             <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+
+            <th>
+
             </th>
         </tr>
     </thead>
@@ -48,6 +54,11 @@
                 <td>
                     <img src="~/UserImages/@item.ImagePath" style="max-width:200px" />
                 </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
                 <td>
                     <button class="btn btn-block default">
                         <span>РЕЗЕРВИРАЈ</span>
