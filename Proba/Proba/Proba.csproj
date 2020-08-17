@@ -183,6 +183,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SalonsController.cs" />
     <Compile Include="Controllers\SalonsControllerAPI.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -259,6 +260,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css-stilovi\StiloviZaFormi.css" />
+    <Content Include="Content\css-stilovi\StiloviZaUslugiView.css" />
     <Content Include="Content\css-stilovi\StyleSheet1.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -569,6 +571,11 @@
     <Content Include="Views\Home\Saloni.cshtml" />
     <Content Include="Views\Home\Uslugi.cshtml" />
     <Content Include="Views\Home\searchTown.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

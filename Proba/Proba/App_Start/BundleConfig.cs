@@ -30,7 +30,8 @@ namespace Proba
                       "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/css-stilovi/StyleSheet1.css",
-                      "~/Content/css-stilovi/StiloviZaFormi.css"
+                      "~/Content/css-stilovi/StiloviZaFormi.css",
+                      "~/Content/css-stilovi/StiloviZaUslugiView.css"
                       ));
         }
     }
