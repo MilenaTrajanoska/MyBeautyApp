@@ -116,6 +116,8 @@ namespace Proba.Controllers
         {
             var salons = GetSalons(town);
             return PartialView(salons);
+
+            //return PartialView(_context.Salons.ToList());
         }
         private List<Salon> GetSalons(string town)
         {

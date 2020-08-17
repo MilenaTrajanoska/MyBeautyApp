@@ -65,20 +65,6 @@ a {
 }
 
 
-.borderUs option:checked {
-   color:red;
-}
-.borderUs option:active {
-    color: black;
-}
-.borderUs option:visited {
-    color: red;
-}
-.borderUs option:focus {
-    color: red;
-}
-
-
 select option:active {
     background-color: white !important;
     color: #F58566 !important;

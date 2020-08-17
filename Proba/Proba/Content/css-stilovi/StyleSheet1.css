@@ -49,17 +49,19 @@ a {
 }
 
 
-/*   k o p c e ?  */
+/*   k o p c e   */
 .default {
     border-color: #e0e0e0 !important;
     background: #e0e0e0;
     color: #0F1A20 !important;
+    outline: 0 !important;
 }
 
     .default:hover, .default:focus, .default:active, .default:visited {
         border-color: #F58566 !important;
         background: #F58566 !important;
         color: #ffffff !important;
+        outline: 0 !important; 
     }
 
     .default span {
@@ -101,4 +103,25 @@ a {
 
 .colum-30p {
     width: 30% !important;
+}
+
+
+/* input */
+.input-r {
+    padding: 6px 12px !important;
+    border: 1px solid #e8e4d8 !important;
+    border-radius: 8px !important;
+}
+.input-r:focus {
+    outline: 0 !important;
+    border-color: #F58566 !important;
+    box-shadow: 0 0px 1px #F58566, 0 0 8px #F58566 !important;
+}
+.w-100-mine {
+    width: 100% !important;
+}
+
+.w-32-f-left{
+    width: 32% !important;
+    float: left;
 }
