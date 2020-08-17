@@ -16,14 +16,15 @@
                
                 <div>
                     @using (Ajax.BeginForm("searchTown", "Home",
-                                        new AjaxOptions
-                                        {
-                                            InsertionMode = InsertionMode.Replace,
-                                            HttpMethod = "GET",
-                                            OnFailure = "searchFailed",
-                                            LoadingElementId = "ajax-loader",
-                                            UpdateTargetId = "searchResults"
-                                        }))
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.Replace,
+                                                HttpMethod = "GET",
+                                                OnFailure = "searchFailed",
+                                                LoadingElementId = "ajax-loader",
+                                                UpdateTargetId = "searchResults",
+                                                OnSuccess= "success "
+                                            }))
                     {
                         @*<div class="col-lg-6 h-100 d-inline-block">
 
@@ -117,6 +118,22 @@
         $(document).ajaxComplete(function () {
             myFunction();
         });
+
+
+        function success(partialResult) {
+            $("#searchTable").html(partialResult);
+            alert("Entered success"); // Is displayed
+            initResultsTable();
+            alert("Leaving success"); // NEVER DISPLAYED
+        }
+        function initResultsTable() {
+            alert("Entered initResultsTable"); // Is displayed
+            $('#searchTable').DataTable({
+                "dom": '<"top"<"pull-left"f> <"pull-right"ipl>>t'
+            });
+            alert("Leaving initResultsTable"); // NEVER DISPLAYED
+        }
+
     </script>
 
 }
