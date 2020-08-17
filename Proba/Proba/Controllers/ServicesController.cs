@@ -128,5 +128,13 @@ namespace Proba.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult ServiceK()
+        {
+            ViewBag.Message = "Usluga KOSA";
+
+            return View();
+        }
     }
 }
