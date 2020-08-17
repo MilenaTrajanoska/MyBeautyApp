@@ -52,6 +52,18 @@ namespace Proba.Models
             ++NumReviews;
         }
 
+        public bool ContainsService(Type s)
+        {
+            foreach(Service service in Services)
+            {
+                if (service.TypeOfService == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public Salon()
         {
             Services = new List<Service>();

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Proba.Models;
+using Type = Proba.Models.Type;
 
 namespace Proba.Controllers
 {
@@ -133,8 +134,17 @@ namespace Proba.Controllers
         public ActionResult ServiceK()
         {
             ViewBag.Message = "Usluga KOSA";
+            var saloni = getSaloniSoUsluga(Type.КОСА);
+            return View(saloni);
+        }
 
-            return View();
+
+        public List<Salon> getSaloniSoUsluga(Type usluga)
+        {
+            var saloni = db.Salons.ToList().Where(s => s.ContainsService(usluga)).Select(iv => iv).ToList();
+
+            //var saloni = db.Salons.Where(s => s.ContainsService(usluga)).ToList();
+            return saloni;
         }
     }
 }

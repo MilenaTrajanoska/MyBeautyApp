@@ -16,14 +16,14 @@
                
                 <div>
                     @using (Ajax.BeginForm("searchTown", "Home",
-                                new AjaxOptions
-                                {
-                                    InsertionMode = InsertionMode.Replace,
-                                    HttpMethod = "GET",
-                                    OnFailure = "searchFailed",
-                                    LoadingElementId = "ajax-loader",
-                                    UpdateTargetId = "searchResults"
-                                }))
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loader",
+                                            UpdateTargetId = "searchResults"
+                                        }))
                     {
                         @*<div class="col-lg-6 h-100 d-inline-block">
 
@@ -55,7 +55,17 @@
                     }
 
                 </div>
-                <div id="searchResults"></div>
+                <div id="searchResults">
+
+                    <table id="searchTable" class="table">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>   
+                    </table>
+                </div>
 
             </div>
 
@@ -104,7 +114,9 @@
             console.log("no!");
         }
            
-        
+        $(document).ajaxComplete(function () {
+            myFunction();
+        });
     </script>
 
 }
