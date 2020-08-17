@@ -1,4 +1,5 @@
 ﻿@using Proba.Models
+@using Type = Proba.Models.Type
 
 @{
     ViewBag.Title = "Uslugi";
@@ -11,7 +12,7 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>КОСА</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга коса", "ServiceK", "Services")
+            @Html.ActionLink("Пребарај салони со услуга коса", "ServiceK", "Services",new { type = Type.КОСА },null)
         </div>
 
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
@@ -43,7 +44,7 @@
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

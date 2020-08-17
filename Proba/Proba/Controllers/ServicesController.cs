@@ -131,10 +131,10 @@ namespace Proba.Controllers
         }
 
 
-        public ActionResult ServiceK()
+        public ActionResult ServiceK(Type type)
         {
             ViewBag.Message = "Usluga KOSA";
-            var saloni = getSaloniSoUsluga(Type.КОСА);
+            var saloni = getSaloniSoUsluga(type);
             return View(saloni);
         }
 
