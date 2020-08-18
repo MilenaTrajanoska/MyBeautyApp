@@ -134,10 +134,13 @@ a {
 
     .ul-index li {
         text-align: center !important;
-        border: 1px solid #F58566 !important;
+        background: #F585665E !important;
     }
+        .ul-index li:hover {
+            background: #F58566B5 !important;
+        }
 
-.header-4-mini {
+        .header-4-mini {
     background-color: #F58566 !important;
     color: white !important;
     border-radius: 6px !important;
