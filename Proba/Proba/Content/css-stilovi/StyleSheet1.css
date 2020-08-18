@@ -146,3 +146,7 @@ a {
     border-radius: 6px !important;
     padding: 10% !important;
 }
+
+.margin-y-20p {
+    margin: 0px 20% !important;
+}

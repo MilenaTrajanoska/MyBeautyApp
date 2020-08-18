@@ -25,6 +25,8 @@ namespace Proba.Controllers
         }
 
         // GET: Salons/Details/5
+        // Vidi detali za sekoj salon - passing id?
+
         public ActionResult Details(string id)
         {
             if (id == null)

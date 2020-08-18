@@ -4,64 +4,68 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="naslov-formi">@Model.Name</h2>
 
-<div>
-    <h4>Salon</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
+<div class="form-horizontal div-formi">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div style=" padding: 5% 0;">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Address)
+            </div>
+            <div class="col-md-6">
+                @Html.Label(Model.Address)
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="col-md-6">
+                @Html.Label(Model.City)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Rating)
+            </div>
+            <div class="col-md-6">
+                @Html.Label(Model.Rating.ToString())
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ImagePath)
+            </div>
+            <div class="col-md-6">
+                <img src="~/UserImages/@Model.ImagePath" style="max-width:200px" />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.numChairs)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.numChairs)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Services)
-        </dt>
-
-        @foreach (var service in Model.Services)
-        {
-            <dd>
-                @service.Name
-            </dd>
-        }
-        </dl>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Services)
+            </div>
+            <div class="col-md-6">
+                @foreach (var service in Model.Services)
+                {
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.Label(service.Name)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label(service.Price.ToString())
+                    </div>
+                </div>
+                    }
+                    @* +"ден." *@
+                </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

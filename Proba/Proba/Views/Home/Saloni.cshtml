@@ -82,7 +82,13 @@
                 <h5>Со само еден клик ги добивате најважните информации за секој од петте најдобри салони во земјата.</h5>
             </div>
             <div class="col-lg-6 h-100 d-inline-block">
-                <p>листа топ 5 салони</p>
+                <ul class="list-group ul-index margin-y-20p">
+                    @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+
+                    }
+                </ul>
             </div>
         </div>
     </div>
@@ -95,8 +101,14 @@
                 <h3><b>НОВИ САЛОНИ</b></h3>
                 <h5>Со само еден клик ги добивате најважните информации за најновите салони во земјата.</h5>
             </div>
-            <div class="col-lg-6 h-100 d-inline-block">
-                <p>листа топ 5 салони</p>
+            <div class="col-lg-6 h-100 d-inline-block ">
+                <ul class="list-group ul-index margin-y-20p">
+                    @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+
+                    }
+                </ul>
             </div>
         </div>
     </div>
@@ -120,19 +132,7 @@
         });
 
 
-        function success(partialResult) {
-            $("#searchTable").html(partialResult);
-            alert("Entered success"); // Is displayed
-            initResultsTable();
-            alert("Leaving success"); // NEVER DISPLAYED
-        }
-        function initResultsTable() {
-            alert("Entered initResultsTable"); // Is displayed
-            $('#searchTable').DataTable({
-                "dom": '<"top"<"pull-left"f> <"pull-right"ipl>>t'
-            });
-            alert("Leaving initResultsTable"); // NEVER DISPLAYED
-        }
+    
 
     </script>
 

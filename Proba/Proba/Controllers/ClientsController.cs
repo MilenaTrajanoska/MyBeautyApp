@@ -22,6 +22,7 @@ namespace Proba.Controllers
         }
 
         // GET: Clients/Details/5
+        // Vidi detali za sekoj korisnik- passing id?
         public ActionResult Details(string id)
         {
             if (id == null)

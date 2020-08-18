@@ -69,7 +69,8 @@ namespace Proba.Controllers
         public ActionResult Saloni()
         {
             ViewBag.Message = "Salons.";
-
+            ViewBag.Najdobri5Saloni = getBest5Salons();
+            ViewBag.Najnovi5Saloni = getNewest5Salons();
             return View();
         }
 
