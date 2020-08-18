@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using Proba.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,44 @@ namespace Proba.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext _context = new ApplicationDbContext();
+
+        /*
         public ActionResult Index()
         {
             return View();
         }
+        */
+
+        public ActionResult Index()
+        {
+            ViewBag.Najdobri5Saloni = getBest5Salons();
+            ViewBag.Najnovi5Saloni = getNewest5Salons();
+            ViewBag.Najgolemi5Saloni = getBiggest5Salons();
+
+            return View();
+        }
+        public List<Salon> getBest5Salons()
+        {
+            List<Salon> list = _context.Salons.OrderByDescending(x=>x.Rating).ThenBy(x=>x.Name).ToList();
+            //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
+            return list.GetRange(0, 5);
+        }
+        public List<Salon> getNewest5Salons()
+        {
+            List<Salon> list = _context.Salons.OrderByDescending(x => x.DataNaKreiranje).ThenBy(x => x.Name).ToList();
+            //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
+            return list.GetRange(0, 5);
+        }
+        public List<Salon> getBiggest5Salons()
+        {
+            List<Salon> list = _context.Salons.OrderByDescending(x => x.numChairs).ThenBy(x => x.Name).ToList();
+            //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
+            return list.GetRange(0, 5);
+        }
+
+
+
+
 
         public ActionResult About()
         {

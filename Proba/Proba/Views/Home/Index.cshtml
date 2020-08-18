@@ -1,4 +1,7 @@
-﻿@{
+﻿
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -23,43 +26,72 @@
         </div>
 
         @*part2*@
-        <hr style="border-top: 1px solid #F58566;"> @* brishete linijata ako sakate *@
+        <hr style="border-top: 1px solid #F58566;"> 
 
-        <div class="row margin-y-1p">
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center">header</h4>
-                </div>
-                <div class="panel-body">
-                    <p> what?</p>
-                </div>
-                <div class="panel-footer bg-transparent">
-                    <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
-                </div>
+    <div class="row margin-y-1p">
+        @*1*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini" style="background-color:#F58566;color:white;border-radius:6px">Најдобар рејтинг</h4>
             </div>
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center">header</h4>
-                </div>
-                <div class="panel-body">
-                    <p> what?</p>
-                </div>
-                <div class="panel-footer bg-transparent">
-                    <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
-                </div>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                       @* 
+                           <li>  @Html.ActionLink(salon.Name, "Saloni", new { id = salon.UserId }) </li>
+                       *@
+
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
+
+                    }
+                </ul>
             </div>
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center">header</h4>
-                </div>
-                <div class="panel-body">
-                    <p> what?</p>
-                </div>
+            @*
                 <div class="panel-footer bg-transparent">
-                    <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
-                </div>
+                <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
+            </div>
+            *@
+        </div>
+        @*2*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini">Најнови салони</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        @*
+            <li>  @Html.ActionLink(salon.Name, "Saloni", new { id = salon.UserId }) </li>
+                        *@
+
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
+
+                    }
+                </ul>
             </div>
         </div>
+        @*3*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini">Најголеми салони</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        @*
+            <li>  @Html.ActionLink(salon.Name, "Saloni", new { id = salon.UserId }) </li>
+                        *@
+
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
 
     </div>
 

@@ -34,14 +34,18 @@ namespace Proba.Models
         
         [Display(Name = "Оцена")]
         public float Rating { get; set; }
+        public float RatePoints { get; set; }
+
         public int NumReviews { get; set; }
+
+        public DateTime DataNaKreiranje { get; set; }
 
         public Dictionary<string,int> VotersMap { get; set; }
         
   
         public float getRating()
         {
-            return Rating / NumReviews;
+            return Rating;
         }
 
         public void addVote(string voter,int n)
@@ -51,8 +55,9 @@ namespace Proba.Models
                 return;
             }
             VotersMap.Add(voter,n);
-            Rating += n;
+            RatePoints += n;
             ++NumReviews;
+            Rating = RatePoints / NumReviews;
         }
 
         public bool ContainsService(Type s)
@@ -74,6 +79,7 @@ namespace Proba.Models
             numChairs = 0;
             NumReviews = 0;
             Rating = 0;
+            DataNaKreiranje = DateTime.Now;
         }
     }
    

@@ -251,6 +251,18 @@
     <Compile Include="Migrations\202008171504181_ratingA.Designer.cs">
       <DependentUpon>202008171504181_ratingA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008181929342_rate.cs" />
+    <Compile Include="Migrations\202008181929342_rate.Designer.cs">
+      <DependentUpon>202008181929342_rate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008181935272_rate2.cs" />
+    <Compile Include="Migrations\202008181935272_rate2.Designer.cs">
+      <DependentUpon>202008181935272_rate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008182000443_date.cs" />
+    <Compile Include="Migrations\202008182000443_date.Designer.cs">
+      <DependentUpon>202008182000443_date.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -650,6 +662,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008171504181_ratingA.resx">
       <DependentUpon>202008171504181_ratingA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008181929342_rate.resx">
+      <DependentUpon>202008181929342_rate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008181935272_rate2.resx">
+      <DependentUpon>202008181935272_rate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008182000443_date.resx">
+      <DependentUpon>202008182000443_date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
