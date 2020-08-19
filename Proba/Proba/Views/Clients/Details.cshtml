@@ -4,10 +4,29 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*
+    detali klient
+*@
+
 
 <div>
-    <h4>Client</h4>
+    <img class="slika-profil"src="~/UserImages/@Model.ImagePath" />
+
+    <h1 class="header-profil">
+
+        <b class="naslov-profil">
+            @Html.DisplayFor(model => model.ClientName)
+            @Html.DisplayFor(model => model.ClientSurname)
+        </b>
+
+    </h1>
+
+    <br />
+    <br />
+</div>
+
+
+<div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,22 +35,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.User.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ClientName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientSurname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ClientSurname)
         </dd>
 
         <dt>
@@ -60,7 +63,15 @@
 
     </dl>
 </div>
+
+<hr />
+
+<h5>
+    <i>
+        @Html.ActionLink("Направи промена во профилот", "Edit", new { id = Model.UserId })
+    </i>
+</h5>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -70,3 +70,22 @@ select option:active {
     color: #F58566 !important;
 }
 
+/*              STILOVI ZA PROFILI                        */
+
+
+header-profil {
+    font-size: 300% !important;
+    text-align:left;
+    padding: 5px;
+}
+
+.naslov-profil {
+    margin-top: 5%;
+    margin-left: 3%;
+    display: inline-block;
+}
+
+.slika-profil {
+    max-width: 150px;
+    float: left;
+}
