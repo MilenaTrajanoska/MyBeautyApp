@@ -8,14 +8,14 @@
     detali klient
 *@
 
-
 <div>
-    <img class="slika-profil"src="~/UserImages/@Model.ImagePath" />
+    <img class="slika-profil" src="~/UserImages/@Model.ImagePath" />
 
     <h1 class="header-profil">
 
         <b class="naslov-profil">
             @Html.DisplayFor(model => model.ClientName)
+            <br />
             @Html.DisplayFor(model => model.ClientSurname)
         </b>
 
@@ -27,8 +27,7 @@
 
 
 <div>
-    <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal info-profil">
         <dt>
             @Html.DisplayNameFor(model => model.User.Email)
         </dt>
@@ -64,7 +63,7 @@
     </dl>
 </div>
 
-<hr />
+
 
 <h5>
     <i>
@@ -72,6 +71,12 @@
     </i>
 </h5>
 
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@*
+    <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+*@
+
+
+
+

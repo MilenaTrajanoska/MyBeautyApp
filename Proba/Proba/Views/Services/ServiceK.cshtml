@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Proba.Models.Salon>
+@using System.Configuration;
 
 @{
     ViewBag.Title = ViewBag.Message;
@@ -40,7 +41,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -50,7 +51,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
                 </td>
-                
+
                 <td>
                     <img src="~/UserImages/@item.ImagePath" style="max-width:200px" />
                 </td>
@@ -64,10 +65,11 @@
                         <span>РЕЗЕРВИРАЈ</span>
                     </button>
                     <p class="btn btn-block default">
-                        @Html.ActionLink("Детали", "Details", new { id = item.UserId }) 
+                        @Html.ActionLink("Детали", "Details", new { id = item.UserId })
+
                     </p>
-                   
-                    
+
+
                 </td>
             </tr>
         }
