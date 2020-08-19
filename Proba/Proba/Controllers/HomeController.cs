@@ -160,6 +160,23 @@ namespace Proba.Controllers
             return _context.Salons.Where(s => s.City.Contains(town)).ToList();
         }
 
+        public ActionResult Profil()
+        {
 
+            if (User.IsInRole("Client"))
+            {
+                return RedirectToAction("Details", "Clients", new { id = User.Identity.GetUserId() });
+            }
+            else if (User.IsInRole("Salon"))
+            {
+                return RedirectToAction("Details", "Salons", new { id = User.Identity.GetUserId() });
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
+
+        }
     }
 }
