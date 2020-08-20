@@ -74,26 +74,30 @@ DETAILS SALON
                 @foreach (var service in Model.Services)
                 {
 
-                    <div class="form-group">
-                        <div class="col-md-3">
-                            @Html.Label(service.Name)
-                        </div>
-
-                        <div class="col-md-2">
-                            @Html.Label(service.Price.ToString()) ден.
-                            
-                            @if (User.IsInRole("Client")){
-                                <button class="btn btn-block default">
-                                    <span>РЕЗЕРВИРАЈ</span>
-                                </button>
-                            }
-                        </div>
-
-                        
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.Label(service.Name)
                     </div>
+
+                    <div class="col-md-2">
+                        @Html.Label(service.Price.ToString()) ден.
+                    </div>
+
+                    @if (User.IsInRole("Client"))
+                    {
+                        <button class="btn btn-block default">
+                            <span>РЕЗЕРВИРАЈ</span>
+                        </button>
+                    }
+
+                </div>
                 }
             </div>
         </div>
+
+
+
+
 
         @if(User.IsInRole("Salon") && User.Identity.Equals(Model.UserId)){
         <h5>

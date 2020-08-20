@@ -86,7 +86,7 @@ header-profil {
 }
 
 .slika-profil {
-    max-width: 350px;
+    max-width: 250px;
     float: left;
     border-radius: 6px;
     box-shadow: 0 8px 6px -6px gray;
