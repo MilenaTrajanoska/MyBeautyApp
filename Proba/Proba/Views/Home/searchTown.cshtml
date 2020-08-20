@@ -7,6 +7,7 @@
 
 @*  <div id="searchResults">    *@
 
+<br /><br />
 <table id="searchTable" class="table">
     <thead>
         <tr>
@@ -58,15 +59,11 @@
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
 
-                <td>
-                    <button class="btn btn-block default">
-                        <span>РЕЗЕРВИРАЈ</span>
+                <td >
+                    <button class="btn btn-block default" style="margin:10% 0;"
+                            onclick="location.href=' @Url.Action("Details","Salons", new { id = item.UserId })'">
+                        <span>Види повеќе</span>
                     </button>
-                    <p class="btn btn-block default">
-                        @Html.ActionLink("Види повеќе", "Details", new { id = item.UserId })
-                    </p>
-
-
                 </td>
             </tr>
         }

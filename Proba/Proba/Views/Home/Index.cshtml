@@ -20,41 +20,41 @@
                     their attention was suddenly drawn to the window, by the sound of a carriage; and they perceived a chaise and four driving up the lawn.
                 </p>
                 <br />
-                    <h3><b>ПРЕБАРУВАЈТЕ ПО ГРАД</b></h3>
-                    <h4>Внесете го градот во празното поле за кој што сакате да пребарате салони.</h4>
+                <h3><b>ПРЕБАРУВАЈТЕ ПО ГРАД</b></h3>
+                <h4>Внесете го градот во празното поле за кој што сакате да пребарате салони.</h4>
 
-                    <div>
-                        @using (Ajax.BeginForm("searchTown", "Home",
-                                                new AjaxOptions
-                                                {
-                                                    InsertionMode = InsertionMode.Replace,
-                                                    HttpMethod = "GET",
-                                                    OnFailure = "searchFailed",
-                                                    LoadingElementId = "ajax-loader",
-                                                    UpdateTargetId = "searchResults",
-                                                    OnSuccess = "success "
-                                                }))
-                        {
-                            <div class="row margin-y-1p">
-                                <div class="col-lg-1 h-100 w-49-f-left">
-                                    <input type="text" name="town" id="town" class="input-r w-100-mine" />
-                                </div>
-                                <div class="col-lg-1 h-100 w-49-f-left">
-                                    <input type="submit" class="btn btn-block default w-100-mine"
-                                           value="search" />
-                                </div>
+                <div>
+                    @using (Ajax.BeginForm("searchTown", "Home",
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.Replace,
+                                                HttpMethod = "GET",
+                                                OnFailure = "searchFailed",
+                                                LoadingElementId = "ajax-loader",
+                                                UpdateTargetId = "searchResults",
+                                                OnSuccess = "success "
+                                            }))
+                    {
+                        <div class="row margin-y-1p">
+                            <div class="col-lg-1 h-100 w-49-f-left">
+                                <input type="text" name="town" id="town" class="input-r w-100-mine" />
                             </div>
-                            <div style="display:none">
-                                <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
-                                     style=" max-width: 50%; margin: 0 25%;" />
+                            <div class="col-lg-1 h-100 w-49-f-left">
+                                <input type="submit" class="btn btn-block default w-100-mine"
+                                       value="search" />
                             </div>
-                        }
-                    
+                        </div>
+                        <div style="display:none">
+                            <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                                 style=" max-width: 50%; margin: 0 25%;" />
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>
-        @* table *@
 
+        @* table *@
 
         <div id="searchResults">
 
