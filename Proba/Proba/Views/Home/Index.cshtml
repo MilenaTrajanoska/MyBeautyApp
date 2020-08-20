@@ -14,76 +14,111 @@
                      src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Photo-1439894671367-1904e126d8f1.jpg"
                      alt="SLIKATA JA NAJDOV NA NEEET" />
             </div>
-            <div class="col-lg-6 h-100 d-inline-block">
-                <p>
+            <div class="col-lg-6 h-100 d-inline-block" style="padding: 2%;">
+                <p style="font-size:1em">
                     One morning, about a week after Bingley’s engagement with Jane had been formed, as he and the females of the family were sitting together in the dining-room,
                     their attention was suddenly drawn to the window, by the sound of a carriage; and they perceived a chaise and four driving up the lawn.
-                    It was too early in the morning for visitors, and besides, the equipage did not answer to that of any of their neighbours.
-                    The horses were post; and neither the carriage, nor the livery of the servant who preceded it, were familiar to them.
-
                 </p>
+                <br />
+                    <h3><b>ПРЕБАРУВАЈТЕ ПО ГРАД</b></h3>
+                    <h4>Внесете го градот во празното поле за кој што сакате да пребарате салони.</h4>
+
+                    <div>
+                        @using (Ajax.BeginForm("searchTown", "Home",
+                                                new AjaxOptions
+                                                {
+                                                    InsertionMode = InsertionMode.Replace,
+                                                    HttpMethod = "GET",
+                                                    OnFailure = "searchFailed",
+                                                    LoadingElementId = "ajax-loader",
+                                                    UpdateTargetId = "searchResults",
+                                                    OnSuccess = "success "
+                                                }))
+                        {
+                            <div class="row margin-y-1p">
+                                <div class="col-lg-1 h-100 w-49-f-left">
+                                    <input type="text" name="town" id="town" class="input-r w-100-mine" />
+                                </div>
+                                <div class="col-lg-1 h-100 w-49-f-left">
+                                    <input type="submit" class="btn btn-block default w-100-mine"
+                                           value="search" />
+                                </div>
+                            </div>
+                            <div style="display:none">
+                                <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                                     style=" max-width: 50%; margin: 0 25%;" />
+                            </div>
+                        }
+                    
+                </div>
             </div>
         </div>
-
-        @*part2*@
-        <hr style="border-top: 1px solid #F58566;"> 
-
-    <div class="row margin-y-1p">
-        @*1*@
-        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-            <div class="panel-heading">
-                <h4 class="text-center header-4-mini" style="background-color:#F58566;color:white;border-radius:6px">Најдобар рејтинг</h4>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group ul-index">
-                    @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
-                    {
-                        @*
-            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
-                        *@
-                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+        @* table *@
 
 
-                    }
-                </ul>
-            </div>
-            @*
-                <div class="panel-footer bg-transparent">
-                <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
-            </div>
-            *@
+        <div id="searchResults">
+
         </div>
-        @*2*@
-        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-            <div class="panel-heading">
-                <h4 class="text-center header-4-mini">Најнови салони</h4>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group ul-index">
-                    @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
-                    {
-                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
 
-                    }
-                </ul>
+        @* part 3*@
+        <hr style="border-top: 1px solid #F58566;">
+
+        <div class="row margin-y-1p">
+            @*1*@
+            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+                <div class="panel-heading">
+                    <h4 class="text-center header-4-mini" style="background-color:#F58566;color:white;border-radius:6px">Најдобар рејтинг</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group ul-index">
+                        @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
+                        {
+                            @*
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
+                            *@
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+
+
+                        }
+                    </ul>
+                </div>
+                @*
+                    <div class="panel-footer bg-transparent">
+                    <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
+                </div>
+                *@
+            </div>
+            @*2*@
+            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+                <div class="panel-heading">
+                    <h4 class="text-center header-4-mini">Најнови салони</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group ul-index">
+                        @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
+                        {
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+            @*3*@
+            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+                <div class="panel-heading">
+                    <h4 class="text-center header-4-mini">Најголеми салони</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group ul-index">
+                        @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
+                        {
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
-        @*3*@
-        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-            <div class="panel-heading">
-                <h4 class="text-center header-4-mini">Најголеми салони</h4>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group ul-index">
-                    @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
-                    {
-                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
-
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
 
     </div>
 
@@ -96,3 +131,10 @@
     </div>
 
 </div>
+
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    
+}

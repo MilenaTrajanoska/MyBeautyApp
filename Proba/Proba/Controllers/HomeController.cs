@@ -66,13 +66,15 @@ namespace Proba.Controllers
             return View();
         }
 
-        public ActionResult Saloni()
+        /*
+         * public ActionResult Saloni()
         {
             ViewBag.Message = "Salons.";
             ViewBag.Najdobri5Saloni = getBest5Salons();
             ViewBag.Najnovi5Saloni = getNewest5Salons();
             return View();
         }
+        */
 
         public ActionResult Uslugi()
         {
