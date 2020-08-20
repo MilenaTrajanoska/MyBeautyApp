@@ -26,9 +26,9 @@
 </div>
 
 
-<div>
-    <dl class="dl-horizontal info-profil">
-        <dt>
+<div style=" padding: 5% 0;">
+    <dl class="dl-horizontal info-profil" style="text-align:left">
+        <dt style="text-align:left">
             @Html.DisplayNameFor(model => model.User.Email)
         </dt>
 
@@ -36,7 +36,7 @@
             @Html.DisplayFor(model => model.User.Email)
         </dd>
 
-        <dt>
+        <dt style="text-align:left">
             @Html.DisplayNameFor(model => model.Gender)
         </dt>
 
@@ -44,7 +44,7 @@
             @Html.DisplayFor(model => model.Gender)
         </dd>
 
-        <dt>
+        <dt style="text-align:left">
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
 
@@ -52,7 +52,7 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
-        <dt>
+        <dt style="text-align:left">
             @Html.DisplayNameFor(model => model.City)
         </dt>
 
@@ -61,15 +61,20 @@
         </dd>
 
     </dl>
+
+    <h5>
+        <i>
+            @Html.ActionLink("Ажурирај профил", "Edit", new { id = Model.UserId })
+        </i>
+    </h5>
+
+
+
 </div>
 
 
 
-<h5>
-    <i>
-        @Html.ActionLink("Направи промена во профилот", "Edit", new { id = Model.UserId })
-    </i>
-</h5>
+
 
 @*
     <p>

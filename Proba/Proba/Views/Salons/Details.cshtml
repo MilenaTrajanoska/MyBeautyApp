@@ -8,10 +8,23 @@
 DETAILS SALON    
 *@
 
-<h2 class="naslov-formi">@Model.Name</h2>
+<div>
+    <img class="slika-profil" src="~/UserImages/@Model.ImagePath" style="max-width:300px !important"/>
 
+    <h1 class="header-profil">
 
-<div class="form-horizontal div-formi">
+        <b class="naslov-profil">
+            @Html.DisplayFor(model => model.Name)
+          
+        </b>
+
+    </h1>
+
+    <br />
+    <br />
+</div>
+
+<div class="form-horizontal info-profil">
 
     <div style=" padding: 5% 0;">
 
@@ -42,14 +55,16 @@ DETAILS SALON
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="col-md-2">
-                @Html.LabelFor(model => model.ImagePath)
+                @Html.LabelFor(model => model.numChairs)
             </div>
             <div class="col-md-6">
-                <img src="~/UserImages/@Model.ImagePath" style="max-width:200px" />
+                @Html.Label(Model.numChairs.ToString())
             </div>
         </div>
+
 
         <div class="form-group">
             <div class="col-md-2">
@@ -58,18 +73,37 @@ DETAILS SALON
             <div class="col-md-6">
                 @foreach (var service in Model.Services)
                 {
-                <div class="form-group">
-                    <div class="col-md-3">
-                        @Html.Label(service.Name)
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.Label(service.Name)
+                        </div>
+
+                        <div class="col-md-2">
+                            @Html.Label(service.Price.ToString()) ден.
+                            
+                            @if (User.IsInRole("Client")){
+                                <button class="btn btn-block default">
+                                    <span>РЕЗЕРВИРАЈ</span>
+                                </button>
+                            }
+                        </div>
+
+                        
                     </div>
-                    <div class="col-md-2">
-                        @Html.Label(service.Price.ToString())
-                    </div>
-                </div>
-                    }
-                    @* +"ден." *@
-                </div>
+                }
+            </div>
         </div>
+
+        @if(User.IsInRole("Salon") && User.Identity.Equals(Model.UserId)){
+        <h5>
+            <i>
+                @Html.ActionLink("Ажурирај профил", "Edit", new { id = Model.UserId })
+            </i>
+        </h5>
+        }
+
+
     </div>
 </div>
 
