@@ -639,6 +639,26 @@
     <Compile Include="Migrations\202008221739099_addservice.Designer.cs">
       <DependentUpon>202008221739099_addservice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008221822198_virtual.cs" />
+    <Compile Include="Migrations\202008221822198_virtual.Designer.cs">
+      <DependentUpon>202008221822198_virtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221839190_changed_model.cs" />
+    <Compile Include="Migrations\202008221839190_changed_model.Designer.cs">
+      <DependentUpon>202008221839190_changed_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221845154_str.cs" />
+    <Compile Include="Migrations\202008221845154_str.Designer.cs">
+      <DependentUpon>202008221845154_str.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221846113_public.cs" />
+    <Compile Include="Migrations\202008221846113_public.Designer.cs">
+      <DependentUpon>202008221846113_public.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221855144_removed-imagepaths.cs" />
+    <Compile Include="Migrations\202008221855144_removed-imagepaths.Designer.cs">
+      <DependentUpon>202008221855144_removed-imagepaths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -1082,6 +1102,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008221739099_addservice.resx">
       <DependentUpon>202008221739099_addservice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221822198_virtual.resx">
+      <DependentUpon>202008221822198_virtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221839190_changed_model.resx">
+      <DependentUpon>202008221839190_changed_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221845154_str.resx">
+      <DependentUpon>202008221845154_str.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221846113_public.resx">
+      <DependentUpon>202008221846113_public.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221855144_removed-imagepaths.resx">
+      <DependentUpon>202008221855144_removed-imagepaths.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

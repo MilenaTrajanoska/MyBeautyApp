@@ -80,32 +80,31 @@
                 @foreach (var service in Model.Services)
                 {
 
-                    <div class="form-group">
-                        <div class="col-md-3">
-                            @Html.Label(service.Name)
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.Label(service.Name)
+                    </div>
 
-                        <div class="col-md-2">
-                            @Html.Label(service.Price.ToString()) ден.
-                        </div>
+                    <div class="col-md-2">
+                        @Html.Label(service.Price.ToString()) ден.
+                    </div>
 
-                        @foreach(var img in service.ImagePaths) {
-
-                        <div class="col-md-2">
-                            <ul>
-                                <li>@img</li>
-                            </ul>
-                        </div>
-
-                    }
-                        @if (User.IsInRole("Client"))
+                    @foreach (var img in service.StringsAsStrings.Split(','))
+                    {
+                        if (img != "")
                         {
-                            <button class="btn btn-block default">
-                                <span>РЕЗЕРВИРАЈ</span>
-                            </button>
+                            <img src="~/UploadedFiles/@img" style="max-width:200px" />
                         }
 
-                    </div>
+                    }
+                    @if (User.IsInRole("Client"))
+                    {
+                        <button class="btn btn-block default">
+                            <span>РЕЗЕРВИРАЈ</span>
+                        </button>
+                    }
+
+                </div>
                 }
             </div>
         </div>

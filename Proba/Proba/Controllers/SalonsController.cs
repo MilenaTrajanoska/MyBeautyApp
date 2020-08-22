@@ -129,7 +129,7 @@ namespace Proba.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                var inputFiles = new List<string>();
                 foreach (HttpPostedFileBase file in model.Service.files)
                 {
                     //Checking file is available to save.  
@@ -144,7 +144,8 @@ namespace Proba.Controllers
                             NE SE ZACHUVUVAAT PATEKITE VO BAZA!!!
                          
                          */
-                        model.Service.ImagePaths.Add(InputFileName);
+
+                        inputFiles.Add(InputFileName);
                        // ViewBag.UploadStatus = model.Service.files.Count().ToString() + " files uploaded successfully.";
                     }
 
@@ -154,7 +155,13 @@ namespace Proba.Controllers
                 salon_db.Services.Add(model.Service);
                 db.Services.Add(model.Service);
                 var service = db.Services.Find(model.Service.Id);
-                service.ImagePaths = model.Service.ImagePaths;
+                foreach(var path in inputFiles)
+                {
+                   
+                    service.StringsAsStrings = service.StringsAsStrings + path + ",";
+
+                }
+                
                 db.SaveChanges();
 
                 return RedirectToAction("AddServices");

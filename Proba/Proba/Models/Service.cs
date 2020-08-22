@@ -37,12 +37,17 @@ namespace Proba.Models
         [Display(Name ="Галерија")]
         [NotMapped]
         public List<HttpPostedFileBase> files { get; set; }
-        public List<string> ImagePaths { get; set; }
+
+        
+        
+        public String StringsAsStrings { get; set; }
+
+       
 
         public Service()
         {
             files = new List<HttpPostedFileBase>();
-            ImagePaths = new List<string>();
+            
         }
 
 
