@@ -76,7 +76,7 @@
                             @*
                             <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
                             *@
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
 
                         }
@@ -97,7 +97,7 @@
                     <ul class="list-group ul-index">
                         @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
                         {
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
                         }
                     </ul>
@@ -112,7 +112,7 @@
                     <ul class="list-group ul-index">
                         @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
                         {
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Clients", new { id = salon.UserId }) </li>
+                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
                         }
                     </ul>
