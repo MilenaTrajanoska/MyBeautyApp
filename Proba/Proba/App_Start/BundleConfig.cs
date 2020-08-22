@@ -11,7 +11,8 @@ namespace Proba
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/DataTables/jquery.dataTables.js",
-                        "~/Scripts/DataTables/dataTables.bootstrap.js"
+                        "~/Scripts/DataTables/dataTables.bootstrap.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

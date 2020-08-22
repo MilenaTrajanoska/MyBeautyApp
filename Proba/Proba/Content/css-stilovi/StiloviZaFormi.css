@@ -89,8 +89,28 @@ header-profil {
     max-width: 250px;
     float: left;
     border-radius: 6px;
-    box-shadow: 0 8px 6px -6px gray;
+/*    box-shadow: 0 8px 6px -6px gray; */
 }
+#SlideshowImages {
+    margin: 50px auto;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+#SlideshowImages > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+#SlideshowImages > div img {
+    border-radius: 6px;
+}
+
+
 
 .info-profil {
     border-radius: 6px;
