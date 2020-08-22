@@ -5,17 +5,23 @@
 }
 
 @*
-DETAILS SALON    
+    DETAILS SALON
 *@
 
 <div>
-    <img class="slika-profil" src="~/UserImages/@Model.ImagePath" style="max-width:300px !important"/>
+    @*<img class="slika-profil" src="~/UserImages/@Model.ImagePath" style="max-width:300px !important" />*@
+
+    <div id="SlideshowImages" class="slika-profil">
+        <div> <img src="~/UserImages/default_female.jpg" height="200" width="200" > </div>
+        <div> <img src="/UserImages/default_male.jpg" height="200" width="200" > </div>
+        <div> <img src="/UserImages/default_salon.jpg" height="200" width="200" > </div>
+    </div>
 
     <h1 class="header-profil">
 
         <b class="naslov-profil">
             @Html.DisplayFor(model => model.Name)
-          
+
         </b>
 
     </h1>
@@ -74,23 +80,23 @@ DETAILS SALON
                 @foreach (var service in Model.Services)
                 {
 
-                <div class="form-group">
-                    <div class="col-md-3">
-                        @Html.Label(service.Name)
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.Label(service.Name)
+                        </div>
+
+                        <div class="col-md-2">
+                            @Html.Label(service.Price.ToString()) ден.
+                        </div>
+
+                        @if (User.IsInRole("Client"))
+                        {
+                            <button class="btn btn-block default">
+                                <span>РЕЗЕРВИРАЈ</span>
+                            </button>
+                        }
+
                     </div>
-
-                    <div class="col-md-2">
-                        @Html.Label(service.Price.ToString()) ден.
-                    </div>
-
-                    @if (User.IsInRole("Client"))
-                    {
-                        <button class="btn btn-block default">
-                            <span>РЕЗЕРВИРАЈ</span>
-                        </button>
-                    }
-
-                </div>
                 }
             </div>
         </div>
@@ -99,15 +105,53 @@ DETAILS SALON
 
 
 
-        @if(User.IsInRole("Salon") && User.Identity.Equals(Model.UserId)){
-        <h5>
-            <i>
-                @Html.ActionLink("Ажурирај профил", "Edit", new { id = Model.UserId })
-            </i>
-        </h5>
+        @if (User.IsInRole("Salon") && User.Identity.Equals(Model.UserId))
+        {
+            <h5>
+                <i>
+                    @Html.ActionLink("Ажурирај профил", "Edit", new { id = Model.UserId })
+                </i>
+            </h5>
         }
 
 
     </div>
 </div>
+
+
+
+@*<style type="text/css" style="display: none !important;">
+    #SlideshowImages {
+        margin: 50px auto;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+        #SlideshowImages > div {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+        #SlideshowImages > div img{
+            border-radius: 6px;
+        }
+</style>*@
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+           // $("#SlideshowImages > div:gt(0)").hide();
+            setInterval(function () {
+                $('#SlideshowImages > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages');
+            }, 3000);
+        });
+    </script>
+}
+
 
