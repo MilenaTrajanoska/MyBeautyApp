@@ -40,14 +40,13 @@ namespace Proba.Models
 
         
         
-        public String StringsAsStrings { get; set; }
+        public string StringsAsStrings { get; set; }
 
        
 
         public Service()
         {
             files = new List<HttpPostedFileBase>();
-            StringsAsStrings = "";
             
         }
 

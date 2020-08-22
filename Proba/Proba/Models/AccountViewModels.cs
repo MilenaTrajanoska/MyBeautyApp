@@ -97,6 +97,8 @@ namespace Proba.Models
         public Gender Gender { get; set; }
         [Required(ErrorMessage = "Задолжително внесете датум на раѓање")]
         [Display(Name = "Датум на раѓање")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
         [Required(ErrorMessage = "Задолжително внесете град")]
         [Display(Name = "Град")]

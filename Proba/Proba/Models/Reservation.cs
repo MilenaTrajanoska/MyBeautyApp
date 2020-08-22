@@ -16,6 +16,7 @@ namespace Proba.Models
         public Service Service { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public DateTime Date { get; set; }
         public string Notes { get; set; }
 
 

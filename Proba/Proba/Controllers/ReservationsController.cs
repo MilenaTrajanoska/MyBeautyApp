@@ -135,6 +135,17 @@ namespace Proba.Controllers
             reservationDetail.EndTime = endDate;
             db.SaveChanges();
         }
+        
+        public ActionResult MakeReservation(int id,DetailsReservationViewModel model)
+        {
+            model.Salon = db.Salons.Find(model.SalonId);
+            model.Service = db.Services.Find(id);
+            model.ServiceId = id;
+            
+
+            return View(model);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

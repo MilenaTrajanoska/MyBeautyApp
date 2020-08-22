@@ -63,13 +63,17 @@ namespace Proba.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).First();
-            
-            
+
+            var model = new DetailsReservationViewModel()
+            {
+                Salon = salon,
+                SalonId = salon.UserId,
+            };
             if (salon == null)
             {
                 return HttpNotFound();
             }
-            return View(salon);
+            return View(model);
         }
 
         // GET: Salons/Create

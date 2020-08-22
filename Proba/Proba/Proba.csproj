@@ -627,10 +627,6 @@
     <Compile Include="Migrations\202008221548141_annotations-change.Designer.cs">
       <DependentUpon>202008221548141_annotations-change.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008221631172_nekojaMigracija.cs" />
-    <Compile Include="Migrations\202008221631172_nekojaMigracija.Designer.cs">
-      <DependentUpon>202008221631172_nekojaMigracija.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202008221651429_multiple-images.cs" />
     <Compile Include="Migrations\202008221651429_multiple-images.Designer.cs">
       <DependentUpon>202008221651429_multiple-images.cs</DependentUpon>
@@ -663,10 +659,47 @@
     <Compile Include="Migrations\202008222136577_changedInitialType.Designer.cs">
       <DependentUpon>202008222136577_changedInitialType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008222202239_changed.cs" />
+    <Compile Include="Migrations\202008222202239_changed.Designer.cs">
+      <DependentUpon>202008222202239_changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222208035_typechange.cs" />
+    <Compile Include="Migrations\202008222208035_typechange.Designer.cs">
+      <DependentUpon>202008222208035_typechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222220395_addedViewModel.cs" />
+    <Compile Include="Migrations\202008222220395_addedViewModel.Designer.cs">
+      <DependentUpon>202008222220395_addedViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222250078_changed-model-add.cs" />
+    <Compile Include="Migrations\202008222250078_changed-model-add.Designer.cs">
+      <DependentUpon>202008222250078_changed-model-add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222252181_deletedprops.cs" />
+    <Compile Include="Migrations\202008222252181_deletedprops.Designer.cs">
+      <DependentUpon>202008222252181_deletedprops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222300522_nekoja-mi.cs" />
+    <Compile Include="Migrations\202008222300522_nekoja-mi.Designer.cs">
+      <DependentUpon>202008222300522_nekoja-mi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222310353_kul.cs" />
+    <Compile Include="Migrations\202008222310353_kul.Designer.cs">
+      <DependentUpon>202008222310353_kul.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222315037_aman-vekje.cs" />
+    <Compile Include="Migrations\202008222315037_aman-vekje.Designer.cs">
+      <DependentUpon>202008222315037_aman-vekje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008222317392_promena-registracija.cs" />
+    <Compile Include="Migrations\202008222317392_promena-registracija.Designer.cs">
+      <DependentUpon>202008222317392_promena-registracija.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\DetailsReservationViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Reservation.cs" />
@@ -1007,6 +1040,7 @@
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Salons\AddServices.cshtml" />
+    <Content Include="Views\Reservations\MakeReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1098,9 +1132,6 @@
     <EmbeddedResource Include="Migrations\202008221548141_annotations-change.resx">
       <DependentUpon>202008221548141_annotations-change.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008221631172_nekojaMigracija.resx">
-      <DependentUpon>202008221631172_nekojaMigracija.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008221651429_multiple-images.resx">
       <DependentUpon>202008221651429_multiple-images.cs</DependentUpon>
     </EmbeddedResource>
@@ -1124,6 +1155,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008222136577_changedInitialType.resx">
       <DependentUpon>202008222136577_changedInitialType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222202239_changed.resx">
+      <DependentUpon>202008222202239_changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222208035_typechange.resx">
+      <DependentUpon>202008222208035_typechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222220395_addedViewModel.resx">
+      <DependentUpon>202008222220395_addedViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222250078_changed-model-add.resx">
+      <DependentUpon>202008222250078_changed-model-add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222252181_deletedprops.resx">
+      <DependentUpon>202008222252181_deletedprops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222300522_nekoja-mi.resx">
+      <DependentUpon>202008222300522_nekoja-mi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222310353_kul.resx">
+      <DependentUpon>202008222310353_kul.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222315037_aman-vekje.resx">
+      <DependentUpon>202008222315037_aman-vekje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008222317392_promena-registracija.resx">
+      <DependentUpon>202008222317392_promena-registracija.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

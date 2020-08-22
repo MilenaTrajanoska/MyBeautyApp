@@ -1,0 +1,38 @@
+﻿@model Proba.Models.DetailsReservationViewModel
+@{
+    ViewBag.Title = "MakeReservation";
+}
+
+<h3>Резервации за салон @Model.Salon.Name</h3>
+<span>Услуга: @Model.Service.Name</span>
+<span>Цена на услуга: @Model.Service.Price</span>
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.ServiceId)
+    @Html.HiddenFor(m => m.SalonId)
+    <div class="form-group">
+        @Html.DisplayNameFor(m => m.Date)<br />
+        @Html.EditorFor(m => m.Date, new { @class = "form-control", id = "datepick" })
+    </div>
+
+    <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
+}
+
+@section Scripts {
+    @Scripts.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#datepick").datepicker({
+
+                dateFormat: "mm-dd-yy"
+
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+}
