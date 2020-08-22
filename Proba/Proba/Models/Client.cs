@@ -48,11 +48,11 @@ namespace Proba.Models
         [Display(Name = "Слика")]
         [AllowHtml]
         public string ImagePath { get; set; }
-        
 
+        public Dictionary<DateTime, List<Reservation>> Reservations { get; set; }
         public Client()
            {
-
+            Reservations = new Dictionary<DateTime, List<Reservation>>();
            }
     }
 }

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SalonsController.cs" />
     <Compile Include="Controllers\SalonsControllerAPI.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -263,11 +264,20 @@
     <Compile Include="Migrations\202008182000443_date.Designer.cs">
       <DependentUpon>202008182000443_date.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008221217125_reservations.cs" />
+    <Compile Include="Migrations\202008221217125_reservations.Designer.cs">
+      <DependentUpon>202008221217125_reservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221319440_changedReservations.cs" />
+    <Compile Include="Migrations\202008221319440_changedReservations.Designer.cs">
+      <DependentUpon>202008221319440_changedReservations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Salon.cs" />
     <Compile Include="Models\Service.cs" />
@@ -449,6 +459,7 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -597,6 +608,11 @@
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Services\ServiceK.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -671,6 +687,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008182000443_date.resx">
       <DependentUpon>202008182000443_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221217125_reservations.resx">
+      <DependentUpon>202008221217125_reservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221319440_changedReservations.resx">
+      <DependentUpon>202008221319440_changedReservations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

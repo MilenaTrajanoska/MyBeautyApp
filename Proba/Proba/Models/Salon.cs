@@ -41,8 +41,10 @@ namespace Proba.Models
         public DateTime DataNaKreiranje { get; set; }
 
         public Dictionary<string,int> VotersMap { get; set; }
-        
-  
+
+        public Dictionary<DateTime,List<Reservation>> Reservations { get; set; }
+
+
         public float getRating()
         {
             return Rating;
@@ -80,6 +82,7 @@ namespace Proba.Models
             NumReviews = 0;
             Rating = 0;
             DataNaKreiranje = DateTime.Now;
+            Reservations = new Dictionary<DateTime, List<Reservation>>();
         }
     }
    

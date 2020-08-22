@@ -1,0 +1,54 @@
+﻿@*
+
+
+    @{
+        ViewBag.Title = "Резервација";
+    }
+
+        <head>
+            <link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+            <link href="~/Content/bootstrap.css" rel="stylesheet" />
+            <script src="~/Scripts/jquery-3.4.1.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>
+            <script src="~/Scripts/moment.min.js"></script>
+            <script src="~/Scripts/fullcalendar.min.js"></script>
+            <script src="~/Scripts/calendar.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    GetEventsOnPageLoad();
+                })
+            </script>
+            <style>
+                .calendar-body{
+                    height: calc(100vh-165px);
+                    width: 90%;
+                    padding-left: 130px;
+                }
+                .calendar-header{
+                    padding-left: 30%;
+
+                }
+            </style>
+        </head>
+
+    <h2>Резервација</h2>
+    <div class="calendar-header"></div>
+    <div class="calendar-body">
+        <div id="calendar"></div>
+    </div>
+    <div id="MyPopup" class="modal fade modal-CreateEvent" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Резервирај</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+*@
+
