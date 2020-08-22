@@ -34,6 +34,18 @@ namespace Proba.Models
         [ForeignKey("Salon")]
         public string UserId { get; set; }
 
-        
+        [Display(Name ="Галерија")]
+        [NotMapped]
+        public List<HttpPostedFileBase> files { get; set; }
+        public List<string> ImagePaths { get; set; }
+
+        public Service()
+        {
+            files = new List<HttpPostedFileBase>();
+            ImagePaths = new List<string>();
+        }
+
+
+
     }
 }

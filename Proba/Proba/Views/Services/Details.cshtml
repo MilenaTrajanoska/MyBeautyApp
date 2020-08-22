@@ -41,7 +41,15 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
-
+        <dt>
+           @Html.DisplayNameFor(model => model.ImagePaths)
+        </dt>
+        <ul>
+        @foreach(var img in Model.ImagePaths)
+        {
+            <li>@img</li>
+        }
+</ul>
     </dl>
 </div>
 <p>

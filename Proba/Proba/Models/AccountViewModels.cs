@@ -162,10 +162,21 @@ namespace Proba.Models
         public string PhoneNumber { get; set; }
         [Display(Name="Услуги")]
         public IEnumerable<Type> SelectedServices { get; set; }
+        [Display(Name = "Услуги")]
         public IEnumerable<Service> Services { get; set; }
         [Display(Name = "Прикачете слика")]
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFileS { get; set; }
+        [Display(Name="Почеток на работно време")]
+        [Required]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
+        public DateTime StartTime { get; set; }
+        [Display(Name = "Крај на работно време")]
+        [Required]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
+        public DateTime EndTime { get; set; }
         public RegisterSalonViewModel()
         {
             Services = new List<Service>()

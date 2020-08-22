@@ -89,6 +89,15 @@
                             @Html.Label(service.Price.ToString()) ден.
                         </div>
 
+                        @foreach(var img in service.ImagePaths) {
+
+                        <div class="col-md-2">
+                            <ul>
+                                <li>@img</li>
+                            </ul>
+                        </div>
+
+                    }
                         @if (User.IsInRole("Client"))
                         {
                             <button class="btn btn-block default">
@@ -146,7 +155,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-           // $("#SlideshowImages > div:gt(0)").hide();
+            $("#SlideshowImages > div:gt(0)").hide();
             setInterval(function () {
                 $('#SlideshowImages > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages');
             }, 3000);

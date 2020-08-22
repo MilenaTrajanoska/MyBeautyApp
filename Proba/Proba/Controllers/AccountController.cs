@@ -311,7 +311,9 @@ namespace Proba.Controllers
                     Address = model.Address,
                     City = model.City,
                     Services = new List<Service>(),
-                    ImagePath = FileName
+                    ImagePath = FileName,
+                    StartTime = model.StartTime,
+                    EndTime = model.EndTime
                 };
                 
                 

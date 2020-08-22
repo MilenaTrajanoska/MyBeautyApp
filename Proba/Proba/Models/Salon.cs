@@ -43,6 +43,14 @@ namespace Proba.Models
         public Dictionary<string,int> VotersMap { get; set; }
 
         public Dictionary<DateTime,List<Reservation>> Reservations { get; set; }
+        [Required]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime StartTime { get; set; }
+        [Required]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime EndTime { get; set; }
 
 
         public float getRating()
