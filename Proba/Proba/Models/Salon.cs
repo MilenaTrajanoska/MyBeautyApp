@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Proba.Migrations;
+using Syncfusion.JavaScript;
+using Syncfusion.JavaScript.Shared.Serializer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -82,6 +86,18 @@ namespace Proba.Models
             return false;
         }
 
+        public string ReservationsAsJson
+        {
+            get;set;/*
+            {
+                return JsonConvert.SerializeObject(Reservations);
+            }
+            set { 
+                Reservations = 
+                    JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(value);
+            }*/
+        }
+
         public Salon()
         {
             Services = new List<Service>();
@@ -91,6 +107,7 @@ namespace Proba.Models
             Rating = 0;
             DataNaKreiranje = DateTime.Now;
             Reservations = new Dictionary<DateTime, List<Reservation>>();
+            ReservationsAsJson = JsonConvert.SerializeObject(Reservations);
         }
     }
    

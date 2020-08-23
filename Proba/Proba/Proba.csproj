@@ -695,6 +695,58 @@
     <Compile Include="Migrations\202008222317392_promena-registracija.Designer.cs">
       <DependentUpon>202008222317392_promena-registracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008231507146_addedDuration.cs" />
+    <Compile Include="Migrations\202008231507146_addedDuration.Designer.cs">
+      <DependentUpon>202008231507146_addedDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231511335_addedTimespanRange.cs" />
+    <Compile Include="Migrations\202008231511335_addedTimespanRange.Designer.cs">
+      <DependentUpon>202008231511335_addedTimespanRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231526391_changedDurationType.cs" />
+    <Compile Include="Migrations\202008231526391_changedDurationType.Designer.cs">
+      <DependentUpon>202008231526391_changedDurationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231534104_annotationsDuration.cs" />
+    <Compile Include="Migrations\202008231534104_annotationsDuration.Designer.cs">
+      <DependentUpon>202008231534104_annotationsDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231548239_hello.cs" />
+    <Compile Include="Migrations\202008231548239_hello.Designer.cs">
+      <DependentUpon>202008231548239_hello.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231556212_herewegoagain.cs" />
+    <Compile Include="Migrations\202008231556212_herewegoagain.Designer.cs">
+      <DependentUpon>202008231556212_herewegoagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231602101_changesandmore.cs" />
+    <Compile Include="Migrations\202008231602101_changesandmore.Designer.cs">
+      <DependentUpon>202008231602101_changesandmore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231602534_changesandmore1.cs" />
+    <Compile Include="Migrations\202008231602534_changesandmore1.Designer.cs">
+      <DependentUpon>202008231602534_changesandmore1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231625423_changed-the-reservations.cs" />
+    <Compile Include="Migrations\202008231625423_changed-the-reservations.Designer.cs">
+      <DependentUpon>202008231625423_changed-the-reservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231645226_equalsOverride.cs" />
+    <Compile Include="Migrations\202008231645226_equalsOverride.Designer.cs">
+      <DependentUpon>202008231645226_equalsOverride.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231715016_serializedReservations.cs" />
+    <Compile Include="Migrations\202008231715016_serializedReservations.Designer.cs">
+      <DependentUpon>202008231715016_serializedReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231721481_modelCHange.cs" />
+    <Compile Include="Migrations\202008231721481_modelCHange.Designer.cs">
+      <DependentUpon>202008231721481_modelCHange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008231724054_anotherCHangeinthemodel.cs" />
+    <Compile Include="Migrations\202008231724054_anotherCHangeinthemodel.Designer.cs">
+      <DependentUpon>202008231724054_anotherCHangeinthemodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -1041,6 +1093,7 @@
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Salons\AddServices.cshtml" />
     <Content Include="Views\Reservations\MakeReservation.cshtml" />
+    <Content Include="Views\Reservations\ReservationTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1182,6 +1235,45 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008222317392_promena-registracija.resx">
       <DependentUpon>202008222317392_promena-registracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231507146_addedDuration.resx">
+      <DependentUpon>202008231507146_addedDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231511335_addedTimespanRange.resx">
+      <DependentUpon>202008231511335_addedTimespanRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231526391_changedDurationType.resx">
+      <DependentUpon>202008231526391_changedDurationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231534104_annotationsDuration.resx">
+      <DependentUpon>202008231534104_annotationsDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231548239_hello.resx">
+      <DependentUpon>202008231548239_hello.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231556212_herewegoagain.resx">
+      <DependentUpon>202008231556212_herewegoagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231602101_changesandmore.resx">
+      <DependentUpon>202008231602101_changesandmore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231602534_changesandmore1.resx">
+      <DependentUpon>202008231602534_changesandmore1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231625423_changed-the-reservations.resx">
+      <DependentUpon>202008231625423_changed-the-reservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231645226_equalsOverride.resx">
+      <DependentUpon>202008231645226_equalsOverride.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231715016_serializedReservations.resx">
+      <DependentUpon>202008231715016_serializedReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231721481_modelCHange.resx">
+      <DependentUpon>202008231721481_modelCHange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008231724054_anotherCHangeinthemodel.resx">
+      <DependentUpon>202008231724054_anotherCHangeinthemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

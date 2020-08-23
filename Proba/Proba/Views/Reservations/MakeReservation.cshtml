@@ -1,15 +1,22 @@
 ﻿@model Proba.Models.DetailsReservationViewModel
 @{
-    ViewBag.Title = "MakeReservation";
+    ViewBag.Title = "Резервација";
 }
 
 <h3>Резервации за салон @Model.Salon.Name</h3>
-<span>Услуга: @Model.Service.Name</span>
-<span>Цена на услуга: @Model.Service.Price</span>
+<span style="padding:15px">Услуга: @Model.Service.Name</span>
+<span style="padding:15px">Цена на услуга: @Model.Service.Price</span>
 
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm("ReservationTime","Reservations", new AjaxOptions
 {
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET",
+    OnFailure = "searchFailed",
+    LoadingElementId = "ajax-loader",
+    UpdateTargetId = "timeSpans",
+    OnSuccess = "success "
+})){
     @Html.HiddenFor(m => m.ServiceId)
     @Html.HiddenFor(m => m.SalonId)
     <div class="form-group">
@@ -19,8 +26,16 @@
 
     <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
 }
+<div style="display:none">
+    <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+         style=" max-width: 50%; margin: 0 25%;" />
+</div>
+
+<div id="timeSpans">
+</div>
 
 @section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @Scripts.Render("~/Content/css")
     @Scripts.Render("~/bundles/jqueryval")
     <script>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using Proba.Models;
 
 namespace Proba.Controllers
@@ -145,8 +146,66 @@ namespace Proba.Controllers
 
             return View(model);
         }
+        public ActionResult ReservationTime(DetailsReservationViewModel pass)
+        {
+            var email = User.Identity.Name;
+            var user = db.Users.Where(u => u.Email == email).FirstOrDefault();
+            var client = db.Clients.Find(user.Id);
+            var service = db.Services.Find(pass.ServiceId);
+            var salon = db.Salons.Find(pass.SalonId);
+            Reservation model = new Reservation()
+            {
+                SalonId = pass.SalonId,
+                ClientId = client.UserId,
+                Date = pass.Date,
+                Service = service,
+                Salon = salon,
+                Client = client,
+                
+            };
+            var jsonStr = salon.ReservationsAsJson;
+            var res = JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(jsonStr);
+            if (res.ContainsKey(pass.Date)){
+                ViewBag.AllReservations = res[pass.Date];
+            }
+            else
+            {
+                ViewBag.AllReservations = new List<Reservation>();
+            }
+            
+            
+            return PartialView(model);
+        }
+        [HttpPost]
+        public ActionResult ReservationTime(Reservation model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Reservations.Add(model);
+                var salon = db.Salons.Find(model.SalonId);
+                var jsonStr = salon.ReservationsAsJson;
+                var reservations = JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(jsonStr);
+                
+                if (reservations.ContainsKey(model.Date))
+                {
+                    reservations[model.Date].Add(model);
+                }
+                else
+                {
+                    reservations[model.Date] = new List<Reservation>();
+                    reservations[model.Date].Add(model);
+                }
+                salon.ReservationsAsJson = JsonConvert.SerializeObject(reservations);
+                db.SaveChanges();
+                Response.Write("Успепшна резервација");
+                return View(model);
+            }
+            else
+            {
+                return View(model);
+            }
 
-
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -41,8 +41,13 @@ namespace Proba.Models
         
         
         public string StringsAsStrings { get; set; }
+        [Required]
+        [Display(Name="Времетраење на услуга")]
+        [DataType(DataType.Time)]
+        [Range(typeof(DateTime), "00:00", "08:00")]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime Duration { get; set; }
 
-       
 
         public Service()
         {
