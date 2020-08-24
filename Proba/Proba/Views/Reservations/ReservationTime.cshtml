@@ -82,15 +82,17 @@
             }
             else
             {
-                using (Html.BeginForm())
+                using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Post))
                 {
+
                     @Html.HiddenFor(m => m.ClientId)
                     @Html.HiddenFor(m => m.SalonId)
                     @Html.HiddenFor(m => m.Service)
                     @Html.HiddenFor(m => m.Date)
-
+                    @Html.Hidden("StartTime",start)
+                    @Html.Hidden("EndTime",end)
                     <td style="border:solid 5px black">
-                        <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi"></input>
+                        <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi"/>
                     </td>
                 }
             }

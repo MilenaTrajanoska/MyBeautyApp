@@ -177,7 +177,7 @@ namespace Proba.Controllers
             return PartialView(model);
         }
         [HttpPost]
-        public ActionResult ReservationTime(Reservation model)
+        public ActionResult MakeReservation(Reservation model)
         {
             if (ModelState.IsValid)
             {
@@ -202,6 +202,7 @@ namespace Proba.Controllers
             }
             else
             {
+                Response.Write("Greshka");
                 return View(model);
             }
 
