@@ -9,13 +9,18 @@ namespace Proba.Models
 {
     public class Reservation
     {
-        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.None), Key()]
         public string Id { get; set; }
+        [ForeignKey("Client")]
         public string ClientId { get; set; }
         public virtual Client Client { get; set; }
+
         public virtual Salon Salon { get; set; }
+        [ForeignKey("Salon")]
         public string SalonId { get; set; }
-        public Service Service { get; set; }
+        [ForeignKey("Service")]
+        public int  ServiceId { get; set; }
+        public virtual Service Service { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime Date { get; set; }

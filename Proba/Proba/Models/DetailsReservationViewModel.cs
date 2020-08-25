@@ -17,7 +17,10 @@ namespace Proba.Models
         [Display(Name ="Датум на резервација")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
-       
+
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string ClientId { get; set; }
         public string Notes { get; set; }
     }
 }

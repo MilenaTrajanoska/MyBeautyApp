@@ -1,4 +1,4 @@
-﻿@model Proba.Models.Reservation
+﻿@model Proba.Models.DetailsReservationViewModel
 <h4>Приказ на термини за @Model.Salon.Name на датум @Model.Date.ToString("dd-MM-yyyy")</h4>
 @{
     var start = Model.Salon.StartTime;
@@ -82,19 +82,24 @@
             }
             else
             {
-                using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Post))
-                {
+                        <td>
+                            @using(Html.BeginForm("CreateReservation", "Reservations", FormMethod.Post))
+                            {
+                            
 
-                    @Html.HiddenFor(m => m.ClientId)
-                    @Html.HiddenFor(m => m.SalonId)
-                    @Html.HiddenFor(m => m.Service)
-                    @Html.HiddenFor(m => m.Date)
-                    @Html.Hidden("StartTime",start)
-                    @Html.Hidden("EndTime",end)
-                    <td style="border:solid 5px black">
-                        <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi"/>
-                    </td>
-                }
+                            @Html.HiddenFor(m => m.ClientId)
+                            @Html.HiddenFor(m => m.SalonId)
+                            @Html.HiddenFor(m => m.ServiceId)
+                            @Html.HiddenFor(m => m.Date)
+                                DateTime s = DateTime.Parse(start.ToString());
+                                DateTime e = DateTime.Parse(start.AddMinutes(step).ToString());
+                                @Html.Hidden("StartTime", s)
+                            @Html.Hidden("EndTime", e)
+
+                            <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi" />
+
+                            }
+                        </td>
             }
         }
                             
@@ -106,55 +111,4 @@
             }
         </tbody>
     </table>
-     @*
-        <table>
-
-            <thead>
-
-            </thead>
-            <tbody>
-
-                @{
-                    var stop = end.AddMinutes(-step);
-                }
-
-                @while (start <= stop)
-                {
-                    @start += step;
-                <tr>
-                    <td>
-                        @start.ToString() +" - " + @(start.AddMinutes(step)).ToString()
-                    </td>
-                    @{
-                        if (((List<Proba.Models.Reservation>)ViewBag.AllReservations)
-                             .Contains(new Proba.Models.Reservation()
-                             {
-                                 StartTime = start,
-                                 EndTime = start.AddMinutes(step)
-                             }))
-                        {
-                            <td style="background-color:red">
-                                РЕЗЕРВИРАНО
-                            </td>
-                        }
-                        else
-                        {
-                            using (Html.BeginForm())
-                            {
-                                @Html.HiddenFor(m => m.ClientId)
-                                @Html.HiddenFor(m => m.SalonId)
-                                @Html.HiddenFor(m => m.Service)
-                                @Html.HiddenFor(m => m.Date)
-
-                                <td>
-                                    <button type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi"></button>
-                                </td>
-                                }
-
-                            }
-                        }
-                    </tr>
-                    }
-                </tbody>
-        </table>
-*@
+    

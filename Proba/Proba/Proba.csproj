@@ -747,6 +747,50 @@
     <Compile Include="Migrations\202008231724054_anotherCHangeinthemodel.Designer.cs">
       <DependentUpon>202008231724054_anotherCHangeinthemodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008251731292_added-more-props-to-details-view-model.cs" />
+    <Compile Include="Migrations\202008251731292_added-more-props-to-details-view-model.Designer.cs">
+      <DependentUpon>202008251731292_added-more-props-to-details-view-model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251809011_changedReservation-class.cs" />
+    <Compile Include="Migrations\202008251809011_changedReservation-class.Designer.cs">
+      <DependentUpon>202008251809011_changedReservation-class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251815587_da-puknesh-vekje.cs" />
+    <Compile Include="Migrations\202008251815587_da-puknesh-vekje.Designer.cs">
+      <DependentUpon>202008251815587_da-puknesh-vekje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251819015_da-puknesh-vekje-2.cs" />
+    <Compile Include="Migrations\202008251819015_da-puknesh-vekje-2.Designer.cs">
+      <DependentUpon>202008251819015_da-puknesh-vekje-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251823003_simplify.cs" />
+    <Compile Include="Migrations\202008251823003_simplify.Designer.cs">
+      <DependentUpon>202008251823003_simplify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251835048_ajdevekjeraboti.cs" />
+    <Compile Include="Migrations\202008251835048_ajdevekjeraboti.Designer.cs">
+      <DependentUpon>202008251835048_ajdevekjeraboti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251852220_lalalala.cs" />
+    <Compile Include="Migrations\202008251852220_lalalala.Designer.cs">
+      <DependentUpon>202008251852220_lalalala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251900377_lalalala1.cs" />
+    <Compile Include="Migrations\202008251900377_lalalala1.Designer.cs">
+      <DependentUpon>202008251900377_lalalala1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251916502_added-foreign-key.cs" />
+    <Compile Include="Migrations\202008251916502_added-foreign-key.Designer.cs">
+      <DependentUpon>202008251916502_added-foreign-key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251926111_pakneshtonekje.cs" />
+    <Compile Include="Migrations\202008251926111_pakneshtonekje.Designer.cs">
+      <DependentUpon>202008251926111_pakneshtonekje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008251927560_glupabaza.cs" />
+    <Compile Include="Migrations\202008251927560_glupabaza.Designer.cs">
+      <DependentUpon>202008251927560_glupabaza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -1274,6 +1318,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008231724054_anotherCHangeinthemodel.resx">
       <DependentUpon>202008231724054_anotherCHangeinthemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251731292_added-more-props-to-details-view-model.resx">
+      <DependentUpon>202008251731292_added-more-props-to-details-view-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251809011_changedReservation-class.resx">
+      <DependentUpon>202008251809011_changedReservation-class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251815587_da-puknesh-vekje.resx">
+      <DependentUpon>202008251815587_da-puknesh-vekje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251819015_da-puknesh-vekje-2.resx">
+      <DependentUpon>202008251819015_da-puknesh-vekje-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251823003_simplify.resx">
+      <DependentUpon>202008251823003_simplify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251835048_ajdevekjeraboti.resx">
+      <DependentUpon>202008251835048_ajdevekjeraboti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251852220_lalalala.resx">
+      <DependentUpon>202008251852220_lalalala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251900377_lalalala1.resx">
+      <DependentUpon>202008251900377_lalalala1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251916502_added-foreign-key.resx">
+      <DependentUpon>202008251916502_added-foreign-key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251926111_pakneshtonekje.resx">
+      <DependentUpon>202008251926111_pakneshtonekje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251927560_glupabaza.resx">
+      <DependentUpon>202008251927560_glupabaza.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

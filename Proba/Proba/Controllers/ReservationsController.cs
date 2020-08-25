@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Proba.Models;
+using Syncfusion.JavaScript.Mobile;
 
 namespace Proba.Controllers
 {
@@ -123,7 +124,7 @@ namespace Proba.Controllers
             return new JsonResult { Data = reservations, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        public ActionResult GetReservationDetailById(string reservationId)
+        /*public ActionResult GetReservationDetailById(string reservationId)
         {
             var reservationDetail = db.Reservations.ToList().Where(x => x.Id == reservationId);
             return new JsonResult { Data = reservationDetail, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -135,7 +136,7 @@ namespace Proba.Controllers
             reservationDetail.StartTime = startDate;
             reservationDetail.EndTime = endDate;
             db.SaveChanges();
-        }
+        }*/
         
         public ActionResult MakeReservation(int id,DetailsReservationViewModel model)
         {
@@ -153,14 +154,14 @@ namespace Proba.Controllers
             var client = db.Clients.Find(user.Id);
             var service = db.Services.Find(pass.ServiceId);
             var salon = db.Salons.Find(pass.SalonId);
-            Reservation model = new Reservation()
+            DetailsReservationViewModel model = new DetailsReservationViewModel()
             {
                 SalonId = pass.SalonId,
                 ClientId = client.UserId,
                 Date = pass.Date,
                 Service = service,
                 Salon = salon,
-                Client = client,
+                ServiceId = service.Id,
                 
             };
             var jsonStr = salon.ReservationsAsJson;
@@ -176,34 +177,58 @@ namespace Proba.Controllers
             
             return PartialView(model);
         }
+
+
         [HttpPost]
-        public ActionResult MakeReservation(Reservation model)
+        public ActionResult CreateReservation(DetailsReservationViewModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Reservations.Add(model);
+                
+                
                 var salon = db.Salons.Find(model.SalonId);
                 var jsonStr = salon.ReservationsAsJson;
                 var reservations = JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(jsonStr);
-                
-                if (reservations.ContainsKey(model.Date))
+                var service = db.Services.Find(model.ServiceId);
+                var client = db.Clients.Find(model.ClientId);
+                var reservation = new Reservation()
                 {
-                    reservations[model.Date].Add(model);
-                }
-                else
+                    ClientId = model.ClientId,
+                    Service = service,
+                    Salon = salon,
+                    Client = client,
+                    SalonId = model.SalonId,
+                    ServiceId = model.ServiceId,
+                    Date = model.Date,
+                    StartTime = model.StartTime,
+                    EndTime = model.EndTime,
+                    Notes = "Uspeshna rezervacija"
+                };
+
+                db.Reservations.Add(reservation);
+                if (!reservations.ContainsKey(model.Date))
                 {
                     reservations[model.Date] = new List<Reservation>();
-                    reservations[model.Date].Add(model);
+                    
                 }
-                salon.ReservationsAsJson = JsonConvert.SerializeObject(reservations);
+
+                reservations[model.Date].Add(reservation);
+                var updateStr = JsonConvert.SerializeObject(reservations, new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+                salon.ReservationsAsJson = updateStr;
+                
                 db.SaveChanges();
-                Response.Write("Успепшна резервација");
-                return View(model);
+                return RedirectToAction("MakeReservation", new { id = service.Id, model = model });
+
             }
             else
             {
-                Response.Write("Greshka");
-                return View(model);
+
+
+                return RedirectToAction("MakeReservation", new { id = model.ServiceId, model = model }) ;
+
             }
 
         }
