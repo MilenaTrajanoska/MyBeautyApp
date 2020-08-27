@@ -9,7 +9,9 @@ namespace Proba.Models
 {
     public class Reservation
     {
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.None), Key()]
+        
+        [Key]
+        
         public string Id { get; set; }
         [ForeignKey("Client")]
         public string ClientId { get; set; }

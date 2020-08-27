@@ -102,9 +102,9 @@
                         }
                         @if (User.IsInRole("Client"))
                         {
-                            using (Html.BeginForm("MakeReservation", "Reservations", new { id = service.Id }, FormMethod.Get))
+                            using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
                             {
-
+                                @Html.Hidden("ServiceId", service.Id)
                                 @Html.HiddenFor(m=>m.SalonId)
                                 <button class="btn btn-block default" type="submit">
                                     <span>РЕЗЕРВИРАЈ</span>

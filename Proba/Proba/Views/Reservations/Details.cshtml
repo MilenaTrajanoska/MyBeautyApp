@@ -11,48 +11,59 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ClientId)
+            Име на клиент
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ClientId)
+            @Html.DisplayFor(model => model.Client.ClientName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SalonId)
+            Име на салон
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SalonId)
+            @Html.DisplayFor(model => model.Salon.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Service.Name)
+        </dd>
+        <dt>
+            Почеток на терминот
+        </dt>
+
+        <dd>
+            @{ 
+                var start = Model.StartTime.ToString("HH:mm");
+            } 
+            @start.ToString()
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
+           Крај на терминот
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StartTime)
+            @{
+                var end = Model.EndTime.ToString("HH:mm");
+            }
+            @end.ToString()
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EndTime)
+            Забелешки
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-
-        <dd>
+        <dd class="text-success" style="font:bold;font-size:20px">
             @Html.DisplayFor(model => model.Notes)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    
+    @Html.ActionLink("Назад", "Index","Home")
 </p>

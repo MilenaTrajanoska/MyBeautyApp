@@ -46,7 +46,6 @@ namespace Proba.Models
 
         public Dictionary<string,int> VotersMap { get; set; }
 
-        public Dictionary<DateTime,List<Reservation>> Reservations { get; set; }
         [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
@@ -86,17 +85,6 @@ namespace Proba.Models
             return false;
         }
 
-        public string ReservationsAsJson
-        {
-            get;set;/*
-            {
-                return JsonConvert.SerializeObject(Reservations);
-            }
-            set { 
-                Reservations = 
-                    JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(value);
-            }*/
-        }
 
         public Salon()
         {
@@ -106,8 +94,8 @@ namespace Proba.Models
             NumReviews = 0;
             Rating = 0;
             DataNaKreiranje = DateTime.Now;
-            Reservations = new Dictionary<DateTime, List<Reservation>>();
-            ReservationsAsJson = JsonConvert.SerializeObject(Reservations);
+            
+            
         }
     }
    

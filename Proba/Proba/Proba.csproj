@@ -791,6 +791,34 @@
     <Compile Include="Migrations\202008251927560_glupabaza.Designer.cs">
       <DependentUpon>202008251927560_glupabaza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008261822114_changedIdtypeagain.cs" />
+    <Compile Include="Migrations\202008261822114_changedIdtypeagain.Designer.cs">
+      <DependentUpon>202008261822114_changedIdtypeagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008261828405_changedagainandagain.cs" />
+    <Compile Include="Migrations\202008261828405_changedagainandagain.Designer.cs">
+      <DependentUpon>202008261828405_changedagainandagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008261831173_neznamshonapraiv.cs" />
+    <Compile Include="Migrations\202008261831173_neznamshonapraiv.Designer.cs">
+      <DependentUpon>202008261831173_neznamshonapraiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008261838234_mi-gente.cs" />
+    <Compile Include="Migrations\202008261838234_mi-gente.Designer.cs">
+      <DependentUpon>202008261838234_mi-gente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008261842410_vratiSeti.cs" />
+    <Compile Include="Migrations\202008261842410_vratiSeti.Designer.cs">
+      <DependentUpon>202008261842410_vratiSeti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008261905292_noneezakon.cs" />
+    <Compile Include="Migrations\202008261905292_noneezakon.Designer.cs">
+      <DependentUpon>202008261905292_noneezakon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008272315106_changedReservationModelProps.cs" />
+    <Compile Include="Migrations\202008272315106_changedReservationModelProps.Designer.cs">
+      <DependentUpon>202008272315106_changedReservationModelProps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -1351,6 +1379,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008251927560_glupabaza.resx">
       <DependentUpon>202008251927560_glupabaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261822114_changedIdtypeagain.resx">
+      <DependentUpon>202008261822114_changedIdtypeagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261828405_changedagainandagain.resx">
+      <DependentUpon>202008261828405_changedagainandagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261831173_neznamshonapraiv.resx">
+      <DependentUpon>202008261831173_neznamshonapraiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261838234_mi-gente.resx">
+      <DependentUpon>202008261838234_mi-gente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261842410_vratiSeti.resx">
+      <DependentUpon>202008261842410_vratiSeti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261905292_noneezakon.resx">
+      <DependentUpon>202008261905292_noneezakon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008272315106_changedReservationModelProps.resx">
+      <DependentUpon>202008272315106_changedReservationModelProps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

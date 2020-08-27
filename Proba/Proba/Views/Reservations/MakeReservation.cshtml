@@ -7,7 +7,7 @@
 <span style="padding:15px">Услуга: @Model.Service.Name</span>
 <span style="padding:15px">Цена на услуга: @Model.Service.Price</span>
 
-
+@Html.Raw(ViewBag.SuccessMessage);
 @using (Ajax.BeginForm("ReservationTime","Reservations", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
