@@ -153,3 +153,41 @@ a {
 .margin-y-20p {
     margin: 0px 20% !important;
 }
+
+
+
+/*   STARS  */
+.box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    direction:rtl;
+}
+.box a{
+    font-size:40px;
+    color:#313131;
+    transition:0.3s all;
+}
+.box a:hover{
+    color:#f1c40f;
+}
+.b1:hover ~ a {
+    color: #f1c40f;
+}
+.b1:hover ~ a {
+    color: #f1c40f;
+}
+.b2:hover ~ a {
+    color: #f1c40f;
+}
+.b3:hover ~ a {
+    color: #f1c40f;
+}
+.b4:hover ~ a {
+    color: #f1c40f;
+}
+.b5:hover ~ a {
+    color: #f1c40f;
+}
+

@@ -31,7 +31,8 @@ namespace Proba.Controllers
         }
         public List<Salon> getBest5Salons()
         {
-            List<Salon> list = _context.Salons.OrderByDescending(x=>x.Rating).ThenBy(x=>x.Name).ToList();
+            //List<Salon> list = _context.Salons.OrderByDescending(x=>x.Rating).ThenBy(x=>x.Name).ToList();
+            List<Salon> list = _context.Salons.OrderByDescending(x => x.Rating).ThenBy(x => x.Name).ToList();                              
             //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
             return list.GetRange(0, 5);
         }
