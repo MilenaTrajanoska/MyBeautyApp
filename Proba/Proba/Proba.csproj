@@ -531,17 +531,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009031844522_initial.cs" />
-    <Compile Include="Migrations\202009031844522_initial.Designer.cs">
-      <DependentUpon>202009031844522_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202009032151251_initial.cs" />
+    <Compile Include="Migrations\202009032151251_initial.Designer.cs">
+      <DependentUpon>202009032151251_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009031918061_added-validation-for-dates.cs" />
-    <Compile Include="Migrations\202009031918061_added-validation-for-dates.Designer.cs">
-      <DependentUpon>202009031918061_added-validation-for-dates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009032117572_changed-annotations.cs" />
-    <Compile Include="Migrations\202009032117572_changed-annotations.Designer.cs">
-      <DependentUpon>202009032117572_changed-annotations.cs</DependentUpon>
+    <Compile Include="Migrations\202009032153288_second.cs" />
+    <Compile Include="Migrations\202009032153288_second.Designer.cs">
+      <DependentUpon>202009032153288_second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -913,14 +909,11 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009031844522_initial.resx">
-      <DependentUpon>202009031844522_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009032151251_initial.resx">
+      <DependentUpon>202009032151251_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009031918061_added-validation-for-dates.resx">
-      <DependentUpon>202009031918061_added-validation-for-dates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009032117572_changed-annotations.resx">
-      <DependentUpon>202009032117572_changed-annotations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009032153288_second.resx">
+      <DependentUpon>202009032153288_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

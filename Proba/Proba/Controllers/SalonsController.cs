@@ -93,13 +93,7 @@ namespace Proba.Controllers
         {
                 db.Salons.Add(salon);
                 db.SaveChanges();
-               
-                foreach (var service in (List<Service>)TempData["Services"])
-
-                {
-                    db.Services.Add(service);
-                    db.SaveChanges();
-                }
+             
 
                 return RedirectToAction("AddServices","Salons", new{id = salon.UserId});
         }

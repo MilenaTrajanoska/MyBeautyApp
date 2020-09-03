@@ -5,7 +5,7 @@
     
 
     var end = Model.Salon.EndTime;
-    var step = Model.Service.Duration.Hour * 60 + Model.Service.Duration.Minute;
+    var step = Model.Service.Duration;
     
 
     var stop = end.AddMinutes(-step);
@@ -106,7 +106,7 @@
                             
                         </tr>
                     start = start.AddMinutes(step);
-                    span -= 60;
+                    span -= step;
 
                 }
             }

@@ -38,15 +38,12 @@ namespace Proba.Models
         [NotMapped]
         public List<HttpPostedFileBase> files { get; set; }
 
-        
-        
         public string StringsAsStrings { get; set; }
         [Required]
-        [Display(Name="Времетраење на услуга")]
-        [DataType(DataType.Time)]
-        [Range(typeof(DateTime), "00:00", "08:00")]
+        [Display(Name="Времетраење на услуга во минути")]
+        [Range(1, 180, ErrorMessage ="Невалидна вредност за времетраење на услуга")]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
-        public DateTime Duration { get; set; }
+        public int Duration { get; set; }
 
 
         public Service()
