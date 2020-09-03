@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Proba.Migrations;
 using Syncfusion.JavaScript;
 using Syncfusion.JavaScript.Shared.Serializer;
 using System;
@@ -48,13 +47,13 @@ namespace Proba.Models
 
         [Required]
         [DataType(DataType.Time)]
+        [Display(Name="Почеток на работно време")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime StartTime { get; set; }
-        [Required]
-        [DataType(DataType.Time)]
+        [Display(Name="Крај на работно време")]
+        [DataType(DataType.Time)]      
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime EndTime { get; set; }
-
 
         public float getRating()
         {

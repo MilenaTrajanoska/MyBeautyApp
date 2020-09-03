@@ -240,8 +240,7 @@ namespace Proba.Controllers
                 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
-                Client.User = UserManager.FindByEmail(user.Email);
-                Client.UserId = Client.User.Id;
+                Client.UserId = UserManager.FindByEmail(user.Email).Id;
 
                 var u = UserManager.FindByEmail(user.Email);
                 await UserManager.AddToRoleAsync(u.Id, RoleName.Client);
@@ -282,6 +281,12 @@ namespace Proba.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!model.validateDates())
+                {
+                    model.validDates = false;
+                    return View(model);
+                }
+                model.validDates = true;
                 string FileName = "default_salon.jpg";
 
                 if (model.ImageFileS != null)
@@ -310,7 +315,6 @@ namespace Proba.Controllers
                     Name = model.Name,
                     Address = model.Address,
                     City = model.City,
-                    Services = new List<Service>(),
                     ImagePath = FileName,
                     StartTime = model.StartTime,
                     EndTime = model.EndTime
@@ -322,18 +326,9 @@ namespace Proba.Controllers
                
 
                 ApplicationUser u = UserManager.FindByEmail(user.Email);
-                Salon.User = UserManager.FindByEmail(user.Email);
-                Salon.UserId = Salon.User.Id;
+                Salon.UserId = UserManager.FindByEmail(user.Email).Id;
                 await UserManager.AddToRoleAsync(u.Id, RoleName.Salon);
-                List<Service> services = new List<Service>();
-                foreach (Models.Type service in model.SelectedServices)
-                {
-                    services.Add(new Service() { Name = service.ToString(), TypeOfService = service, Price = 1, UserId = Salon.UserId });
-                }
-
-                TempData["User"] = u;
-                TempData["Services"] = services;
-
+               
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -348,7 +343,10 @@ namespace Proba.Controllers
                 }
                 AddErrors(result);
             }
-
+            if (!model.validateDates())
+            {
+                model.validDates = false;
+            }
             // If we got this far, something failed, redisplay form
             return View(model);
         }

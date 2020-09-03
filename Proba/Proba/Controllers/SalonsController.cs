@@ -91,27 +91,17 @@ namespace Proba.Controllers
         
         public ActionResult Create([Bind(Include = "UserId, User,Name,Address,City,Services,ImagePath,StartTime,EndTime")] Salon salon)
         {
-            //salon.User = (ApplicationUser)TempData["User"];
-            //salon.Services = (List<Service>)TempData["Services"];
-           // if (ModelState.IsValid)
-           // {
-
-
                 db.Salons.Add(salon);
                 db.SaveChanges();
-            /*
+               
                 foreach (var service in (List<Service>)TempData["Services"])
 
                 {
                     db.Services.Add(service);
                     db.SaveChanges();
-                }*/
+                }
 
                 return RedirectToAction("AddServices","Salons", new{id = salon.UserId});
-          //  }
-        
-          // ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
-          // return View(salon);
         }
         
         public ActionResult AddServices(string id)

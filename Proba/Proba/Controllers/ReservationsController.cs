@@ -17,9 +17,11 @@ namespace Proba.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reservations
-        public ActionResult Index()
+        public ActionResult Index(string salonId)
         {
-            return View();
+            Salon salon = db.Salons.Find(salonId);
+            List<Reservation> reservations = db.Reservations.Where(r => r.SalonId == salonId).ToList();
+            return View(reservations);
         }
 
         // GET: Reservations/Details/5
@@ -129,19 +131,6 @@ namespace Proba.Controllers
             return new JsonResult { Data = reservations, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        /*public ActionResult GetReservationDetailById(string reservationId)
-        {
-            var reservationDetail = db.Reservations.ToList().Where(x => x.Id == reservationId);
-            return new JsonResult { Data = reservationDetail, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-        public void UpdateReservationDetails(string reservationId, DateTime startDate, DateTime endDate)
-        {
-            var reservationDetail = db.Reservations.ToList().Where(x => x.Id == reservationId).First();
-            reservationDetail.StartTime = startDate;
-            reservationDetail.EndTime = endDate;
-            db.SaveChanges();
-        }*/
         
         public ActionResult MakeReservation(DetailsReservationViewModel model)
         {
@@ -154,6 +143,7 @@ namespace Proba.Controllers
         }
         public ActionResult ReservationTime(DetailsReservationViewModel pass)
         {
+                   
             var email = User.Identity.Name;
             var user = db.Users.Where(u => u.Email == email).FirstOrDefault();
             var client = db.Clients.Find(user.Id);
@@ -171,16 +161,7 @@ namespace Proba.Controllers
                 
             };
 
-            /*var jsonStr = salon.ReservationsAsJson;
-            var res = JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(jsonStr);
-            if (res.ContainsKey(pass.Date)){
-                ViewBag.AllReservations = res[pass.Date];
-            }
-            else
-            {
-                ViewBag.AllReservations = new List<Reservation>();
-            }
-            */
+          
             if (reservations != null)
             {
                 ViewBag.AllReservations = reservations;
@@ -196,13 +177,12 @@ namespace Proba.Controllers
         [HttpPost]
         public ActionResult CreateReservation(DetailsReservationViewModel model)
         {
+                         
             if (ModelState.IsValid)
             {
     
                 var salon = db.Salons.Find(model.SalonId);
-                //var jsonStr = salon.ReservationsAsJson;
-                //var reservations = JsonConvert.DeserializeObject<Dictionary<DateTime, List<Reservation>>>(jsonStr);
-                //var reservations = db.Reservations.Where(r => (r.SalonId == model.SalonId && r.ServiceId == model.ServiceId && r.Date == model.Date));
+
                 var service = db.Services.Find(model.ServiceId);
                 var client = db.Clients.Find(model.ClientId);
                 var reservation = new Reservation() {
@@ -216,32 +196,17 @@ namespace Proba.Controllers
                     Date = model.Date,
                     StartTime = model.StartTime,
                     EndTime = model.EndTime,
-                    Notes = "Uspeshna rezervacija"
+                    Notes = "Успешна резервација"
                 };
-                /*
                 
-                if (!reservations.ContainsKey(model.Date))
-                {
-                    reservations[model.Date] = new List<Reservation>();
-                    
-                }
-
-                reservations[model.Date].Add(reservation);
-                var updateStr = JsonConvert.SerializeObject(reservations, new JsonSerializerSettings()
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-                //salon.ReservationsAsJson = updateStr;*/
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                ViewBag.SuccessMessage = "<span style='color:green'>Успешна резервација!</span>";
 
                 return RedirectToAction("Details", "Reservations", new { id = reservation.Id });
 
             }
             else
-            {
-                ViewBag.SuccessMessage = "<span style='color:red'>Неуспешна резервација!</span>";
+            { 
                 return RedirectToAction("Details", "Salons", new { id = model.SalonId });
 
             }

@@ -116,16 +116,16 @@
                         </div>
 
                         @*@foreach (var img in service.StringsAsStrings.Split(','))
-                            {
-                                if (img != "")
+                    {
+                        if (img != "")
 
-                                {
-                                    <div>
-                                        <img src="~/UploadedFiles/@img" style="max-width:200px" />
-                                    </div>
-                                }
+                        {
+                            <div>
+                                <img src="~/UploadedFiles/@img" style="max-width:200px" />
+                            </div>
+                        }
 
-                            }*@
+                    }*@
                         @if (User.IsInRole("Client"))
                         {
                             using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
@@ -140,9 +140,14 @@
 
                         }
 
+
                     </div>
                 }
             </div>
+            @if (User.IsInRole("Salon"))
+            {
+                @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index","Reservations",new { salonId = Model.SalonId }, null)
+            }
         </div>
 
 

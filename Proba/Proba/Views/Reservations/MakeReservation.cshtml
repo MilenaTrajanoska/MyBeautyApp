@@ -7,7 +7,7 @@
 <span style="padding:15px">Услуга: @Model.Service.Name</span>
 <span style="padding:15px">Цена на услуга: @Model.Service.Price</span>
 
-@Html.Raw(ViewBag.SuccessMessage);
+@Html.Raw(ViewBag.SuccessMessage)
 @using (Ajax.BeginForm("ReservationTime","Reservations", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
@@ -21,7 +21,8 @@
     @Html.HiddenFor(m => m.SalonId)
     <div class="form-group">
         @Html.DisplayNameFor(m => m.Date)<br />
-        @Html.EditorFor(m => m.Date, new { @class = "form-control", id = "datepick" })
+        @Html.TextBoxFor(m => m.Date, new { @class = "datepicker" })
+  
     </div>
 
     <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
@@ -38,15 +39,16 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @Scripts.Render("~/Content/css")
     @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        $(document).ready(function () {
-            $("#datepick").datepicker({
-
-                dateFormat: "mm-dd-yy"
-
-            });
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $(".datepicker").datepicker({
+            format: "dd-mm-yy",
+            minDate: 0
+        })
+        $('.datepicker').datepicker('setDate', 'today')
+        $('.datepicker').datepicker('minDate','today')
+    })
+</script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

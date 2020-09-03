@@ -1,51 +1,74 @@
-﻿@*
-        ViewBag.Title = "Резервација";
-    }
+﻿@model IEnumerable<Proba.Models.Reservation>
 
-        <head>
-            <link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
-            <link href="~/Content/bootstrap.css" rel="stylesheet" />
-            <script src="~/Scripts/jquery-3.4.1.js"></script>
-            <script src="~/Scripts/bootstrap.min.js"></script>
-            <script src="~/Scripts/moment.min.js"></script>
-            <script src="~/Scripts/fullcalendar.min.js"></script>
-            <script src="~/Scripts/calendar.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    GetEventsOnPageLoad();
-                })
-            </script>
-            <style>
-                .calendar-body{
-                    height: calc(100vh-165px);
-                    width: 90%;
-                    padding-left: 130px;
-                }
-                .calendar-header{
-                    padding-left: 30%;
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Salon.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.ClientSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-                }
-            </style>
-        </head>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salon.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientSurname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
 
-    <h2>Резервација</h2>
-    <div class="calendar-header"></div>
-    <div class="calendar-body">
-        <div id="calendar"></div>
-    </div>
-    <div id="MyPopup" class="modal fade modal-CreateEvent" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Резервирај</button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </tr>
+        }
+    </tbody>
+</table>
 
-*@
-
+@section Scripts{
+    <script>
+        $("#table").DataTable();
+    </script>
+}

@@ -179,6 +179,14 @@ namespace Proba.Models
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime EndTime { get; set; }
+
+        public bool validDates;
+        
+
+        public bool validateDates()
+        {
+            return DateTime.Compare(this.StartTime, this.EndTime) <= 0;
+        }
         public RegisterSalonViewModel()
         {
             Services = new List<Service>()
@@ -215,6 +223,7 @@ namespace Proba.Models
 
             };
             SelectedServices = new List<Type>();
+            validDates = true;
         }
 
     }

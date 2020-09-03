@@ -52,8 +52,7 @@ namespace Proba.Controllers
        public ActionResult Create([Bind(Include = "UserId,ClientName,ClientSurname,Gender,DateOfBirth,City, ImagePath")] Client client)
         {
             if (ModelState.IsValid)
-            {
-                
+            {   
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");

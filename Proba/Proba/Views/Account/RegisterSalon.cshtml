@@ -87,7 +87,13 @@
             @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", id = "endTime" } })
             @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
         </div>
-    </div>
+        @if (!Model.validDates)
+        {
+        <div class="form-group">
+            <p class="text-danger">Крајот на работното време мора да биде подоцна од почетокот!</p>
+        </div> 
+        }
+    </div> 
 
     <br />
 

@@ -14,13 +14,6 @@ namespace Proba.Controllers
     {
         private ApplicationDbContext _context = new ApplicationDbContext();
 
-        /*
-        public ActionResult Index()
-        {
-            return View();
-        }
-        */
-
         public ActionResult Index()
         {
             ViewBag.Najdobri5Saloni = getBest5Salons();
@@ -32,25 +25,29 @@ namespace Proba.Controllers
         public List<Salon> getBest5Salons()
         {
             //List<Salon> list = _context.Salons.OrderByDescending(x=>x.Rating).ThenBy(x=>x.Name).ToList();
-            List<Salon> list = _context.Salons.OrderByDescending(x => x.Rating).ThenBy(x => x.Name).ToList();                              
+            List<Salon> list = _context.Salons.OrderByDescending(x => x.Rating).ThenBy(x => x.Name).ToList();
             //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
-            return list.GetRange(0, 5);
+
+            int count = list.Count() >= 5 ? 5 : list.Count();
+
+            return list.GetRange(0, count);
         }
         public List<Salon> getNewest5Salons()
         {
             List<Salon> list = _context.Salons.OrderByDescending(x => x.DataNaKreiranje).ThenBy(x => x.Name).ToList();
             //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
-            return list.GetRange(0, 5);
+            int count = list.Count() >= 5 ? 5 : list.Count();
+
+            return list.GetRange(0, count);
         }
         public List<Salon> getBiggest5Salons()
         {
             List<Salon> list = _context.Salons.OrderByDescending(x => x.numChairs).ThenBy(x => x.Name).ToList();
             //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
-            return list.GetRange(0, 5);
+            int count = list.Count() >= 5 ? 5 : list.Count();
+
+            return list.GetRange(0, count);
         }
-
-
-
 
 
         public ActionResult About()
