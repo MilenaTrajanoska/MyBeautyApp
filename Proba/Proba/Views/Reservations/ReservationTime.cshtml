@@ -1,4 +1,6 @@
 ﻿@model Proba.Models.DetailsReservationViewModel
+
+
 <h4>Приказ на термини за @Model.Salon.Name на датум @Model.Date.ToString("dd-MM-yyyy")</h4>
 @{
     var start = Model.Salon.StartTime;
@@ -15,7 +17,7 @@
     
 
 }
-    <table style="border:solid 5px black;border-collapse:collapse">
+    <table style="border-collapse:collapse">
         <thead>
             <tr>
                 <td>
@@ -64,7 +66,7 @@
                                 endStr = start.AddMinutes(step).ToString("HH:mm");
                                 start.AddMinutes(-step);
                             }
-                            <td style="border:solid 5px black" >
+                            <td >
                                <p> @startStr.ToString() -  @endStr.ToString()</p>
                             </td>
                             
@@ -76,7 +78,7 @@
                  EndTime = start.AddMinutes(step)
              }))
             {
-                <td style="background-color:red;color:white;border:solid 5px black">
+                <td style="background-color:red;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px;">
                    <h3>РЕЗЕРВИРАНО</h3>
                 </td>
             }

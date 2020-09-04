@@ -4,8 +4,14 @@
 }
 
 <h3>Резервации за салон @Model.Salon.Name</h3>
-<span style="padding:15px">Услуга: @Model.Service.Name</span>
-<span style="padding:15px">Цена на услуга: @Model.Service.Price</span>
+<br />
+<br />
+<span style="padding:15px">Услуга: <b> @Model.Service.Name</b></span>
+<br />
+<br />
+<span style="padding:15px">Цена на услуга:<b> @Model.Service.Price</b></span>
+<br />
+<br />
 
 @Html.Raw(ViewBag.SuccessMessage)
 @using (Ajax.BeginForm("ReservationTime","Reservations", new AjaxOptions
@@ -24,7 +30,7 @@
         @Html.TextBoxFor(m => m.Date, new { @class = "datepicker" })
   
     </div>
-
+    <br />
     <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
 }
 <div style="display:none">
