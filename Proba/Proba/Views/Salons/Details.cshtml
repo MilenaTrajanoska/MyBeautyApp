@@ -144,7 +144,7 @@
                     </div>
                 }
             </div>
-            @if (User.IsInRole("Salon"))
+            @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
             {
                 @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index","Reservations",new { salonId = Model.SalonId }, null)
             }

@@ -62,7 +62,7 @@ namespace Proba.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).First();
+            var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).Include(s=>s.User).First();
 
             var model = new DetailsReservationViewModel()
             {
