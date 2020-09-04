@@ -1,42 +1,55 @@
 ﻿@model Proba.Models.AddServicesViewModel
 
 @{
-    ViewBag.Title = "Избор на сервиси";
+    ViewBag.Title = "Додади сервис";
 }
 
-<h2>Избор на сервиси</h2>
+<h2 class="naslov-formi">Додади сервис</h2>
+<h4>За секоја услуга која ја нуди вашиот салон пополнете ги потребните информации. Со кликање на копчето додади услуга ја додавате тековната услуга. Со кликање на копчето Зачувај ги зачувувате пополнетите податоци и завршувате со внесувањето на услугите.</h4>
+<br />
+<hr />
 @using (Html.BeginForm("AddServices", "Salons", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     @Html.HiddenFor(m => m.SalonId)
-    <div class="form-group">
+    <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.TypeOfService)
         @Html.DropDownListFor(m => m.Service.TypeOfService, new SelectList(ViewBag.Services, "TypeOfService", "Name"), new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Service.TypeOfService)
     </div>
-    <div class="form-group">
+    <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.Name)
         @Html.TextBoxFor(m => m.Service.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Service.Name)
     </div>
-    <div class="form-group">
+    <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.Price)
         @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Service.Price)
     </div>
-    <div class="form-group">
+    <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.Duration)
         @Html.EditorFor(m => m.Service.Duration,new { @class = "form-control" }) минути
         @Html.ValidationMessageFor(m => m.Service.Duration)
     </div>
-    <div class="form-group">
+    <div class="form-group" style="padding-left:15%">
         @Html.LabelFor(model => model.Service.files, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <input type="file" id="Service.files" multiple="multiple" name="Service.files" class="btn btn-block default kopce-formi" />
         </div>
         @Html.ValidationMessageFor(m => m.Service.files)
     </div>
-    <input type="submit" value="Додади услуга" class="btn btn-block default kopce-formi" />
+    
+    <div style="padding-left: 15%; padding-top:7%">
+        <input type="submit" value="Додади услуга" class="btn btn-block default kopce-formi" />
+    </div>
+    
 }
-@Html.ActionLink("Готово", "Index", "Home")
+
+<br />
+<br />
+<p class="nazad-formi" style="text-align:center">
+    @Html.ActionLink("ЗАЧУВАЈ", "Index", "Home")
+</p>
+
