@@ -3,8 +3,7 @@
 
 .naslov-formi {
     padding: 3.5%;
-    /*background-color: #F58566 !important;
-    color: white;*/
+    
     background: #e8e4d8;
     text-align: center;
     font-family: Impact, Charcoal, sans-serif;
@@ -14,7 +13,7 @@
 
 .div-formi {
     border-radius: 6px;
-    /*background: #e8e4d8;*/
+    
     padding-left: 10% !important;
 }
 
