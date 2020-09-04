@@ -5,20 +5,16 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+
+<div  style="background-color:white !important"> 
     <div class="container">
         <div class="row margin-y-1p">
-            <div class="col-lg-6 h-100 d-inline-block">
-                <img class="img-rounded"
-                     style="max-width:100%"
-                     src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Photo-1439894671367-1904e126d8f1.jpg"
-                     alt="SLIKATA JA NAJDOV NA NEEET" />
-            </div>
             <div class="col-lg-6 h-100 d-inline-block" style="padding: 2%;">
-                <p style="font-size:1em">
-                    One morning, about a week after Bingley’s engagement with Jane had been formed, as he and the females of the family were sitting together in the dining-room,
-                    their attention was suddenly drawn to the window, by the sound of a carriage; and they perceived a chaise and four driving up the lawn.
-                </p>
+                <br />
+                <h1>Со еден клик до резервација во вашиот омилен салон за убавина во државата.</h1>
+                <br />
+                <br />
+                <br />
                 <br />
                 <h3><b>ПРЕБАРУВАЈТЕ ПО ГРАД</b></h3>
                 <h4>Внесете го градот во празното поле за кој што сакате да пребарате салони.</h4>
@@ -51,6 +47,14 @@
                     }
 
                 </div>
+
+            </div>
+            <div class="col-lg-6 h-100 d-inline-block">
+
+                <img class="img-rounded"
+                     style="max-width:85%"
+                     src="~/Content/images/pozadina.jpg"
+                     alt="pozadina" />
             </div>
         </div>
 
@@ -59,82 +63,90 @@
         <div id="searchResults">
 
         </div>
+    </div>
+</div>
 
-        @* part 3*@
-        <hr style="border-top: 1px solid #F58566;">
 
-        <div class="row margin-y-1p">
-            @*1*@
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center header-4-mini" style="background-color:#F58566;color:white;border-radius:6px">Најдобар рејтинг</h4>
-                </div>
-                <div class="panel-body">
-                    <ul class="list-group ul-index">
-                        @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
-                        {
-                            @*
+
+
+<div class="jumbotron">
+
+    @* part 3*@
+    
+
+    <div class="row margin-y-1p">
+        @*1*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini" style="background-color:#F58566;color:white;border-radius:6px">Најдобар рејтинг</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najdobri5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        @*
                             <li class="list-group-item">  @Html.ActionLink(salon.Name, "Saloni") </li>
-                            *@
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
+                        *@
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
 
-                        }
-                    </ul>
-                </div>
-                @*
+                    }
+                </ul>
+            </div>
+            @*
                     <div class="panel-footer bg-transparent">
                     <button class="btn btn-block default " type="button"><span>Види повеќе</span></button>
                 </div>
-                *@
+            *@
+        </div>
+        @*2*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini">Најнови салони</h4>
             </div>
-            @*2*@
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center header-4-mini">Најнови салони</h4>
-                </div>
-                <div class="panel-body">
-                    <ul class="list-group ul-index">
-                        @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
-                        {
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najnovi5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
-                        }
-                    </ul>
-                </div>
-            </div>
-            @*3*@
-            <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
-                <div class="panel-heading">
-                    <h4 class="text-center header-4-mini">Најголеми салони</h4>
-                </div>
-                <div class="panel-body">
-                    <ul class="list-group ul-index">
-                        @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
-                        {
-                            <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
-
-                        }
-                    </ul>
-                </div>
+                    }
+                </ul>
             </div>
         </div>
+        @*3*@
+        <div class="col-xs-1 table-bordered img-rounded margin-x-1p colum-30p">
+            <div class="panel-heading">
+                <h4 class="text-center header-4-mini">Најголеми салони</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group ul-index">
+                    @foreach (var salon in (ViewBag.Najgolemi5Saloni as IEnumerable<Proba.Models.Salon>))
+                    {
+                        <li class="list-group-item">  @Html.ActionLink(salon.Name, "Details", "Salons", new { id = salon.UserId }, null) </li>
 
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <p></p>
+                    }
+                </ul>
             </div>
         </div>
     </div>
 
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <p></p>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 @section Scripts{
 
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    
+
 }
