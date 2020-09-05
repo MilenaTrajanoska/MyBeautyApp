@@ -215,10 +215,10 @@ namespace Proba.Controllers
                     //Add Current Date To Attached File Name  
                     FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
                     //Get Upload path from Web.Config file AppSettings.  
-                    string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
 
+                    var ServerSavePath = Path.Combine(Server.MapPath("~/UserImages/") + FileName);
                     //Its Create complete path to store in server.  
-                    model.ImagePath = UploadPath + FileName;
+                    model.ImagePath = ServerSavePath;
 
                     // To copy and save file into server.  
                     model.ImageFile.SaveAs(model.ImagePath);
@@ -299,10 +299,10 @@ namespace Proba.Controllers
                     //Add Current Date To Attached File Name  
                     FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
                     //Get Upload path from Web.Config file AppSettings.  
-                    string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
 
+                    var ServerSavePath = Path.Combine(Server.MapPath("~/UserImages/") + FileName);
                     //Its Create complete path to store in server.  
-                    model.ImagePath = UploadPath + FileName;
+                    model.ImagePath = ServerSavePath;
 
                     // To copy and save file into server.  
                     model.ImageFileS.SaveAs(model.ImagePath);

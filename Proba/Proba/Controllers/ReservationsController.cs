@@ -17,10 +17,18 @@ namespace Proba.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reservations
-        public ActionResult Index(string salonId)
+        public ActionResult Index(string Id)
         {
-            Salon salon = db.Salons.Find(salonId);
-            List<Reservation> reservations = db.Reservations.Where(r => r.SalonId == salonId).ToList();
+            List<Reservation> reservations = new List<Reservation>();
+            if (User.IsInRole("Salon"))
+            {
+               reservations = db.Reservations.Where(r => r.SalonId == Id).ToList();
+            }
+            if (User.IsInRole("Client"))
+            {
+                reservations = db.Reservations.Where(r => r.ClientId == Id).ToList();
+            }
+            
             return View(reservations);
         }
 
@@ -99,6 +107,7 @@ namespace Proba.Controllers
         }
 
         // GET: Reservations/Delete/5
+        /*
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -112,11 +121,9 @@ namespace Proba.Controllers
             }
             return View(reservation);
         }
-
-        // POST: Reservations/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        */
+        // POST: Reservations/Delete/5       
+        public ActionResult Delete(string id)
         {
             Reservation reservation = db.Reservations.Find(id);
             db.Reservations.Remove(reservation);

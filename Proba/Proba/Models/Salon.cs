@@ -31,10 +31,10 @@ namespace Proba.Models
         public string UserId { get; set; }
         [Display(Name="Услуги")]
         public virtual List<Service> Services { get; set; }
-        [Required]
         [Display(Name = "Слика")]
         public string ImagePath { get; set; }
-        
+        public HttpPostedFileBase ImageFile;
+
         [Display(Name = "Оцена")]
         public float Rating { get; set; }
         public float RatePoints { get; set; }

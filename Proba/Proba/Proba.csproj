@@ -539,6 +539,26 @@
     <Compile Include="Migrations\202009032153288_second.Designer.cs">
       <DependentUpon>202009032153288_second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009051208130_addedUserEdit.cs" />
+    <Compile Include="Migrations\202009051208130_addedUserEdit.Designer.cs">
+      <DependentUpon>202009051208130_addedUserEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051230336_changedAnnotiationImagePath.cs" />
+    <Compile Include="Migrations\202009051230336_changedAnnotiationImagePath.Designer.cs">
+      <DependentUpon>202009051230336_changedAnnotiationImagePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051241097_nothing.cs" />
+    <Compile Include="Migrations\202009051241097_nothing.Designer.cs">
+      <DependentUpon>202009051241097_nothing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051329177_addedImageFileinSalon.cs" />
+    <Compile Include="Migrations\202009051329177_addedImageFileinSalon.Designer.cs">
+      <DependentUpon>202009051329177_addedImageFileinSalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051330347_removedAttrRequiredSalon.cs" />
+    <Compile Include="Migrations\202009051330347_removedAttrRequiredSalon.Designer.cs">
+      <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -723,6 +743,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
@@ -862,13 +884,11 @@
     <Content Include="Views\Clients\Create.cshtml" />
     <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
-    <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Account\RegisterSalon.cshtml" />
     <Content Include="Views\Salons\Create.cshtml" />
     <Content Include="Views\Salons\Delete.cshtml" />
     <Content Include="Views\Salons\Details.cshtml" />
-    <Content Include="Views\Salons\Edit.cshtml" />
     <Content Include="Views\Salons\Index.cshtml" />
     <Content Include="Views\Home\Saloni.cshtml" />
     <Content Include="Views\Home\Uslugi.cshtml" />
@@ -887,6 +907,8 @@
     <Content Include="Views\Reservations\MakeReservation.cshtml" />
     <Content Include="Views\Reservations\ReservationTime.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Salons\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -915,6 +937,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009032153288_second.resx">
       <DependentUpon>202009032153288_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051208130_addedUserEdit.resx">
+      <DependentUpon>202009051208130_addedUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051230336_changedAnnotiationImagePath.resx">
+      <DependentUpon>202009051230336_changedAnnotiationImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051241097_nothing.resx">
+      <DependentUpon>202009051241097_nothing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051329177_addedImageFileinSalon.resx">
+      <DependentUpon>202009051329177_addedImageFileinSalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051330347_removedAttrRequiredSalon.resx">
+      <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

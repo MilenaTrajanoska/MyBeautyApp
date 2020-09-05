@@ -64,15 +64,6 @@ namespace Proba.Controllers
             return View();
         }
 
-        /*
-         * public ActionResult Saloni()
-        {
-            ViewBag.Message = "Salons.";
-            ViewBag.Najdobri5Saloni = getBest5Salons();
-            ViewBag.Najnovi5Saloni = getNewest5Salons();
-            return View();
-        }
-        */
 
         public ActionResult Uslugi()
         {
@@ -81,7 +72,7 @@ namespace Proba.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Client")]
         public ActionResult UserPhotos()
         {
             if (User.Identity.IsAuthenticated)
@@ -98,6 +89,7 @@ namespace Proba.Controllers
             }
             
         }
+        [Authorize(Roles = "Salon")]
         public ActionResult SalonPhotos()
         {
             if (User.Identity.IsAuthenticated)
@@ -114,6 +106,7 @@ namespace Proba.Controllers
             }
 
         }
+        [Authorize(Roles ="Client")]
         public ActionResult UserFullName()
         {
             if (User.Identity.IsAuthenticated)
@@ -129,6 +122,7 @@ namespace Proba.Controllers
                 return Content("Default");
             }
         }
+        [Authorize(Roles = "Salon")]
         public ActionResult SalonName()
         {
             if (User.Identity.IsAuthenticated)
@@ -160,6 +154,7 @@ namespace Proba.Controllers
             return _context.Salons.Where(s => s.City.Contains(town)).ToList();
         }
 
+        [Authorize]
         public ActionResult Profil()
         {
 

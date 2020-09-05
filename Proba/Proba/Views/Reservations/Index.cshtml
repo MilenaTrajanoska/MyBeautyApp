@@ -1,10 +1,5 @@
 ﻿@model IEnumerable<Proba.Models.Reservation>
 
-<p class="btn">
-    @Html.ActionLink("Креирај нова резервација", "Create")
-</p>
-<br />
-
 <table id="table" class=" table">
     <thead>
         <tr>
@@ -31,6 +26,8 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
             </th>
         </tr>
     </thead>
@@ -63,14 +60,41 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Notes)
                 </td>
+                <td>
+                    <a href="" class="btn btn-default js-delete" data-id="@item.Id">ОТКАЖИ</a>
+                    @*@Html.ActionLink("ОТКАЖИ", "Delete", "Reservations", new { id = item.Id }, null)*@
+                </td>
 
             </tr>
         }
     </tbody>
 </table>
-
+<div id="result" class="text-success">
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
 @section Scripts{
     <script>
         $("#table").DataTable();
+        $("#table .js-delete").click(function () {
+            var button = $(this);
+            bootbox.confirm(
+                "Дали сте сигурни дека сакате да ја откажете резервацијата?",
+                function (result) {
+                    if (result) {
+                        //true
+                        $.ajax({
+                            method: "GET",
+                            url: "/Reservations/Delete/" + button.attr("data-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                                document.getElementById("result").innerHTML = "Успешно откажана резервација."
+                            }
+
+                        });
+                    }
+                }
+            );
+        });
     </script>
 }

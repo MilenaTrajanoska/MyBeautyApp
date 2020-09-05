@@ -16,9 +16,6 @@ namespace Proba.Models
 
     public class Client
     {
-
-        
-            
             [Required]
             [Display(Name = "Име")]
             public string ClientName { get; set; }
@@ -44,11 +41,11 @@ namespace Proba.Models
         [ForeignKey("User")]
 
         public string UserId { get; set; }
-        [Required]
+        
         [Display(Name = "Слика")]
         [AllowHtml]
         public string ImagePath { get; set; }
-
+        public HttpPostedFileBase ImageFile;
         public Dictionary<DateTime, List<Reservation>> Reservations { get; set; }
         public Client()
            {

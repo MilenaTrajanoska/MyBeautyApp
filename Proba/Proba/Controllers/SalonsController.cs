@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
@@ -128,10 +129,7 @@ namespace Proba.Controllers
                         //Save file to server folder  
                         file.SaveAs(ServerSavePath);
                         //assigning file uploaded status to ViewBag for showing message to user. 
-                        /*
-                            NE SE ZACHUVUVAAT PATEKITE VO BAZA!!!
-                         
-                         */
+                        
 
                         inputFiles.Add(InputFileName);
                        // ViewBag.UploadStatus = model.Service.files.Count().ToString() + " files uploaded successfully.";
@@ -182,17 +180,46 @@ namespace Proba.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Name,Address,City,numChairs")] Salon salon)
+        
+        public ActionResult Edit([Bind(Include = "UserId,Name,Address,City,ImagePath,StartTime,EndTime")] Salon model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(salon).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var newContext = new ApplicationDbContext();
+                var postedFile = Request.Files["ImageFile"];
+                model.ImageFile = postedFile.FileName == "" ? null : postedFile;
+                if (model.ImageFile != null)
+                {
+                    String FileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+
+                    //To Get File Extension  
+                    string FileExtension = Path.GetExtension(model.ImageFile.FileName);
+
+                    //Add Current Date To Attached File Name  
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                    //Get Upload path from Web.Config file AppSettings.  
+                    
+                    var ServerSavePath = Path.Combine(Server.MapPath("~/UserImages/") + FileName);
+                    //Its Create complete path to store in server.  
+                    model.ImagePath = ServerSavePath;
+
+                    // To copy and save file into server.  
+                    model.ImageFile.SaveAs(model.ImagePath);
+                    model.ImagePath = FileName;
+
+                }
+                else
+                {
+                    model.ImagePath = db.Salons.Find(model.UserId).ImagePath;
+                }
+
+                newContext.Entry(model).State = EntityState.Modified;
+
+                newContext.SaveChanges();
+                return RedirectToAction("Details", new { id = model.UserId });
             }
-            ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
-            return View(salon);
+            ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", model.UserId);
+            return View(model);
         }
 
         // GET: Salons/Delete/5

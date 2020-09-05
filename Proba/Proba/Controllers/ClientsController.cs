@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -82,17 +84,44 @@ namespace Proba.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,ClientName,ClientSurname,Gender,DateOfBirth,City")] Client client)
+        public ActionResult Edit([Bind(Include = "UserId,ImageFile,ClientName,ClientSurname,Gender,DateOfBirth,City, ImagePath")] Client model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var newContext = new ApplicationDbContext();
+                var postedFile = Request.Files["ImageFile"];
+                model.ImageFile = postedFile.FileName==""?null:postedFile;
+                if (model.ImageFile != null)
+                {
+                    String FileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+
+                    //To Get File Extension  
+                    string FileExtension = Path.GetExtension(model.ImageFile.FileName);
+
+                    //Add Current Date To Attached File Name  
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                    //Get Upload path from Web.Config file AppSettings.  
+                    var ServerSavePath = Path.Combine(Server.MapPath("~/UserImages/") + FileName);
+                    //Its Create complete path to store in server.  
+                    model.ImagePath = ServerSavePath;
+
+                    // To copy and save file into server.  
+                    model.ImageFile.SaveAs(model.ImagePath);
+                    model.ImagePath = FileName;
+
+                }
+                else
+                {
+                    model.ImagePath = db.Clients.Find(model.UserId).ImagePath;
+                }
+                
+                newContext.Entry(model).State = EntityState.Modified;
+                
+                newContext.SaveChanges();
+                return RedirectToAction("Details", new { id = model.UserId });
             }
-            ViewBag.UserId = new SelectList(db.Clients, "Id", "Name", client.UserId);
-            return View(client);
+            ViewBag.UserId = new SelectList(db.Clients, "Id", "Name", model.UserId);
+            return View(model);
         }
 
         // GET: Clients/Delete/5
