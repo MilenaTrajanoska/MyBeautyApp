@@ -82,15 +82,21 @@
                    <h3>РЕЗЕРВИРАНО</h3>
                 </td>
             }
+            else if ((start.Hour*60+start.Minute)<(DateTime.Now.Hour*60+DateTime.Now.Minute))
+            {
+                <td style="background-color:lightgray;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px; margin:5%">
+                   <h3>НЕДОСТАПНО</h3>
+                </td>
+            }
             else
             {
                         <td style="padding:1%; margin:5%" >
 
                             @using(Html.BeginForm("CreateReservation", "Reservations", FormMethod.Post))
-                            {
-                            
+                                        {
 
-                            @Html.HiddenFor(m => m.ClientId)
+
+                                @Html.HiddenFor(m => m.ClientId)
                             @Html.HiddenFor(m => m.SalonId)
                             @Html.HiddenFor(m => m.ServiceId)
                             @Html.HiddenFor(m => m.Date)
@@ -98,7 +104,7 @@
                                 DateTime e = DateTime.Parse(start.AddMinutes(step).ToString());
                                 @Html.Hidden("StartTime", s)
                             @Html.Hidden("EndTime", e)
-                              
+
                             <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi" />
                                
                                  
