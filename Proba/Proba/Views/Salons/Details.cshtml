@@ -9,13 +9,13 @@
 *@
 
 <div>
-    @*<img class="slika-profil" src="~/UserImages/@Model.ImagePath" style="max-width:300px !important" />*@
+    <img class="slika-profil" src="~/UserImages/@Model.Salon.ImagePath" style="max-width:300px !important" />
 
-    <div id="SlideshowImages" class="slika-profil">
+    @*<div id="SlideshowImages" class="slika-profil">
         <div> <img src="~/UserImages/default_female.jpg" height="200" width="200"> </div>
         <div> <img src="/UserImages/default_male.jpg" height="200" width="200"> </div>
         <div> <img src="/UserImages/default_salon.jpg" height="200" width="200"> </div>
-    </div>
+    </div>*@
 
     <h1 class="header-profil">
 
@@ -166,6 +166,36 @@
             </h5>
         }
 
+
+
+        <div class="form-group">
+            <div class="col-md-2">
+                <p>hey</p>
+            </div>
+            <div class="col-md-6">
+                @*
+
+                        @Html.DisplayFor(modelItem => item.Title) <br />
+        46
+                                <img src="~/images/EmptyStar.png" alt="Star Rating" align="middle" id="1" class="rating" mid="@item.ID" />
+        47
+                                <img src="~/images/EmptyStar.png" alt="Star Rating" align="middle" id="2" class="rating" mid="@item.ID"  />
+        48
+                                <img src="~/images/EmptyStar.png" alt="Star Rating" align="middle" id="3" class="rating" mid="@item.ID" />
+        49
+                                <img src="~/images/EmptyStar.png" alt="Star Rating" align="middle" id="4" class="rating" mid="@item.ID" />
+        50
+                                <img src="~/images/EmptyStar.png" alt="Star Rating" align="middle" id="5" class="rating" mid="@item.ID" />
+        51
+                                (@item.RateCount) @{if (item.RateCount > 0)
+        52
+                                    { decimal a= @item.RateAvg / @item.RateCount; <span class="avr"> @a</span> } }<br />
+        53
+                                <div class="result"></div>
+
+                *@
+            </div>
+        </div>
 
     </div>
 </div>

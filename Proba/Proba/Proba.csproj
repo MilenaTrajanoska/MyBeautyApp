@@ -839,6 +839,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="UploadedFiles\stars\1024px-Empty_Star.svg.png" />
+    <Content Include="UploadedFiles\stars\589px-Star_empty.svg.png" />
     <Content Include="UserImages\ajax-loader.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -912,7 +914,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
