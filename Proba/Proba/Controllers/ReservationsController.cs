@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
@@ -128,6 +130,24 @@ namespace Proba.Controllers
             Reservation reservation = db.Reservations.Find(id);
             db.Reservations.Remove(reservation);
             db.SaveChanges();
+            /*
+            MailMessage mail = new MailMessage();
+            mail.To.Add(salonEmail);
+            mail.From = new MailAddress("trajanoska28@gmail.com");
+            mail.Subject = "Откажана резервација";
+            var clientName = db.Clients.Find(clientId).ClientName + " " + db.Clients.Find(clientId).ClientSurname;
+            string Body = "<h4>Oткажана резервација</h4><br/>" +
+                "Клиентот: " + clientName + "ја откажа резервацијата за датум: " + date.ToString("dd.mm.yyyy") 
+                + "за услугата " + serviceName;
+            mail.Body = Body;
+            mail.IsBodyHtml = true;
+            mail.BodyEncoding = UTF8Encoding.UTF8;
+            SmtpClient smtp = new SmtpClient("smtp-mail.outlook.com");
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("my.beauty.app@outlook.com", "MyBeautyApp123!"); // Enter seders User name and password  
+            smtp.Send(mail);
+            */
             return RedirectToAction("Index");
         }
 
