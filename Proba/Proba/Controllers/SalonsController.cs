@@ -274,11 +274,7 @@ namespace Proba.Controllers
             return Json("Го оценивте салонот со " + rating.ToString() + " ѕвезди.");
 
         }
-        //public JsonResult PostRating()
-        //{
-        //    return Json("You rated this   star(s)");
-
-        //}
+        
 
 
 

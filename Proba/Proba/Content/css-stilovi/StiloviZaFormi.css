@@ -111,6 +111,29 @@ header-profil {
 }
 
 
+#SlideshowImages2 {
+    margin: 50px auto;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    margin: 16px 5px 3px 0;
+    float:right;
+}
+
+    #SlideshowImages2 > div {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+        #SlideshowImages2 > div img {
+            border-radius: 6px;
+        }
+
 
 .info-profil {
     border-radius: 6px;

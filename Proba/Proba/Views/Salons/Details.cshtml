@@ -108,46 +108,70 @@
             <div class="col-md-2">
                 @Html.LabelFor(model => model.Salon.Services)
             </div>
-            <div class="col-md-6">
-                @foreach (var service in Model.Salon.Services)
+            <div class="col-md-6" style="color: #555555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);padding: 0px 3%;">
+               @foreach (var service in Model.Salon.Services)
                 {
 
-                    <div class="form-group">
-                        <div class="col-md-3">
-                            @Html.Label(service.Name)
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-4" style="padding-top: 45px;">
+                        @Html.Label(service.Name)
+                    </div>
 
-                        <div class="col-md-2">
-                            @Html.Label(service.Price.ToString()) ден.
-                        </div>
+                    <div class="col-md-3" style="padding-top: 45px;">
+                        @Html.Label(service.Price.ToString()) ден.
+                    </div>
 
-                        @*@foreach (var img in service.StringsAsStrings.Split(','))
-                        {
-                            if (img != "")
 
+
+                    @*@foreach (var img in service.StringsAsStrings.Split(','))
+        {
+            if (img != "")
+
+            {
+                <div>
+                    <img src="~/UploadedFiles/@img" style="max-width:200px" />
+                </div>
+            }
+
+        }
+                    *@
+
+
+                    @if (service.StringsAsStrings != null)
+                    {
+                        <div id="SlideshowImages2" class="">
+                            @foreach (var img in service.StringsAsStrings.Split(','))
                             {
-                                <div>
-                                    <img src="~/UploadedFiles/@img" style="max-width:200px" />
-                                </div>
+
+                                if (img != "")
+                                {
+                                    string s = "~/UserImages/" + img;
+                                    Console.WriteLine(s);
+                                    <div> <img src=@s height="100" width="100"> </div>
+                                }
                             }
 
-                        }*@
-                        @if (User.IsInRole("Client"))
+                        </div>
+                    }
+
+                    
+
+
+                    @if (User.IsInRole("Client"))
+                    {
+                        using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
                         {
-                            using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
-                            {
-                                @Html.Hidden("ServiceId", service.Id)
-                                @Html.HiddenFor(m => m.SalonId)
-                                <button class="btn btn-block default" type="submit">
-                                    <span>РЕЗЕРВИРАЈ</span>
-                                </button>
-                            }
-
-
+                            @Html.Hidden("ServiceId", service.Id)
+                            @Html.HiddenFor(m => m.SalonId)
+                            <button class="btn default" type="submit" style="position: relative;right: -284px;top: -25px;float: right;">
+                                <span>РЕЗЕРВИРАЈ</span>
+                            </button>
                         }
 
+                    }
 
-                    </div>
+
+                </div>
                 }
             </div>
             @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
@@ -207,9 +231,9 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#SlideshowImages > div:gt(0)").hide();
+            $("#SlideshowImages2 > div:gt(0)").hide();
             setInterval(function () {
-                $('#SlideshowImages > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages');
+                $('#SlideshowImages2 > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages2');
             }, 3000);
         });
 

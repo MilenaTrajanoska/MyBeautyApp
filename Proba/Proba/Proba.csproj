@@ -563,6 +563,14 @@
     <Compile Include="Migrations\202009061210554_stars.Designer.cs">
       <DependentUpon>202009061210554_stars.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009061550044_stingsAsStrings.cs" />
+    <Compile Include="Migrations\202009061550044_stingsAsStrings.Designer.cs">
+      <DependentUpon>202009061550044_stingsAsStrings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009061646524_stingsAsStrings2.cs" />
+    <Compile Include="Migrations\202009061646524_stingsAsStrings2.Designer.cs">
+      <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -960,6 +968,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009061210554_stars.resx">
       <DependentUpon>202009061210554_stars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009061550044_stingsAsStrings.resx">
+      <DependentUpon>202009061550044_stingsAsStrings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009061646524_stingsAsStrings2.resx">
+      <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

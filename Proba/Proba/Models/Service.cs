@@ -49,7 +49,7 @@ namespace Proba.Models
         public Service()
         {
             files = new List<HttpPostedFileBase>();
-            
+            StringsAsStrings = "";
         }
 
 
