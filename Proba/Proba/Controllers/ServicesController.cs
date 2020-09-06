@@ -137,6 +137,13 @@ namespace Proba.Controllers
             var saloni = getSaloniSoUsluga(type);
             return View(saloni);
         }
+        public ActionResult ServicePARTIAL(Type type)
+        {
+            ViewBag.Message = "УСЛУГА " + type;
+            ViewBag.Id = "table" + type.ToString();
+            var saloni =  getSaloniSoUsluga(type);
+            return PartialView(saloni);
+        }
 
 
         public List<Salon> getSaloniSoUsluga(Type usluga)

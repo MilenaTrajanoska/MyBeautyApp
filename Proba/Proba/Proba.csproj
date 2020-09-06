@@ -923,6 +923,7 @@
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Salons\Edit.cshtml" />
+    <Content Include="Views\Services\ServicePARTIAL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

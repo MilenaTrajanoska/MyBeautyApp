@@ -12,7 +12,33 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>КОСА</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга коса", "ServiceK", "Services",new { type = Type.КОСА },null)
+            @*@Html.ActionLink("Пребарај салони со услуга коса", "ServiceK", "Services",new { type = Type.КОСА },null)*@
+
+            <div>
+                @using (Ajax.BeginForm("ServicePARTIAL", "Services", new { type = Type.КОСА },
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loaderKOSA",
+                                            UpdateTargetId = "searchResultsKOSA",
+                                            OnSuccess = "success "
+                                        }))
+                {
+                    <div class="row margin-y-1p">
+                        <div class="col-lg-1 h-100 w-49-f-left">
+                            <input type="submit" class="btn-link default" style="border-radius: 5px;"
+                                   value="Пребарај салони со услуга коса" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <img id="ajax-loaderKOSA" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                             style=" max-width: 50%; margin: 0 25%;" />
+                    </div>
+                }
+
+            </div>
         </div>
 
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
@@ -44,6 +70,11 @@
                     </a>
                 </div>
             </div>
+
+        </div>
+
+        <br /><br /><br /><br /><br />
+        <div id="searchResultsKOSA">
 
         </div>
     </div>
@@ -54,7 +85,31 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>ШМИНКА</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга шминка", "ServiceK", "Services", new { type = Type.ШМИНКА }, null)
+            @*@Html.ActionLink("Пребарај салони со услуга шминка", "ServiceK", "Services", new { type = Type.ШМИНКА }, null)*@
+            <div>
+                @using (Ajax.BeginForm("ServicePARTIAL", "Services", new { type = Type.ШМИНКА },
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loaderSHMINKA",
+                                            UpdateTargetId = "searchResultsSHMINKA",
+                                            OnSuccess = "success "
+                                        }))
+                {
+                    <div class="row margin-y-1p">
+                        <div class="col-lg-1 h-100 w-49-f-left">
+                            <input type="submit" class="btn-link default" style="border-radius: 5px;"
+                                   value="Пребарај салони со услуга шминка" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <img id="ajax-loaderSHMINKA" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                             style=" max-width: 50%; margin: 0 25%;" />
+                    </div>
+                }
+            </div>
         </div>
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
             <div class="responsive">
@@ -85,6 +140,11 @@
                     </a>
                 </div>
             </div>
+
+        </div>
+
+        <br /><br /><br /><br /><br />
+        <div id="searchResultsSHMINKA">
 
         </div>
     </div>
@@ -95,8 +155,34 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>МАНИКИР</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга маникир", "ServiceK", "Services", new { type = Type.МАНИКИР }, null)
+            @*@Html.ActionLink("Пребарај салони со услуга маникир", "ServiceK", "Services", new { type = Type.МАНИКИР }, null)*@
+            <div>
+                @using (Ajax.BeginForm("ServicePARTIAL", "Services", new { type = Type.МАНИКИР },
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loaderMANIKIR",
+                                            UpdateTargetId = "searchResultsMANIKIR",
+                                            OnSuccess = "success "
+                                        }))
+                {
+                    <div class="row margin-y-1p">
+                        <div class="col-lg-1 h-100 w-49-f-left">
+                            <input type="submit" class="btn-link default" style="border-radius: 5px;"
+                                   value="Пребарај салони со услуга маникир" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <img id="ajax-loaderMANIKIR" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                             style=" max-width: 50%; margin: 0 25%;" />
+                    </div>
+                }
+
+            </div>
         </div>
+
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
             <div class="responsive">
                 <div class="gallery">
@@ -126,6 +212,10 @@
                     </a>
                 </div>
             </div>
+
+        </div>
+        <br /><br /><br /><br /><br />
+        <div id="searchResultsMANIKIR">
 
         </div>
     </div>
@@ -136,7 +226,32 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>ПЕДИКИР</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга педикир", "ServiceK", "Services", new { type = Type.ПЕДИКИР }, null)
+            @*@Html.ActionLink("Пребарај салони со услуга педикир", "ServiceK", "Services", new { type = Type.ПЕДИКИР }, null)*@
+            <div>
+                @using (Ajax.BeginForm("ServicePARTIAL", "Services", new { type = Type.ПЕДИКИР },
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loaderPEDIKIR",
+                                            UpdateTargetId = "searchResultsPEDIKIR",
+                                            OnSuccess = "success "
+                                        }))
+                {
+                    <div class="row margin-y-1p">
+                        <div class="col-lg-1 h-100 w-49-f-left">
+                            <input type="submit" class="btn-link default" style="border-radius: 5px;"
+                                   value="Пребарај салони со услуга педикир" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <img id="ajax-loaderPEDIKIR" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                             style=" max-width: 50%; margin: 0 25%;" />
+                    </div>
+                }
+
+            </div>
         </div>
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
             <div class="responsive">
@@ -167,6 +282,11 @@
                     </a>
                 </div>
             </div>
+
+        </div>
+
+        <br /><br /><br /><br /><br />
+        <div id="searchResultsPEDIKIR">
 
         </div>
     </div>
@@ -177,7 +297,32 @@
         <div class="col-lg-6 h-100 d-inline-block">
             <h3>ДЕПИЛАЦИЈА</h3>
 
-            @Html.ActionLink("Пребарај салони со услуга депилација", "ServiceK", "Services", new { type = Type.ДЕПИЛАЦИЈА }, null)
+            @*@Html.ActionLink("Пребарај салони со услуга депилација", "ServiceK", "Services", new { type = Type.ДЕПИЛАЦИЈА }, null)*@
+            <div>
+                @using (Ajax.BeginForm("ServicePARTIAL", "Services", new { type = Type.ДЕПИЛАЦИЈА },
+                                        new AjaxOptions
+                                        {
+                                            InsertionMode = InsertionMode.Replace,
+                                            HttpMethod = "GET",
+                                            OnFailure = "searchFailed",
+                                            LoadingElementId = "ajax-loaderDEPILACIJA",
+                                            UpdateTargetId = "searchResultsDEPILACIJA",
+                                            OnSuccess = "success "
+                                        }))
+                {
+                    <div class="row margin-y-1p">
+                        <div class="col-lg-1 h-100 w-49-f-left">
+                            <input type="submit" class="btn-link default" style="border-radius: 5px;"
+                                   value="Пребарај салони со услуга депилација" />
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <img id="ajax-loaderDEPILACIJA" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+                             style=" max-width: 50%; margin: 0 25%;" />
+                    </div>
+                }
+
+            </div>
         </div>
         <div style="float:right" class="col-lg-6 h-100 d-inline-block">
             <div class="responsive">
@@ -208,6 +353,11 @@
                     </a>
                 </div>
             </div>
+
+        </div>
+
+        <br /><br /><br /><br /><br />
+        <div id="searchResultsDEPILACIJA">
 
         </div>
     </div>

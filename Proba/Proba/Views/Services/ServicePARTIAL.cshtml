@@ -1,0 +1,91 @@
+﻿
+@model IEnumerable<Proba.Models.Salon>
+@using System.Configuration;
+
+@{
+    ViewBag.Title = ViewBag.Message;
+}
+
+@*<h2 class="naslov-formi">@ViewBag.Title</h2>*@
+
+
+<br />
+<br />
+<table id="@ViewBag.Id" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+
+            <th>
+
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+
+                <td>
+                    <img src="~/UserImages/@item.ImagePath" style="max-width:200px" />
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
+                <td>
+                    <button class="btn btn-block default" style="margin:10% 0;"
+                            onclick="location.href='@Url.Action("Details","Salons", new { id = item.UserId })'">
+                        <span>Види повеќе</span>
+                    </button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section Scripts{
+    <script>
+        $('#@ViewBag.Id').DataTable({ sDom: 'lrtip' });
+        $(document).ready(function () {
+            $("#@ViewBag.Id").DataTable();
+        });
+    </script>
+}
+
+
+
+
+
