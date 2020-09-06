@@ -157,7 +157,7 @@ a {
 
 
 /*   STARS  */
-.box{
+/*.box{
     position:absolute;
     top:50%;
     left:50%;
@@ -190,4 +190,9 @@ a {
 .b5:hover ~ a {
     color: #f1c40f;
 }
+*/
 
+
+.max-width-25-px{
+    max-width: 25px;
+}

@@ -559,6 +559,10 @@
     <Compile Include="Migrations\202009051330347_removedAttrRequiredSalon.Designer.cs">
       <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009061210554_stars.cs" />
+    <Compile Include="Migrations\202009061210554_stars.Designer.cs">
+      <DependentUpon>202009061210554_stars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -953,6 +957,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009051330347_removedAttrRequiredSalon.resx">
       <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009061210554_stars.resx">
+      <DependentUpon>202009061210554_stars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

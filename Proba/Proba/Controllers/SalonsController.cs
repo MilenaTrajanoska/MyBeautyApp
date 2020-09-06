@@ -257,5 +257,35 @@ namespace Proba.Controllers
             base.Dispose(disposing);
         }
 
+
+
+
+
+        // rate\
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult PostRating(int rating, int mid)
+        {
+            //save data into the database
+            Console.WriteLine(rating + " " + mid);
+            
+            //save into the database 
+           // db.Salons.Find()
+           // db.SaveChanges();
+            return Json("You rated this " + rating.ToString() + " star(s)");
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
