@@ -79,7 +79,9 @@
 @section Scripts{
     <script>
         var refreshed = false;
-        var table = $("#table").DataTable();
+        var table = $("#table").DataTable({
+            "order": [[6, "desc"]]
+        });
         $("#table .js-delete").click(function () {
             var button = $(this);
             if (confirm("Дали сте сигурни дека сакате да ја откажете резервацијата?")) {
@@ -90,7 +92,7 @@
                     url: "/Reservations/Delete/" + button.attr("data-id"),
                     success: function () {
                         table.row(button.parents("tr")).remove().draw();
-                        window.location.href = window.location.href;
+                        location.reload();
                     }
                 });
 
