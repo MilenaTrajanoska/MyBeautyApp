@@ -36,28 +36,28 @@
 
 
         @*<div class="form-group">
-                <div class="box">
-                    <a class="star b1"></a>
-                    <a class="star b2"></a>
-                    <a class="star b3"></a>
-                    <a class="star b4"></a>
-                    <a class="star b5"></a>
-                    <ion-icon name="star"></ion-icon>
-                </div>
-            </div>*@
+            <div class="box">
+                <a class="star b1"></a>
+                <a class="star b2"></a>
+                <a class="star b3"></a>
+                <a class="star b4"></a>
+                <a class="star b5"></a>
+                <ion-icon name="star"></ion-icon>
+            </div>
+        </div>*@
         @*<div class="form-group">
-                <div class="container" style="margin-top:35px">
-                    <div class="ratings">
-                        <input type="radio" name="star" id="rating" value="1" />
-                        <input type="radio" name="star" id="rating" value="2" />
-                        <input type="radio" name="star" id="rating" value="3" />
-                        <input type="radio" name="star" id="rating" value="4" />
-                        <input type="radio" name="star" id="rating" value="5" />
-                    </div>
-                    <br />
-                    <span class="info"></span>
+            <div class="container" style="margin-top:35px">
+                <div class="ratings">
+                    <input type="radio" name="star" id="rating" value="1" />
+                    <input type="radio" name="star" id="rating" value="2" />
+                    <input type="radio" name="star" id="rating" value="3" />
+                    <input type="radio" name="star" id="rating" value="4" />
+                    <input type="radio" name="star" id="rating" value="5" />
                 </div>
-            </div>*@
+                <br />
+                <span class="info"></span>
+            </div>
+        </div>*@
 
 
         <div class="form-group">
@@ -88,12 +88,18 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group tagg">
             <div class="col-md-2">
-                @Html.LabelFor(model => model.Salon.numChairs)
+                <p>hey</p>
             </div>
             <div class="col-md-6">
-                @Html.Label(Model.Salon.numChairs.ToString())
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" />
+
+                <div class="result"></div>
             </div>
         </div>
 
@@ -116,16 +122,16 @@
                         </div>
 
                         @*@foreach (var img in service.StringsAsStrings.Split(','))
+                        {
+                            if (img != "")
+
                             {
-                                if (img != "")
+                                <div>
+                                    <img src="~/UploadedFiles/@img" style="max-width:200px" />
+                                </div>
+                            }
 
-                                {
-                                    <div>
-                                        <img src="~/UploadedFiles/@img" style="max-width:200px" />
-                                    </div>
-                                }
-
-                            }*@
+                        }*@
                         @if (User.IsInRole("Client"))
                         {
                             using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
@@ -168,20 +174,7 @@
 
 
 
-        <div class="form-group">
-            <div class="col-md-2">
-                <p>hey</p>
-            </div>
-            <div class="col-md-6">
-                <img  src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" mid="@Model.ClientId" />
-                <img  src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" mid="@Model.ClientId" />
-                <img  src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" mid="@Model.ClientId" />
-                <img  src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" mid="@Model.ClientId" />
-                <img  src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" mid="@Model.ClientId" />
 
-                <div class="result"></div>
-            </div>
-        </div>
 
     </div>
 </div>
@@ -256,9 +249,10 @@
                         $(this).css('color', 'red');
                         // alert(e.currentTarget + ' was clicked!');
                         // call ajax methods to update database
-                        var url = "/Salons/PostRating?rating=" + parseInt($(this).attr("id")) + "&mid=" + parseInt($(this).attr("mid"));
+                        var url = "/Salons/PostRating?rating=" + parseInt($(this).attr("id")) ;
+ //                       var url = "/Salons/PostRating";
                         $.post(url, null, function (data) {
-                            $(e.currentTarget).closest('tr').find('div.result').text(data).css('color', 'red') // $("#result").text(data);
+                            $(e.currentTarget).closest('div.tagg').find('div.result').text(data).css('color', 'red') // $("#result").text(data);
                         });
                     });
                 });
@@ -269,8 +263,8 @@
                 }
                 function refilRating(img1)
                 {
-                    var rt = $(img1).closest('tr').find("span.avr").text();
-                    var img = $(img1).closest('tr').find("img[id='" + parseInt(rt) + "']");
+                    var rt = $(img1).closest('div.tagg').find("span.avr").text();
+                    var img = $(img1).closest('div.tagg').find("img[id='" + parseInt(rt) + "']");
                     img.attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png").prevAll("img.rating").attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png");
                 }
             </script>

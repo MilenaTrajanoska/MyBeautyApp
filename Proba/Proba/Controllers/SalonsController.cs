@@ -263,17 +263,22 @@ namespace Proba.Controllers
 
         // rate\
         [AcceptVerbs(HttpVerbs.Post)]
-        public JsonResult PostRating(int rating, int mid)
+        public JsonResult PostRating(int rating)
         {
             //save data into the database
-            Console.WriteLine(rating + " " + mid);
-            
-            //save into the database 
+            Console.WriteLine(rating);
+
+             //save into the database 
            // db.Salons.Find()
            // db.SaveChanges();
-            return Json("You rated this " + rating.ToString() + " star(s)");
+            return Json("Го оценивте салонот со " + rating.ToString() + " ѕвезди.");
 
         }
+        //public JsonResult PostRating()
+        //{
+        //    return Json("You rated this   star(s)");
+
+        //}
 
 
 
