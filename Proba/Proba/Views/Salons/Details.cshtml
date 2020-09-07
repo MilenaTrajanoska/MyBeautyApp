@@ -112,12 +112,12 @@
                @foreach (var service in Model.Salon.Services)
                 {
 
-                <div class="form-group">
-                    <div class="col-md-4" style="padding-top: 45px;">
+                <div class="">
+                    <div class="col-md-4" style="margin:10% 0;">
                         @Html.Label(service.Name)
                     </div>
 
-                    <div class="col-md-3" style="padding-top: 45px;">
+                    <div class="col-md-3" style="margin:10% 0;">
                         @Html.Label(service.Price.ToString()) ден.
                     </div>
 
@@ -163,7 +163,7 @@
                         {
                             @Html.Hidden("ServiceId", service.Id)
                             @Html.HiddenFor(m => m.SalonId)
-                            <button class="btn default" type="submit" style="position: relative;right: -284px;top: -25px;float: right;">
+                            <button class="btn default" type="submit" style="position: absolute;margin:45px 0 30px 0">
                                 <span>РЕЗЕРВИРАЈ</span>
                             </button>
                         }
@@ -175,9 +175,11 @@
                 }
             </div>
             @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
-            {
+             {
+                <div class="btn default links" style="position:relative;float:left;margin:5%;">
                 @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index", "Reservations", new { Id = Model.SalonId }, null)
-            }
+                </div>
+             }
         </div>
 
 

@@ -89,6 +89,10 @@ a {
             right: 0;
         }
 
+.links > a:hover{
+    color:white;
+}
+
 .bg-transparent {
     background-color: transparent !important;
 }
