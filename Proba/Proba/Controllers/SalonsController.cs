@@ -64,7 +64,22 @@ namespace Proba.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).Include(s=>s.User).First();
-
+            Vote vote = null;
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                vote = db.Votes.Where(v => v.ClientId == userId && v.SalonId == id).FirstOrDefault();
+            }
+        
+            if  (vote != null) 
+            {
+                ViewBag.votes = vote.vote;
+                ViewBag.salon = salon.UserId;
+            }
+            else
+            {
+                ViewBag.votes = 0;
+            }
             var model = new DetailsReservationViewModel()
             {
                 Salon = salon,
@@ -263,11 +278,21 @@ namespace Proba.Controllers
 
         // rate\
         [AcceptVerbs(HttpVerbs.Post)]
-        public JsonResult PostRating(int rating)
+        public JsonResult PostRating(int rating, string salonId)
         {
+            var Vote = new Vote
+            {
+                Id = Guid.NewGuid().ToString(),
+                ClientId = User.Identity.GetUserId(),
+                SalonId = salonId,
+                vote = rating
+            };
+            var salon = db.Salons.Find(salonId);
+            salon.addVote(rating);
             //save data into the database
             Console.WriteLine(rating);
-
+            db.Votes.Add(Vote);
+            db.SaveChanges();
              //save into the database 
            // db.Salons.Find()
            // db.SaveChanges();

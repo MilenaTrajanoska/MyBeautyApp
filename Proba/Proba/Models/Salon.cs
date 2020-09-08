@@ -44,6 +44,7 @@ namespace Proba.Models
         public DateTime DataNaKreiranje { get; set; }
 
         public Dictionary<string,int> VotersMap { get; set; }
+        public virtual List<Vote> votes { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
@@ -60,13 +61,9 @@ namespace Proba.Models
             return Rating;
         }
 
-        public void addVote(string voter,int n)
+        public void addVote(int n)
         {
-            if (VotersMap.ContainsKey(voter))
-            {
-                return;
-            }
-            VotersMap.Add(voter,n);
+          
             RatePoints += n;
             ++NumReviews;
             Rating = RatePoints / NumReviews;
@@ -93,8 +90,7 @@ namespace Proba.Models
             NumReviews = 0;
             Rating = 0;
             DataNaKreiranje = DateTime.Now;
-            
-            
+            votes = new List<Vote>();            
         }
     }
    

@@ -92,17 +92,36 @@
             <div class="col-md-2">
                 <p><b>Оцени го салонот</b></p>
             </div>
-            <div class="col-md-6">
-                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" />
-                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" />
-                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" />
-                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" />
-                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" />
 
-                <div class="result"></div>
-            </div>
+
+          
+                <div id="toVote" class="col-md-6" style="display:none">
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" />
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" />
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" />
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" />
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" />
+
+
+
+                    <div class="result"></div>
+                </div>
+                <div id="voted" style="display:none">
+                    @{
+                    int red = ViewBag.votes;
+                    for (int i = 0; i < red; i++)
+                    {
+                    <img src="~/UploadedFiles/stars/589px-Star_empty.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
+                    }
+                    for(int i = 5; i > red; i--)
+                    {
+                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
+                    }
+
+                    }
+                </div>
         </div>
-
+            
 
         <div class="form-group">
             <div class="col-md-2">
@@ -237,6 +256,12 @@
             setInterval(function () {
                 $('#SlideshowImages2 > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages2');
             }, 3000);
+            var votes = parseInt(@ViewBag.votes);
+            if (votes == 0) {
+                $("#toVote").css("display", "block");
+            } else {
+                $("#voted").css("display", "block");
+            }
         });
 
             //$(".ratings").rating(function (vote, event) {
@@ -257,7 +282,7 @@
 
 
 
-         <script type="text/javascript">
+        <script type="text/javascript">
                 $(function () {
                     $("img.rating").mouseover(function () {
                         //full
@@ -275,10 +300,13 @@
                         $(this).css('color', 'red');
                         // alert(e.currentTarget + ' was clicked!');
                         // call ajax methods to update database
-                        var url = "/Salons/PostRating?rating=" + parseInt($(this).attr("id")) ;
+                        var salonId = "@ViewBag.salon";
+                        var url = "/Salons/PostRating?rating=" + parseInt($(this).attr("id")) + "&salonId=";
+                        var url = url.concat(@Html.Raw(Json.Encode(Model.SalonId)));
  //                       var url = "/Salons/PostRating";
                         $.post(url, null, function (data) {
                             $(e.currentTarget).closest('div.tagg').find('div.result').text(data).css('color', 'red') // $("#result").text(data);
+                            location.reload();
                         });
                     });
                 });
@@ -293,7 +321,7 @@
                     var img = $(img1).closest('div.tagg').find("img[id='" + parseInt(rt) + "']");
                     img.attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png").prevAll("img.rating").attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png");
                 }
-            </script>
+        </script>
        
 
 }

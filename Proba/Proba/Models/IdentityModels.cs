@@ -44,5 +44,6 @@ namespace Proba.Models
         public DbSet<Service> Services { get; set; }
 
         public System.Data.Entity.DbSet<Proba.Models.Reservation> Reservations { get; set; }
+        public DbSet<Vote> Votes { get; set; }
     }
 }

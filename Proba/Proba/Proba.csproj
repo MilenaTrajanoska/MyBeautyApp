@@ -571,6 +571,14 @@
     <Compile Include="Migrations\202009061646524_stingsAsStrings2.Designer.cs">
       <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009082131272_addedVotesClass.cs" />
+    <Compile Include="Migrations\202009082131272_addedVotesClass.Designer.cs">
+      <DependentUpon>202009082131272_addedVotesClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009082134395_addedDbSet.cs" />
+    <Compile Include="Migrations\202009082134395_addedDbSet.Designer.cs">
+      <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -582,6 +590,7 @@
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Salon.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -975,6 +984,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009061646524_stingsAsStrings2.resx">
       <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082131272_addedVotesClass.resx">
+      <DependentUpon>202009082131272_addedVotesClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082134395_addedDbSet.resx">
+      <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

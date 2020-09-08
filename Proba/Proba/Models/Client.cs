@@ -47,9 +47,11 @@ namespace Proba.Models
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFile;
         public Dictionary<DateTime, List<Reservation>> Reservations { get; set; }
+        public virtual List<Vote> votes { get; set; }
         public Client()
            {
             Reservations = new Dictionary<DateTime, List<Reservation>>();
+            votes = new List<Vote>();
            }
     }
 }
