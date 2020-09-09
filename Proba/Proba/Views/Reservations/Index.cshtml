@@ -8,11 +8,17 @@
                 @Html.DisplayNameFor(model => model.Salon.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Client.ClientName)
+                @if (User.IsInRole("Salon"))
+                {
+                   @Html.DisplayNameFor(model => model.Client.ClientName)
+                }
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Client.ClientSurname)
-            </th>
+                @if (User.IsInRole("Salon"))
+                {
+                    @Html.DisplayNameFor(model => model.Client.ClientSurname)
+                }
+                
             <th>
                 @Html.DisplayNameFor(model => model.Service.Name)
             </th>
@@ -41,11 +47,17 @@
                     @Html.DisplayFor(modelItem => item.Salon.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Client.ClientName)
-                </td>
+                    @if (User.IsInRole("Salon"))
+                    {
+                        @Html.DisplayFor(modelItem => item.Client.ClientName)
+                    }
+                    
                 <td>
-                    @Html.DisplayFor(modelItem => item.Client.ClientSurname)
-                </td>
+                    @if (User.IsInRole("Salon"))
+                    {
+                        @Html.DisplayFor(modelItem => item.Client.ClientSurname)
+                    }
+                    
                 <td>
                     @Html.DisplayFor(modelItem => item.Service.Name)
                 </td>
