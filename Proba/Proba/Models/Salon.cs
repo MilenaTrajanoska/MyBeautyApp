@@ -63,9 +63,8 @@ namespace Proba.Models
 
         public void addVote(int n)
         {
-          
             RatePoints += n;
-            ++NumReviews;
+            NumReviews++;
             Rating = RatePoints / NumReviews;
         }
 

@@ -36,28 +36,28 @@
 
 
         @*<div class="form-group">
-            <div class="box">
-                <a class="star b1"></a>
-                <a class="star b2"></a>
-                <a class="star b3"></a>
-                <a class="star b4"></a>
-                <a class="star b5"></a>
-                <ion-icon name="star"></ion-icon>
-            </div>
-        </div>*@
-        @*<div class="form-group">
-            <div class="container" style="margin-top:35px">
-                <div class="ratings">
-                    <input type="radio" name="star" id="rating" value="1" />
-                    <input type="radio" name="star" id="rating" value="2" />
-                    <input type="radio" name="star" id="rating" value="3" />
-                    <input type="radio" name="star" id="rating" value="4" />
-                    <input type="radio" name="star" id="rating" value="5" />
+                <div class="box">
+                    <a class="star b1"></a>
+                    <a class="star b2"></a>
+                    <a class="star b3"></a>
+                    <a class="star b4"></a>
+                    <a class="star b5"></a>
+                    <ion-icon name="star"></ion-icon>
                 </div>
-                <br />
-                <span class="info"></span>
-            </div>
-        </div>*@
+            </div>*@
+        @*<div class="form-group">
+                <div class="container" style="margin-top:35px">
+                    <div class="ratings">
+                        <input type="radio" name="star" id="rating" value="1" />
+                        <input type="radio" name="star" id="rating" value="2" />
+                        <input type="radio" name="star" id="rating" value="3" />
+                        <input type="radio" name="star" id="rating" value="4" />
+                        <input type="radio" name="star" id="rating" value="5" />
+                    </div>
+                    <br />
+                    <span class="info"></span>
+                </div>
+            </div>*@
 
 
         <div class="form-group">
@@ -83,123 +83,135 @@
                 @Html.LabelFor(model => model.Salon.Rating)
             </div>
             <div class="col-md-6">
-                @Html.Label(Model.Salon.Rating.ToString())
+                <p>@string.Format("{0:n2}", Model.Salon.Rating)</p>
             </div>
         </div>
 
-
+        @if (User.Identity.IsAuthenticated)
+        {
         <div class="form-group tagg">
             <div class="col-md-2">
                 <p><b>Оцени го салонот</b></p>
             </div>
 
 
-          
-                <div id="toVote" class="col-md-6" style="display:none">
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" />
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" />
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" />
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" />
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" />
 
-
-
-                    <div class="result"></div>
-                </div>
-                <div id="voted" style="display:none">
-                    @{
+            <div id="toVote" class="col-md-6" style="display:none">
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="1" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="2" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="3" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="4" class="rating max-width-25-px" />
+                <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" id="5" class="rating max-width-25-px" />
+                <div class="result"></div>
+            </div>
+            <div id="voted" style="display:none">
+                @{
                     int red = ViewBag.votes;
                     for (int i = 0; i < red; i++)
                     {
-                    <img src="~/UploadedFiles/stars/589px-Star_empty.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
+                        <img src="~/UploadedFiles/stars/589px-Star_empty.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
                     }
-                    for(int i = 5; i > red; i--)
+                    for (int i = 5; i > red; i--)
                     {
-                    <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
+                        <img src="~/UploadedFiles/stars/1024px-Empty_Star.svg.png" alt="Star Rating" align="middle" class="max-width-25-px" />
                     }
 
-                    }
-                </div>
-        </div>
-            
-
-        <div class="form-group">
-            <div class="col-md-2">
-                @Html.LabelFor(model => model.Salon.Services)
-            </div>
-            <div class="col-md-6" style="color: #555555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);padding: 0px 3%;">
-               @foreach (var service in Model.Salon.Services)
-                {
-
-                <div class="col-lg-10">
-                    <div class="col-md-4" style="margin:10% 0;">
-                        @Html.Label(service.Name)
-                    </div>
-
-                    <div class="col-md-3" style="margin:10% 0;">
-                        @Html.Label(service.Price.ToString()) ден.
-                    </div>
-
-
-
-                    @*@foreach (var img in service.StringsAsStrings.Split(','))
-        {
-            if (img != "")
-
-            {
-                <div>
-                    <img src="~/UploadedFiles/@img" style="max-width:200px" />
-                </div>
-            }
-
-        }
-                    *@
-
-
-                    @if (service.StringsAsStrings != null)
-                    {
-                        <div id="SlideshowImages2" class="">
-                            @foreach (var img in service.StringsAsStrings.Split(','))
-                            {
-
-                                if (img != "")
-                                {
-                                    string s = "/UploadedFiles/" + img;
-                                    Console.WriteLine(s);
-                                    <div> <img src=@s height="100" width="100"> </div>
-                                }
-                            }
-
-                        </div>
-                    }
-
-                    
-
-
-                    @if (User.IsInRole("Client"))
-                    {
-                        using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
-                        {
-                            @Html.Hidden("ServiceId", service.Id)
-                            @Html.HiddenFor(m => m.SalonId)
-                            <button class="btn default" type="submit" style="position: absolute;margin:45px 0 30px 0">
-                                <span>РЕЗЕРВИРАЈ</span>
-                            </button>
-                        }
-
-                    }
-
-
-                </div>
                 }
             </div>
-            @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
-             {
-                <div class="btn default links" style="position:relative;float:left;margin:5%;">
-                @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index", "Reservations", new { Id = Model.SalonId }, null)
-                </div>
-             }
         </div>
+       }
+        <table class="form-group">
+            <thead>
+                <tr class="col-md-2">
+                    <td>@Html.LabelFor(model => model.Salon.Services)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var service in Model.Salon.Services)
+                {
+
+                <tr>
+                    <td class="col-md-6" style="margin:10% 0;">
+                        @Html.Label(service.Name)
+                    </td>
+                
+                        <td class="col-md-6" style="margin:10% 0;">
+                            @Html.Label(service.Price.ToString()) ден.
+                        </td>
+
+               
+                         @if (service.StringsAsStrings != null)
+                         {
+                         <td class="col-md-6">
+                             <button onclick="openModal();currentSlide(1)" class="btn btn-default kopce-formi">Прегледај галерија</button><br />
+
+
+                             <!-- The Modal/Lightbox -->
+                             <div id="myModal" class="modal">
+                                 <div style="float:right;padding-right:30px">
+                                     <p style="color:coral;font-size:50px;cursor:pointer" onclick="closeModal()">&times;</p>
+                                 </div>
+                                 <div class="modal-content" style="clear:both">
+                                     @{
+
+                                         int index = 0;
+                                         foreach (var img in service.StringsAsStrings.Substring(0, service.StringsAsStrings.Length-2).Split(','))
+                                         {
+                                             if (!img.IsEmpty())
+                                             {
+                                                 index++;
+                                                 <div class="mySlides">
+                                                     <div class="numbertext" style="color:coral">@index</div>
+                                                     <img src="~/UploadedFiles/@img" style="max-width:100%">
+                                                 </div>
+                                             }
+                                         }
+                                     }
+
+
+                                     <!-- Next/previous controls -->
+                                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                                     <!-- Caption text -->
+                                     <div class="caption-container">
+                                         <p id="caption"></p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </td>
+                         }
+
+                     
+                         <td class="col-md-6">
+                             @if (User.IsInRole("Client"))
+                             {
+
+                                 using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
+                                 {
+                                     @Html.Hidden("ServiceId", service.Id)
+                                     @Html.HiddenFor(m => m.SalonId)
+                                     <button class="btn default" type="submit" stylresource="margin:45px 0 30px 0">
+                                         <span>РЕЗЕРВИРАЈ</span>
+                                     </button>
+                                 }
+
+                             }
+
+                         </td>
+                     </tr>
+                }
+            </tbody>
+            </table>
+        <div class="col-md-4">
+            @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
+            {
+                <div class="btn default links" style="margin:5%;">
+                    @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index", "Reservations", new { Id = Model.SalonId }, null)
+                </div>
+            }
+        </div>
+        </table>
 
 
 
@@ -280,8 +292,6 @@
     <@*script type="text/javascript" src="../src/rating.js"></script>
     <link rel="*@stylesheet" href="../src/rating.css" type="text/css" media="screen" title="Rating CSS">
 
-
-
         <script type="text/javascript">
                 $(function () {
                     $("img.rating").mouseover(function () {
@@ -322,8 +332,9 @@
                     img.attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png").prevAll("img.rating").attr("src", "~/UploadedFiles/stars/589px-Star_empty.svg.png");
                 }
         </script>
-       
-
+        <script src="~/Scripts/gallery.js" type="text/javascript">
+        </script>
+        <link href="@Url.Content("~/Content/css-stilovi/gallery.css")" rel="stylesheet" type="text/css" />
 }
 
 

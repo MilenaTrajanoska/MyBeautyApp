@@ -297,21 +297,6 @@ namespace Proba.Controllers
            // db.Salons.Find()
            // db.SaveChanges();
             return Json("Го оценивте салонот со " + rating.ToString() + " ѕвезди.");
-
         }
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
