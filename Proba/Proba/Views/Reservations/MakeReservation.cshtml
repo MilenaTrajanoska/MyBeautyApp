@@ -6,39 +6,43 @@
 <h3>Резервации за салон @Model.Salon.Name</h3>
 <br />
 <br />
-<span style="padding:15px">Услуга: <b> @Model.Service.Name</b></span>
-<br />
-<br />
-<span style="padding:15px">Цена на услуга:<b> @Model.Service.Price</b></span>
-<br />
-<br />
-
-@Html.Raw(ViewBag.SuccessMessage)
-@using (Ajax.BeginForm("ReservationTime","Reservations", new AjaxOptions
-{
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "GET",
-    OnFailure = "searchFailed",
-    LoadingElementId = "ajax-loader",
-    UpdateTargetId = "timeSpans",
-    OnSuccess = "success "
-})){
-    @Html.HiddenFor(m => m.ServiceId)
-    @Html.HiddenFor(m => m.SalonId)
-    <div class="form-group">
-        @Html.DisplayNameFor(m => m.Date)<br />
-        @Html.TextBoxFor(m => m.Date, new { @class = "datepicker" })
-  
-    </div>
+<div style="margin-left:10%">
+    <h4>Услуга: <b> @Model.Service.Name</b></h4>
     <br />
-    <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
-}
-<div style="display:none">
-    <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
-         style=" max-width: 50%; margin: 0 25%;" />
+    <br />
+    <h4>Цена на услуга:<b> @Model.Service.Price</b></h4>
+    <br />
+    <br />
+
+    @Html.Raw(ViewBag.SuccessMessage)
+    @using (Ajax.BeginForm("ReservationTime", "Reservations", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET",
+        OnFailure = "searchFailed",
+        LoadingElementId = "ajax-loader",
+        UpdateTargetId = "timeSpans",
+        OnSuccess = "success "
+    }))
+    {
+        @Html.HiddenFor(m => m.ServiceId)
+        @Html.HiddenFor(m => m.SalonId)
+        <div class="form-group">
+            @Html.DisplayNameFor(m => m.Date)<br />
+            @Html.TextBoxFor(m => m.Date, new { @class = "datepicker" })
+
+        </div>
+        <br />
+        <input type="submit" value="Прегледај" class="btn btn-block default kopce-formi" />
+    }
+    <div style="display:none">
+        <img id="ajax-loader" src="@Url.Content("~/UserImages/ajax-loader.gif")"
+             style=" max-width: 50%; margin: 0 25%;" />
+    </div>
 </div>
 
-<div id="timeSpans">
+
+<div id="timeSpans" style="margin-left:10%">
 </div>
 
 @section Scripts {
