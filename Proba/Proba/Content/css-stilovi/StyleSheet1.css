@@ -36,6 +36,16 @@
     font-size: medium;
 }
 
+/*
+    se obiduvam da stavam ubava pozadina
+*/
+
+.uslugi-pozadina {
+    background-image: url(Content/images/uslugi_pozadina.png); 
+    background-repeat: repeat-y;
+    width: 100%;
+    height: 100%
+}
 
 
 /*     veronika     */
