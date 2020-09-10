@@ -8,10 +8,10 @@ div.gallery {
         border: 1px solid #777;
     }
 
-    div.gallery img {
+  /*  div.gallery img {
         width: 100%;
         height: auto;
-    }
+    }*/
 
 div.desc {
     padding: 15px;
@@ -39,4 +39,12 @@ div.desc {
     .responsive {
         width: 100%;
     }
+}
+
+
+
+
+.img-max{
+    max-height:100px !important;
+    max-width:100px !important;
 }
