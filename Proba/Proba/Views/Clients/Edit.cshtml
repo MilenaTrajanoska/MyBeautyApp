@@ -7,7 +7,7 @@
 {
     
     <div class="form-horizontal">
-        <h4>Client</h4>
+        <h4 class="naslov-formi">ПРОМЕНА ВО ПРОФИЛОТ</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UserId)
@@ -67,6 +67,10 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="nazad-formi">
+    @*
+        @Html.ActionLink("Назад", "Details", "Clients", new { id = Model.UserId })
+    *@
+
+
 </div>

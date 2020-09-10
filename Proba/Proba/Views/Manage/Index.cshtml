@@ -1,14 +1,15 @@
 ﻿@model Proba.Models.IndexViewModel
+
 @{
-    ViewBag.Title = "Управувај со поставките за најава";
+    ViewBag.Title = "Промени ги поставките за најава";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2 class="naslov-formi">@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <br />
-    <h4>Промени ги поставките за најава</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>Лозинка:</dt>
@@ -89,6 +90,8 @@
             }*@
         </dd>
     </dl>
+    <p class="nazad-formi">
+        @Html.ActionLink("Назад", "Index", "Home")
+    </p>
 
-    @Html.ActionLink("Назад", "Index", "Home")
 </div>
