@@ -20,11 +20,18 @@
     <table style="border-collapse:collapse; padding:2% !important">
         <thead>
             <tr>
-                <td>
-
+                <td style="padding:2%">
+                    <b>ПОЧЕТОК НА ТЕРМИН</b>
                 </td>
-                <td>
-
+                <td style="text-align:center; padding:3px">
+                </td>
+                <td style=" padding:2%">
+                    <b>КРАЈ НА ТЕРМИН</b> 
+                </td>
+                <td style="text-align:center; padding:30px">
+                </td>
+                <td style="text-align:center; padding:2%">
+                    <b>ДОСТАПНОСТ</b>
                 </td>
             </tr>
         </thead>
@@ -66,53 +73,62 @@
                                 endStr = start.AddMinutes(step).ToString("HH:mm");
                                 start.AddMinutes(-step);
                             }
-                            <td style="padding:1%; margin:20%; display:inline; font-size:large" >
-                               <p> @startStr.ToString() -  @endStr.ToString()</p>
+                            <td style="padding:1%; margin:10px; display:inline-block; font-size:large; text-align:center">
+                                <p> @startStr.ToString()</p>
                             </td>
-                            
-        @{
-            if (((List<Proba.Models.Reservation>)ViewBag.AllReservations)
-             .Contains(new Proba.Models.Reservation()
-             {
-                 StartTime = start,
-                 EndTime = start.AddMinutes(step)
-             }))
-            {
-                <td style="background-color:red;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px; margin:5%">
-                   <h3>РЕЗЕРВИРАНО</h3>
-                </td>
-            }
-            else if ((DateTime.Compare(Model.Date.Date, DateTime.Now.Date) == 0) && ((start.Hour*60+start.Minute)<(DateTime.Now.Hour*60+DateTime.Now.Minute)))
-            {
-                <td style="background-color:lightgray;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px; margin:5%">
-                   <h3>НЕДОСТАПНО</h3>
-                </td>
-            }
-            else
-            {
-                        <td style="padding:1%; margin:5%" >
+                            <td style="padding:3px">
+                                <p>  </p>
+                            </td>
+                            <td style="padding:1%; margin:10px; display:inline-block; font-size:large;text-align:center">
+                                <p>@endStr.ToString()</p>
+                            </td>
+                            <td style="padding:30px">
+                                <p>  </p>
+                            </td>
 
-                            @using(Html.BeginForm("CreateReservation", "Reservations", FormMethod.Post))
+                            @{
+                                if (((List<Proba.Models.Reservation>)ViewBag.AllReservations)
+                                 .Contains(new Proba.Models.Reservation()
+                                 {
+                                     StartTime = start,
+                                     EndTime = start.AddMinutes(step)
+                                 }))
+                                {
+                                    <td style="background-color:red;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px; margin:20px">
+                                        <h3>РЕЗЕРВИРАНО</h3>
+                                    </td>
+                                }
+                                else if ((DateTime.Compare(Model.Date.Date, DateTime.Now.Date) == 0) && ((start.Hour * 60 + start.Minute) < (DateTime.Now.Hour * 60 + DateTime.Now.Minute)))
+                                {
+                                    <td style="background-color:lightgray;color:white; border-radius: 6px;padding-right: 10px; padding-left: 10px; margin:20px">
+                                        <h3>НЕДОСТАПНО</h3>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="padding:1%; margin:20px">
+
+                                        @using (Html.BeginForm("CreateReservation", "Reservations", FormMethod.Post))
                                         {
 
 
-                                @Html.HiddenFor(m => m.ClientId)
-                            @Html.HiddenFor(m => m.SalonId)
-                            @Html.HiddenFor(m => m.ServiceId)
-                            @Html.HiddenFor(m => m.Date)
-                                DateTime s = DateTime.Parse(start.ToString());
-                                DateTime e = DateTime.Parse(start.AddMinutes(step).ToString());
-                                @Html.Hidden("StartTime", s)
-                            @Html.Hidden("EndTime", e)
+                                            @Html.HiddenFor(m => m.ClientId)
+                                            @Html.HiddenFor(m => m.SalonId)
+                                            @Html.HiddenFor(m => m.ServiceId)
+                                            @Html.HiddenFor(m => m.Date)
+                                            DateTime s = DateTime.Parse(start.ToString());
+                                            DateTime e = DateTime.Parse(start.AddMinutes(step).ToString());
+                                            @Html.Hidden("StartTime", s)
+                                            @Html.Hidden("EndTime", e)
 
-                            <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi" />
-                               
-                                 
+                                            <input type="submit" value="РЕЗЕРВИРАЈ" class="btn btn-block default kopce-formi" />
+
+
+                                        }
+                                    </td>
+                                }
                             }
-                        </td>
-            }
-        }
-                            
+
                         </tr>
                     start = start.AddMinutes(step);
                     span -= step;
