@@ -57,7 +57,7 @@ namespace Proba.Controllers
             {   
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.UserId = new SelectList(db.Clients, "Id", "Name", client.UserId);
