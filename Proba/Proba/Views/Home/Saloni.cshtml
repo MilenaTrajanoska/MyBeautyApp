@@ -122,11 +122,38 @@
 
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script>
-        $(".table #searchTable").DataTable();
+        $(".table #searchTable").DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Претходно",
+                    "next": "Следно"
+                },
+                "info": "Прикажани од _START_ до _END_ од вкупно _TOTAL_ ставки",
+                "search": "Пребарај",
+                "lengthMenu": "Прикажи _MENU_ ставки по страна",
+                "zeroRecords": "Не се пронајдени ставки",
+                "infoEmpty": "Не се пронајдени ставки",
+                "infoFiltered": "(филтрирани од _MAX_ вкупно ставки)"
+            },
+        });
         console.log("no!");
 
         function myFunction() {
-            $(".table #searchTable").DataTable();
+            $(".table #searchTable").DataTable({
+                "language": {
+                    "paginate": {
+                        "previous": "Претходно",
+                        "next": "Следно"
+                    },
+                    "info": "Прикажани од _START_ до _END_ од вкупно _TOTAL_ ставки",
+                    "search": "Пребарај",
+                    "lengthMenu": "Прикажи _MENU_ ставки по страна",
+                    "zeroRecords": "Не се пронајдени ставки",
+                    "infoEmpty": "Не се пронајдени ставки",
+                    "infoFiltered": "(филтрирани од _MAX_ вкупно ставки)"
+                },
+
+            });
             console.log("no!");
         }
            

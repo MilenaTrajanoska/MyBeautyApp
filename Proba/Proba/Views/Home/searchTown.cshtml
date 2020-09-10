@@ -72,7 +72,21 @@
 
 
 <script>
-    $('#searchTable').DataTable({ sDom: 'lrtip' });
+    $('#searchTable').DataTable({
+        sDom: 'lrtip',
+            "language": {
+                "paginate": {
+                    "previous": "Претходно",
+                    "next": "Следно"
+                },
+                "info": "Прикажани од _START_ до _END_ од вкупно _TOTAL_ ставки",
+                "search": "Пребарај",
+                "lengthMenu": "Прикажи _MENU_ ставки по страна",
+                "zeroRecords": "Не се пронајдени ставки",
+                "infoEmpty": "Не се пронајдени ставки",
+                "infoFiltered": "(филтрирани од _MAX_ вкупно ставки)"
+            }
+    });
 </script>
 
 
