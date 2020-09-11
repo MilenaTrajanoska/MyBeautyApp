@@ -531,57 +531,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009032151251_initial.cs" />
-    <Compile Include="Migrations\202009032151251_initial.Designer.cs">
-      <DependentUpon>202009032151251_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009032153288_second.cs" />
-    <Compile Include="Migrations\202009032153288_second.Designer.cs">
-      <DependentUpon>202009032153288_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009051208130_addedUserEdit.cs" />
-    <Compile Include="Migrations\202009051208130_addedUserEdit.Designer.cs">
-      <DependentUpon>202009051208130_addedUserEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009051230336_changedAnnotiationImagePath.cs" />
-    <Compile Include="Migrations\202009051230336_changedAnnotiationImagePath.Designer.cs">
-      <DependentUpon>202009051230336_changedAnnotiationImagePath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009051241097_nothing.cs" />
-    <Compile Include="Migrations\202009051241097_nothing.Designer.cs">
-      <DependentUpon>202009051241097_nothing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009051329177_addedImageFileinSalon.cs" />
-    <Compile Include="Migrations\202009051329177_addedImageFileinSalon.Designer.cs">
-      <DependentUpon>202009051329177_addedImageFileinSalon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009051330347_removedAttrRequiredSalon.cs" />
-    <Compile Include="Migrations\202009051330347_removedAttrRequiredSalon.Designer.cs">
-      <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009061210554_stars.cs" />
-    <Compile Include="Migrations\202009061210554_stars.Designer.cs">
-      <DependentUpon>202009061210554_stars.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009061550044_stingsAsStrings.cs" />
-    <Compile Include="Migrations\202009061550044_stingsAsStrings.Designer.cs">
-      <DependentUpon>202009061550044_stingsAsStrings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009061646524_stingsAsStrings2.cs" />
-    <Compile Include="Migrations\202009061646524_stingsAsStrings2.Designer.cs">
-      <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082131272_addedVotesClass.cs" />
-    <Compile Include="Migrations\202009082131272_addedVotesClass.Designer.cs">
-      <DependentUpon>202009082131272_addedVotesClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082134395_addedDbSet.cs" />
-    <Compile Include="Migrations\202009082134395_addedDbSet.Designer.cs">
-      <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009111401558_changedDisplayFormatTime.cs" />
-    <Compile Include="Migrations\202009111401558_changedDisplayFormatTime.Designer.cs">
-      <DependentUpon>202009111401558_changedDisplayFormatTime.cs</DependentUpon>
+    <Compile Include="Migrations\202009111724543_initial.cs" />
+    <Compile Include="Migrations\202009111724543_initial.Designer.cs">
+      <DependentUpon>202009111724543_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -897,8 +849,6 @@
     <Content Include="UploadedFiles\photosServices\waxing_img_2.jpg" />
     <Content Include="UploadedFiles\photosServices\waxing_img_3.jpg" />
     <Content Include="UploadedFiles\photosServices\waxing_img_4.jpg" />
-    <Content Include="UploadedFiles\stars\1024px-Empty_Star.svg.png" />
-    <Content Include="UploadedFiles\stars\589px-Star_empty.svg.png" />
     <Content Include="UserImages\ajax-loader.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -973,6 +923,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\stars\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -992,44 +943,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009032151251_initial.resx">
-      <DependentUpon>202009032151251_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009032153288_second.resx">
-      <DependentUpon>202009032153288_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009051208130_addedUserEdit.resx">
-      <DependentUpon>202009051208130_addedUserEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009051230336_changedAnnotiationImagePath.resx">
-      <DependentUpon>202009051230336_changedAnnotiationImagePath.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009051241097_nothing.resx">
-      <DependentUpon>202009051241097_nothing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009051329177_addedImageFileinSalon.resx">
-      <DependentUpon>202009051329177_addedImageFileinSalon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009051330347_removedAttrRequiredSalon.resx">
-      <DependentUpon>202009051330347_removedAttrRequiredSalon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009061210554_stars.resx">
-      <DependentUpon>202009061210554_stars.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009061550044_stingsAsStrings.resx">
-      <DependentUpon>202009061550044_stingsAsStrings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009061646524_stingsAsStrings2.resx">
-      <DependentUpon>202009061646524_stingsAsStrings2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082131272_addedVotesClass.resx">
-      <DependentUpon>202009082131272_addedVotesClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082134395_addedDbSet.resx">
-      <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009111401558_changedDisplayFormatTime.resx">
-      <DependentUpon>202009111401558_changedDisplayFormatTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009111724543_initial.resx">
+      <DependentUpon>202009111724543_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

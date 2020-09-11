@@ -29,13 +29,14 @@
         @Html.ValidationMessageFor(m => m.Service.Price)
     </div>
     <div class="form-group" style="padding-left:15%">
-        @Html.DisplayNameFor(m => m.Service.Duration)
-        @Html.EditorFor(m => m.Service.Duration,new { @class = "form-control" }) минути
+        @Html.DisplayNameFor(m => m.Service.Duration)<br />
+        @Html.EditorFor(m => m.Service.Duration, new { htmlAtrributes = new { @class = "form-control" } }) минути
         @Html.ValidationMessageFor(m => m.Service.Duration)
     </div>
     <div class="form-group" style="padding-left:15%">
-        @Html.LabelFor(model => model.Service.files, htmlAttributes: new { @class = "control-label col-md-2" })
+        
         <div class="col-md-10">
+            @Html.LabelFor(model => model.Service.files, htmlAttributes: new { @class = "control-label col-md-2" })
             <input type="file" id="Service.files" multiple="multiple" name="Service.files" class="btn btn-block default kopce-formi" />
         </div>
         @Html.ValidationMessageFor(m => m.Service.files)
@@ -49,7 +50,7 @@
 
 <br />
 <br />
-<p class="nazad-formi" style="text-align:center">
+<p class="nazad-formi" style="text-align:center;clear:both">
     @Html.ActionLink("ЗАЧУВАЈ", "Index", "Home")
 </p>
 
