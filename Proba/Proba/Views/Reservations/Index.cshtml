@@ -76,7 +76,7 @@
                 <td>
                     @if (DateTime.Compare(item.Date.Date, DateTime.Now.Date) >= 0)
                     {
-                    <a href="" class="btn btn-default js-delete" data-id="@item.Id">ОТКАЖИ</a>
+                    <button class="btn btn-default js-delete" data-id="@item.Id">ОТКАЖИ</button>
                     @*@Html.ActionLink("ОТКАЖИ", "Delete", "Reservations", new { id = item.Id }, null)*@
                     }
                 </td>
@@ -92,23 +92,47 @@
     <script>
         var refreshed = false;
         var table = $("#table").DataTable({
-            "order": [[6, "desc"]]
+            "order": [[6, "desc"]],
+            "language": {
+                "paginate": {
+                    "previous": "Претходно",
+                    "next": "Следно"
+                },
+                "search": "Пребарај",
+                "lengthMenu": "Прикажи _MENU_ ставки по страна",
+                "zeroRecords": "Не се пронајдени ставки",
+                "info": "Прикажани од _START_ до _END_ од вкупно _TOTAL_ ставки",
+                "infoEmpty": "Не се пронајдени ставки",
+                "infoFiltered": "(филтрирани од _MAX_ вкупно ставки)"
+            }
         });
         $("#table .js-delete").click(function () {
             var button = $(this);
-            if (confirm("Дали сте сигурни дека сакате да ја откажете резервацијата?")) {
-            
-                //true
-                $.ajax({
-                    method: "GET",
-                    url: "/Reservations/Delete/" + button.attr("data-id"),
-                    success: function () {
-                        table.row(button.parents("tr")).remove().draw();
-                        location.reload();
+            bootbox.confirm({
+                message: "Дали сте сигурни дека сакате да ја откажете резервацијата?",
+                buttons: {
+                    confirm: {
+                        label: 'Да',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'Не',
+                        className: 'btn-danger'
                     }
-                });
-
-            } 
+                },
+                callback: function (res) {
+                    if (res) {
+                        $.ajax({
+                            method: "GET",
+                            url: "/Reservations/Delete/" + button.attr("data-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                                location.reload();
+                            }
+                        });
+                    }
+                }
+            });                
         });
     </script>
 }

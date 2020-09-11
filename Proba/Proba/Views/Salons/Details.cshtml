@@ -129,20 +129,19 @@
             <tbody>
                 @foreach (var service in Model.Salon.Services)
                 {
-
                 <tr>
-                    <td class="col-md-6" style="margin:10% 0;">
+                    <td style="padding:15px 15px">
                         @Html.Label(service.Name)
                     </td>
                 
-                        <td class="col-md-6" style="margin:10% 0;">
+                        <td style="padding:15px 15px">
                             @Html.Label(service.Price.ToString()) ден.
                         </td>
 
                
                          @if (service.StringsAsStrings != null)
                          {
-                         <td class="col-md-6">
+                         <td style="padding:15px 15px">
                              <button onclick="openModal();currentSlide(1)" class="btn btn-default kopce-formi">Прегледај галерија</button><br />
 
 
@@ -162,7 +161,7 @@
                                                  index++;
                                                  <div class="mySlides">
                                                      <div class="numbertext" style="color:coral">@index</div>
-                                                     <img src="~/UploadedFiles/@img" style="display:block;100%;margin-left:auto;margin-right:auto">
+                                                     <img src="~/UploadedFiles/@img" style="display:block;max-width:100%;margin-left:auto;margin-right:auto">
                                                  </div>
                                              }
                                          }
@@ -183,7 +182,7 @@
                          }
 
                      
-                         <td class="col-md-6">
+                         <td style="padding:15px 15px;">
                              @if (User.IsInRole("Client"))
                              {
 
@@ -211,7 +210,6 @@
                 </div>
             }
         </div>
-        </table>
 
 
 
