@@ -36,6 +36,11 @@ namespace Proba
                       "~/Content/css-stilovi/StiloviZaFormi.css",
                       "~/Content/css-stilovi/StiloviZaUslugiView.css"
                       ));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+          "~/Scripts/jquery-ui-{version}.js"));
+            //css  
+            bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
+                   "~/Content/jquery-ui.css"));
         }
     }
 }
