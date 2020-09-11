@@ -155,14 +155,14 @@
                                      @{
 
                                          int index = 0;
-                                         foreach (var img in service.StringsAsStrings.Substring(0, service.StringsAsStrings.Length-2).Split(','))
+                                         foreach (var img in service.StringsAsStrings.Substring(0, service.StringsAsStrings.Length-1).Split(','))
                                          {
                                              if (!img.IsEmpty())
                                              {
                                                  index++;
                                                  <div class="mySlides">
                                                      <div class="numbertext" style="color:coral">@index</div>
-                                                     <img src="~/UploadedFiles/@img" style="max-width:100%">
+                                                     <img src="~/UploadedFiles/@img" style="display:block;100%;margin-left:auto;margin-right:auto">
                                                  </div>
                                              }
                                          }
