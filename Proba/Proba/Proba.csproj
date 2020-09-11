@@ -579,6 +579,10 @@
     <Compile Include="Migrations\202009082134395_addedDbSet.Designer.cs">
       <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009111401558_changedDisplayFormatTime.cs" />
+    <Compile Include="Migrations\202009111401558_changedDisplayFormatTime.Designer.cs">
+      <DependentUpon>202009111401558_changedDisplayFormatTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -1013,6 +1017,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009082134395_addedDbSet.resx">
       <DependentUpon>202009082134395_addedDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111401558_changedDisplayFormatTime.resx">
+      <DependentUpon>202009111401558_changedDisplayFormatTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
