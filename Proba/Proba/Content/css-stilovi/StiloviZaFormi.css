@@ -89,7 +89,8 @@ header-profil {
     max-width: 250px;
     float: left;
     border-radius: 6px;
-/*    box-shadow: 0 8px 6px -6px gray; */
+    /* box-shadow: 0 8px 6px -6px gray; */
+    border-color: gray;
 }
 #SlideshowImages {
     margin: 50px auto;

@@ -9,7 +9,7 @@
 *@
 
 <div>
-    <img class="slika-profil" src="~/UserImages/@Model.Salon.ImagePath" style="max-width:300px !important" />
+    <img class="slika-profil" src="~/UserImages/@Model.Salon.ImagePath" style="max-width:250px !important" />
 
     <h1 class="header-profil">
 
@@ -26,7 +26,7 @@
 
 <div class="form-horizontal info-profil">
 
-    <div style=" padding: 5% 0;">
+    <div style=" padding-top:5%; padding-left:20% ">
 
         <div class="form-group">
             <div class="col-md-2">
@@ -84,99 +84,103 @@
                     }
                 </div>
             </div>
-                        }
-    <table class="form-group">
-        <thead>
-            <tr class="col-md-2">
-                <td>@Html.LabelFor(model => model.Salon.Services)</td>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-
-                List<String> images = new List<String>();
-                int index = 0;
-                bool flag = false;
-            }
-            @foreach (var service in Model.Salon.Services)
-            {
-                <tr>
-                    <td style="padding:15px 15px">
-                        @Html.Label(service.Name)
-                    </td>
-
-                    <td style="padding:15px 15px">
-                        @Html.Label(service.Price.ToString()) ден.
-                    </td>
-
-
-                    @if (service.StringsAsStrings != null)
-                    {
-                        flag = true;
-                        foreach (var img in service.StringsAsStrings.Split(','))
-                        {
-                            if (img != "")
-                            {
-                                images.Add(img);
-                            }
-                        }
-                    }
-
-
-                    <td style="padding:15px 15px;">
-                        @if (User.IsInRole("Client"))
-                        {
-
-                            using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
-                            {
-                                @Html.Hidden("ServiceId", service.Id)
-                                @Html.HiddenFor(m => m.SalonId)
-                                <button class="btn default" type="submit" stylresource="margin:45px 0 30px 0">
-                                    <span>РЕЗЕРВИРАЈ</span>
-                                </button>
-                            }
-
-                        }
-
-                    </td>
+        }
+        <table class="form-group">
+            <thead>
+                <tr class="col-md-2">
+                    <td>@Html.LabelFor(model => model.Salon.Services)</td>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @{
+
+                    List<String> images = new List<String>();
+                    int index = 0;
+                    bool flag = false;
+                }
+                @foreach (var service in Model.Salon.Services)
+                {
+                    <tr>
+                        <td style="padding:15px 15px">
+                            @Html.Label(service.Name)
+                        </td>
+
+                        <td style="padding:15px 15px">
+                            @Html.Label(service.Price.ToString()) ден.
+                        </td>
+
+
+                        @if (service.StringsAsStrings != null)
+                        {
+                            flag = true;
+                            foreach (var img in service.StringsAsStrings.Split(','))
+                            {
+                                if (img != "")
+                                {
+                                    images.Add(img);
+                                }
+                            }
+                        }
+
+
+                        <td style="padding:15px 15px;">
+                            @if (User.IsInRole("Client"))
+                            {
+
+                                using (Html.BeginForm("MakeReservation", "Reservations", FormMethod.Get))
+                                {
+                                    @Html.Hidden("ServiceId", service.Id)
+                                    @Html.HiddenFor(m => m.SalonId)
+                                    <button class="btn default" type="submit" stylresource="margin:45px 0 30px 0">
+                                        <span>РЕЗЕРВИРАЈ</span>
+                                    </button>
+                                }
+
+                            }
+
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
     @if (flag)
     {
-<div class="col-md-4">
-    <div  style="padding:15px 15px">
-        <button class="btn default links" onclick="openModal();currentSlide(1)">ПРЕГЛЕДАЈ ГАЛЕРИЈА</button><br />
+        <div class="col-md-4">
+            <div style="padding:15px 15px; padding-left:79%">
+                <button class="btn default links" onclick="openModal();currentSlide(1)">ПРЕГЛЕДАЈ ГАЛЕРИЈА</button><br />
 
-        <!-- The Modal/Lightbox -->
-        <div id="myModal" class="modal">
-            <div style="float:right;padding-right:30px">
-                <p style="color:coral;font-size:50px;cursor:pointer" onclick="closeModal()">&times;</p>
-            </div>
-            <div class="modal-content" style="clear:both">
-                @{
-                    foreach (var img in images)
-                    {
-                        if (img != "")
-                        {
-                            index++;
-                            <div class="mySlides">
-                                <div class="numbertext" style="color:coral">@index</div>
-                                <img src="~/UploadedFiles/@img" style="display:block;height:500px;margin-left:auto;margin-right:auto">
-                            </div>
+
+                <!-- The Modal/Lightbox -->
+                <div id="myModal" class="modal">
+                    <div style="float:right;padding-right:30px">
+                        <p style="color:coral;font-size:50px;cursor:pointer" onclick="closeModal()">&times;</p>
+                    </div>
+                    <div class="modal-content" style="clear:both">
+                        @{
+                            foreach (var img in images)
+                            {
+                                if (img != "")
+                                {
+                                    index++;
+                                    <div class="mySlides">
+                                        <div class="numbertext" style="color:coral">@index</div>
+                                        <img src="~/UploadedFiles/@img" style="display:block;height:500px;margin-left:auto;margin-right:auto">
+                                    </div>
+                                }
+                            }
+
                         }
-                    }
-
-                }
-                <!-- Next/previous controls -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <!-- Next/previous controls -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </div>
             </div>
+            <br />
+            <br />
+            <br />
         </div>
-    </div>
-</div>
     }
     <div class="col-md-4">
         @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
@@ -188,7 +192,9 @@
     </div>
 
 
-
+    <br />
+    <br />
+    <br />
 </div>
 
         @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
