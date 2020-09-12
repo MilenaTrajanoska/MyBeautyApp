@@ -535,6 +535,10 @@
     <Compile Include="Migrations\202009111724543_initial.Designer.cs">
       <DependentUpon>202009111724543_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009121544216_phone1.cs" />
+    <Compile Include="Migrations\202009121544216_phone1.Designer.cs">
+      <DependentUpon>202009121544216_phone1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -945,6 +949,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009111724543_initial.resx">
       <DependentUpon>202009111724543_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121544216_phone1.resx">
+      <DependentUpon>202009121544216_phone1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
