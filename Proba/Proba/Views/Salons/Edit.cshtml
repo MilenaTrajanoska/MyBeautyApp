@@ -59,6 +59,11 @@
                 <input type="file" id="ImageFile" name="ImageFile" class="btn btn-block default kopce-formi" />
             </div>
         </div>
+        <div class="form-group">
+            @Html.HiddenFor(model => model.RatePoints)
+            @Html.HiddenFor(model => model.NumReviews)
+            @Html.HiddenFor(model => model.Rating)
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -67,7 +72,14 @@
         </div>
     </div>
 }
-
+<div class="col-md-4">
+    @Html.ActionLink("Додади услуги", "AddServices", "Salons", new { @class = "btn btn-default",id = Model.UserId}, null)
+</div>
+<div class="col-md-4">
+    @Html.ActionLink("Прегледај услуги", "Index", "Services", new { @class = "btn btn-default", id = Model.UserId }, null)
+</div><br />
+<br />
+<br />
 <div>
     @Html.ActionLink("Назад", "Details", "Salons", new { id = Model.UserId }, null)
 </div>

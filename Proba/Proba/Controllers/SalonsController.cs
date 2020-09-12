@@ -196,7 +196,7 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         
-        public ActionResult Edit([Bind(Include = "UserId,Name,Address,City,ImagePath,StartTime,EndTime")] Salon model)
+        public ActionResult Edit([Bind(Include = "UserId,Name,Address,City,ImagePath,StartTime,EndTime,Rating")] Salon model)
         {
             if (ModelState.IsValid)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,9 +17,9 @@ namespace Proba.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Services
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            var services = db.Services.Include(s => s.Salon);
+            var services = db.Services.Include(s => s.Salon).Where(s => s.Salon.UserId == id).ToList();
             return View(services.ToList());
         }
 
@@ -83,37 +84,49 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,TypeOfService,Price,UserId")] Service service)
+        public ActionResult Edit([Bind(Include = "Id,Name,Duration,TypeOfService,Price,UserId,StringsAsStrings,files")] Service model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(service).State = EntityState.Modified;
+                var files = Request.Files.GetMultiple("files");
+                
+                if (files != null)
+                {
+                    var inputFiles = new List<string>();
+                    foreach (HttpPostedFileBase file in files)
+                    {
+                        //Checking file is available to save.  
+                        if (file != null)
+                        {
+                            var InputFileName = Path.GetFileName(file.FileName);
+                            var ServerSavePath = Path.Combine(Server.MapPath("~/UploadedFiles/") + InputFileName);
+                            //Save file to server folder  
+                            file.SaveAs(ServerSavePath);
+                            //assigning file uploaded status to ViewBag for showing message to user. 
+                            inputFiles.Add(InputFileName);
+                            // ViewBag.UploadStatus = model.Service.files.Count().ToString() + " files uploaded successfully.";
+                        }
+
+                    }
+
+                    var service = db.Services.Find(model.Id);
+                    foreach (var path in inputFiles)
+                    {
+
+                        service.StringsAsStrings = service.StringsAsStrings + path + ",";
+
+                    }
+                }
+                TryUpdateModel(model);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Services", new { id = model.UserId });
             }
-            ViewBag.UserId = new SelectList(db.Salons, "UserId", "Name", service.UserId);
-            return View(service);
+            return View(model);
         }
 
         // GET: Services/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Service service = db.Services.Find(id);
-            if (service == null)
-            {
-                return HttpNotFound();
-            }
-            return View(service);
-        }
-
-        // POST: Services/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
             Service service = db.Services.Find(id);
             db.Services.Remove(service);
