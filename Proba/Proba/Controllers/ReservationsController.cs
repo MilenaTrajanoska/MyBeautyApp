@@ -175,7 +175,10 @@ namespace Proba.Controllers
             model.Salon = db.Salons.Find(model.SalonId);
             model.Service = db.Services.Find(model.ServiceId);
             model.ServiceId = model.ServiceId;
-            
+            if (model.Salon == null || model.Service == null || model.ServiceId <0)
+            {
+                return HttpNotFound();
+            }
 
             return View(model);
         }
