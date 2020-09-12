@@ -56,11 +56,11 @@ namespace Proba.Controllers
 
         // GET: Salons/Details/5
         // Vidi detali za sekoj salon - passing id?
-        [Authorize]
+        
         public ActionResult Details(string id)
         {
-            if (User.Identity.GetUserId() == id)
-            {
+            
+            
                 if (id == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -96,11 +96,8 @@ namespace Proba.Controllers
                     return HttpNotFound();
                 }
                 return View(model);
-            }
-            else
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
+            
         }
 
         // GET: Salons/Create
