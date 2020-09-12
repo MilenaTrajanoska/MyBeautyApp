@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Proba.Models;
 using Type = Proba.Models.Type;
 
@@ -17,6 +18,7 @@ namespace Proba.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Services
+        [Authorize]
         public ActionResult Index(string id)
         {
             var services = db.Services.Include(s => s.Salon).Where(s => s.Salon.UserId == id).ToList();
@@ -24,18 +26,25 @@ namespace Proba.Controllers
         }
 
         // GET: Services/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Service service = db.Services.Find(id);
+            
+                if (service == null)
+                {
+                    return HttpNotFound();
+                }
+            if (User.Identity.GetUserId() == service.Salon.UserId)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(service);
             }
-            Service service = db.Services.Find(id);
-            if (service == null)
-            {
-                return HttpNotFound();
-            }
-            return View(service);
+            return new HttpNotFoundResult();
         }
 
         // GET: Services/Create
@@ -64,6 +73,7 @@ namespace Proba.Controllers
         }
 
         // GET: Services/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,8 +85,12 @@ namespace Proba.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.Salons, "UserId", "Name", service.UserId);
-            return View(service);
+            if (User.Identity.GetUserId() == service.Salon.UserId)
+            {
+                ViewBag.UserId = new SelectList(db.Salons, "UserId", "Name", service.UserId);
+                return View(service);
+            }
+            return new HttpNotFoundResult();
         }
 
         // POST: Services/Edit/5
@@ -84,6 +98,7 @@ namespace Proba.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Name,Duration,TypeOfService,Price,UserId,StringsAsStrings,files")] Service model)
         {
             if (ModelState.IsValid)
@@ -126,12 +141,17 @@ namespace Proba.Controllers
 
         // GET: Services/Delete/5
         [HttpGet]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             Service service = db.Services.Find(id);
-            db.Services.Remove(service);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (service != null && service.Salon.UserId == User.Identity.GetUserId())
+            {
+                db.Services.Remove(service);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return new HttpNotFoundResult();
         }
 
         protected override void Dispose(bool disposing)

@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Proba.Models;
 using Syncfusion.JavaScript.Mobile;
@@ -21,20 +22,25 @@ namespace Proba.Controllers
         // GET: Reservations
         public ActionResult Index(string Id)
         {
-            List<Reservation> reservations = new List<Reservation>();
-            if (User.IsInRole("Salon"))
+            if (User.Identity.GetUserId() == Id)
             {
-               reservations = db.Reservations.Where(r => r.SalonId == Id).ToList();
+                List<Reservation> reservations = new List<Reservation>();
+                if (User.IsInRole("Salon"))
+                {
+                    reservations = db.Reservations.Where(r => r.SalonId == Id).ToList();
+                }
+                if (User.IsInRole("Client"))
+                {
+                    reservations = db.Reservations.Where(r => r.ClientId == Id).ToList();
+                }
+
+                return View(reservations);
             }
-            if (User.IsInRole("Client"))
-            {
-                reservations = db.Reservations.Where(r => r.ClientId == Id).ToList();
-            }
-            
-            return View(reservations);
+            return new HttpNotFoundResult();
         }
 
         // GET: Reservations/Details/5
+        [Authorize]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -78,6 +84,7 @@ namespace Proba.Controllers
         }
 
         // GET: Reservations/Edit/5
+        [Authorize]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -124,12 +131,17 @@ namespace Proba.Controllers
             return View(reservation);
         }
         */
-        // POST: Reservations/Delete/5       
+        // POST: Reservations/Delete/5   
+        [Authorize]
         public ActionResult Delete(string id)
         {
+           
             Reservation reservation = db.Reservations.Find(id);
-            db.Reservations.Remove(reservation);
-            db.SaveChanges();
+            if (User.Identity.GetUserId() == reservation.ClientId)
+            {
+                db.Reservations.Remove(reservation);
+                db.SaveChanges();
+            }
             /*
             MailMessage mail = new MailMessage();
             mail.To.Add(salonEmail);
@@ -151,14 +163,13 @@ namespace Proba.Controllers
             return RedirectToAction("Index");
         }
 
-
         public ActionResult GetReservationData()
         {
             var reservations = db.Reservations.ToList();
             return new JsonResult { Data = reservations, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        
+        [Authorize(Roles ="Client")]
         public ActionResult MakeReservation(DetailsReservationViewModel model)
         {
             model.Salon = db.Salons.Find(model.SalonId);
@@ -168,6 +179,7 @@ namespace Proba.Controllers
 
             return View(model);
         }
+        [Authorize(Roles ="Client")]
         public ActionResult ReservationTime(DetailsReservationViewModel pass)
         {
                    
@@ -202,6 +214,7 @@ namespace Proba.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles ="Client")]
         public ActionResult CreateReservation(DetailsReservationViewModel model)
         {
                          

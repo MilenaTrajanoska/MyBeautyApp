@@ -56,44 +56,51 @@ namespace Proba.Controllers
 
         // GET: Salons/Details/5
         // Vidi detali za sekoj salon - passing id?
-
+        [Authorize]
         public ActionResult Details(string id)
         {
-            if (id == null)
+            if (User.Identity.GetUserId() == id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if(db.Salons.Find(id) == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).Include(s=>s.User).First();
-            Vote vote = null;
-            if (User.Identity.IsAuthenticated)
-            {
-                var userId = User.Identity.GetUserId();
-                vote = db.Votes.Where(v => v.ClientId == userId && v.SalonId == id).FirstOrDefault();
-            }
-        
-            if  (vote != null) 
-            {
-                ViewBag.votes = vote.vote;
-                ViewBag.salon = salon.UserId;
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                if (db.Salons.Find(id) == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).Include(s => s.User).First();
+                Vote vote = null;
+                if (User.Identity.IsAuthenticated)
+                {
+                    var userId = User.Identity.GetUserId();
+                    vote = db.Votes.Where(v => v.ClientId == userId && v.SalonId == id).FirstOrDefault();
+                }
+
+                if (vote != null)
+                {
+                    ViewBag.votes = vote.vote;
+                    ViewBag.salon = salon.UserId;
+                }
+                else
+                {
+                    ViewBag.votes = 0;
+                }
+                var model = new DetailsReservationViewModel()
+                {
+                    Salon = salon,
+                    SalonId = salon.UserId,
+                };
+                if (salon == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(model);
             }
             else
             {
-                ViewBag.votes = 0;
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var model = new DetailsReservationViewModel()
-            {
-                Salon = salon,
-                SalonId = salon.UserId,
-            };
-            if (salon == null)
-            {
-                return HttpNotFound();
-            }
-            return View(model);
         }
 
         // GET: Salons/Create
@@ -117,22 +124,26 @@ namespace Proba.Controllers
 
                 return RedirectToAction("AddServices","Salons", new{id = salon.UserId});
         }
-        
+        [Authorize]
         public ActionResult AddServices(string id)
         {
-            //ViewBag.SalonId = id;
-            var addServicesModel = new AddServicesViewModel()
+            if (User.Identity.GetUserId() == id)
             {
-                SalonId = id,
-                Service = new Service()
-            };
-            ViewBag.Services = services;
-           
-            return View(addServicesModel);
+                //ViewBag.SalonId = id;
+                var addServicesModel = new AddServicesViewModel()
+                {
+                    SalonId = id,
+                    Service = new Service()
+                };
+                ViewBag.Services = services;
+
+                return View(addServicesModel);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [HttpPost]
-        
+        [Authorize]
         public ActionResult AddServices(AddServicesViewModel model)
         {
             if (ModelState.IsValid)
@@ -180,26 +191,31 @@ namespace Proba.Controllers
 
 
         // GET: Salons/Edit/5
+        [Authorize]
         public ActionResult Edit(string id)
         {
-            if (id == null)
+            if (User.Identity.GetUserId() == id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Salon salon = db.Salons.Find(id);
+                if (salon == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
+                return View(salon);
             }
-            Salon salon = db.Salons.Find(id);
-            if (salon == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.UserId = new SelectList(db.Salons, "Id", "Name", salon.UserId);
-            return View(salon);
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // POST: Salons/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        
+        [Authorize]
         public ActionResult Edit([Bind(Include = "UserId,Name,Address,City,ImagePath,StartTime,EndTime,Rating")] Salon model)
         {
             if (ModelState.IsValid)
@@ -242,29 +258,39 @@ namespace Proba.Controllers
         }
 
         // GET: Salons/Delete/5
+        [Authorize]
         public ActionResult Delete(string id)
         {
-            if (id == null)
+            if (User.Identity.GetUserId() == id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Salon salon = db.Salons.Find(id);
+                if (salon == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(salon);
             }
-            Salon salon = db.Salons.Find(id);
-            if (salon == null)
-            {
-                return HttpNotFound();
-            }
-            return View(salon);
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // POST: Salons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(string id)
         {
-            Salon salon = db.Salons.Find(id);
-            db.Salons.Remove(salon);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (User.Identity.GetUserId() == id)
+            {
+                Salon salon = db.Salons.Find(id);
+                db.Salons.Remove(salon);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         protected override void Dispose(bool disposing)
@@ -275,11 +301,6 @@ namespace Proba.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-
-
-
         // rate\
         [AcceptVerbs(HttpVerbs.Post)]
         public JsonResult PostRating(int rating, string salonId)

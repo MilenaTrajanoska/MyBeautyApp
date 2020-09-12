@@ -138,10 +138,6 @@ namespace Proba.Controllers
                 return Content("Default");
             }
         }
-
-
-
-
         public ActionResult searchTown(string town)
         {
             var salons = GetSalons(town);
