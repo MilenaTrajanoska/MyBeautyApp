@@ -42,11 +42,14 @@ namespace Proba.Controllers
         }
         public List<Salon> getBiggest5Salons()
         {
-            List<Salon> list = _context.Salons.OrderByDescending(x => x.numChairs).ThenBy(x => x.Name).ToList();
+            //sortira po broj na reviews sto se napraveni-> najmnogu lugje otisle kaj niv, pa zatoa najmnogu glasale
+            List<Salon> list = _context.Salons.OrderByDescending(x => x.NumReviews).ThenBy(x => x.Name).ToList();
             //list.Sort((s1, s2) => s1.getRating().CompareTo(s2.getRating()));
             int count = list.Count() >= 5 ? 5 : list.Count();
 
             return list.GetRange(0, count);
+
+            
         }
 
 
