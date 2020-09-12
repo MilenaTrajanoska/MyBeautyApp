@@ -63,6 +63,10 @@ namespace Proba.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            if(db.Salons.Find(id) == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             var salon = db.Salons.Include(s => s.Services).Where(s => s.UserId == id).Include(s=>s.User).First();
             Vote vote = null;
             if (User.Identity.IsAuthenticated)
