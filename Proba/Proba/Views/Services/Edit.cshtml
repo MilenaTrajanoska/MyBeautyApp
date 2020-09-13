@@ -4,7 +4,7 @@
     ViewBag.Title = "Уреди услуга";
 }
 
-<h2>Уреди услуга</h2>
+<h2 class="naslov-formi">УРЕДИ УСЛУГА</h2>
 
 @using (Html.BeginForm("Edit", "Services", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -64,6 +64,6 @@
 </div>
 }
 
-<div>
+<div class="nazad-formi">
     @Html.ActionLink("Назад", "Index", new { @class ="btn btn-default kopce-formi", id=Model.UserId}, null)
 </div>
