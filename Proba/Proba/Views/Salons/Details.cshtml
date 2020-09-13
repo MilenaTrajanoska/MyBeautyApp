@@ -149,8 +149,8 @@
         <div class="col-md-4">
             <div style="padding:15px 15px; padding-left:79%">
                 <button class="btn default links" onclick="openModal();currentSlide(1)">ПРЕГЛЕДАЈ ГАЛЕРИЈА</button><br />
-
-
+                <br />
+                <br />
                 <!-- The Modal/Lightbox -->
                 <div id="myModal" class="modal">
                     <div style="float:right;padding-right:30px">
@@ -182,16 +182,17 @@
             <br />
         </div>
     }
-    <div class="col-md-4">
+                            <br/>
+    <br />
+    <br />
+    <div class="col-md-4" style="padding-right:30%">
         @if (User.IsInRole("Salon") && User.Identity.Name.Equals(Model.Salon.User.Email))
         {
-            <div class="btn default links" style="margin:5%;">
+            <div class="btn default links">
                 @Html.ActionLink("ПРЕГЛЕДАЈ РЕЗЕРВАЦИИ", "Index", "Reservations", new { Id = Model.SalonId }, null)
             </div>
         }
     </div>
-
-
     <br />
     <br />
     <br />

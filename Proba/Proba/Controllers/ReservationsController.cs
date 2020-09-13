@@ -160,7 +160,7 @@ namespace Proba.Controllers
             smtp.Credentials = new System.Net.NetworkCredential("my.beauty.app@outlook.com", "MyBeautyApp123!"); // Enter seders User name and password  
             smtp.Send(mail);
             */
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Reservations", new { Id = User.Identity.GetUserId()});
         }
 
         public ActionResult GetReservationData()
