@@ -36,7 +36,7 @@ namespace Proba.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "Запомни го овој Веб прелистувач?")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
@@ -51,12 +51,12 @@ namespace Proba.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете Email адреса")]
         [Display(Name = "Email адреса")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете лозинка")]
         [DataType(DataType.Password)]
         [Display(Name = "Лозинка")]
         public string Password { get; set; }
@@ -73,7 +73,7 @@ namespace Proba.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Тhe {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -106,7 +106,7 @@ namespace Proba.Models
 
 
         [Required(ErrorMessage = "Задолжително внесете Еmail адреса")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Неправилен формат на Email адреса")]
         [Display(Name = "Email адреса")]
         public string Email { get; set; }
 
@@ -142,7 +142,7 @@ namespace Proba.Models
         public string City { get; set; }
 
         [Required(ErrorMessage = "Задолжително внесете Еmail адреса")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Неправилен формат на Email адреса")]
         [Display(Name = "Email адреса")]
         public string Email { get; set; }
 
@@ -171,12 +171,12 @@ namespace Proba.Models
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFileS { get; set; }
         [Display(Name="Почеток на работно време")]
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете почеток на работно време")]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
         [Display(Name = "Крај на работно време")]
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете крај на работно време")]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime EndTime { get; set; }
@@ -235,15 +235,15 @@ namespace Proba.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage ="Задолжително внесете лозинка")]
+        [StringLength(100, ErrorMessage = "{0}та мора да има најмалку {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Потврда на лозинка")]
+        [Compare("Password", ErrorMessage = "Лозинката и потврдата не се совпаѓаат")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

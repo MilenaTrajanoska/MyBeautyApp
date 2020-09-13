@@ -43,18 +43,18 @@ namespace Proba.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Моментална лозинка")]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Задолжително внесете лозинка")]
+        [StringLength(100, ErrorMessage = "{0}та мора да има најмалку {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Нова лозинка")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Потврда на noва лозинка")]
+        [Compare("NewPassword", ErrorMessage = "Лозинката и потврдата не се совпаѓаат")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -62,19 +62,19 @@ namespace Proba.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Телефонски број")]
         public string Number { get; set; }
     }
 
     public class VerifyPhoneNumberViewModel
     {
         [Required]
-        [Display(Name = "Code")]
+        [Display(Name = "Код")]
         public string Code { get; set; }
 
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Телефонски број")]
         public string PhoneNumber { get; set; }
     }
 

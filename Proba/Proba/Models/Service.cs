@@ -21,14 +21,15 @@ namespace Proba.Models
 
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете име на сервис")]
         [Display(Name = "Име на сервис")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете тип на сервис")]
         [Display(Name = "Tип на сервис")]
         public Type TypeOfService { get; set; }
         [Display(Name = "Цена на услуга")]
-        [Range(1, 10000)]
+        [Required(ErrorMessage = "Задолжително внесете цена на услугата")]
+        [Range(1, 10000,ErrorMessage = "Цената на услугата треба да биде помеѓу 1 и 10000 денари")]
         public int Price { get; set; }
         public virtual Salon Salon {get; set;}
         [ForeignKey("Salon")]
@@ -39,7 +40,7 @@ namespace Proba.Models
         public List<HttpPostedFileBase> files { get; set; }
 
         public string StringsAsStrings { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете времетраење на услуга")]
         [Display(Name="Времетраење на услуга во минути")]
         [Range(1, 180, ErrorMessage ="Невалидна вредност за времетраење на услуга")]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]

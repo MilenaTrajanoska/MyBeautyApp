@@ -16,23 +16,23 @@ namespace Proba.Models
 
     public class Client
     {
-            [Required]
-            [Display(Name = "Име")]
+        [Required(ErrorMessage = "Задолжително внесете име")]
+        [Display(Name = "Име")]
             public string ClientName { get; set; }
-            [Required]
-            [Display(Name = "Презиме")]
+        [Required(ErrorMessage = "Задолжително внесете презиме")]
+        [Display(Name = "Презиме")]
             public string ClientSurname { get; set; }
-            [Required]
-            [Display(Name = "Пол")]
+        [Required(ErrorMessage = "Задолжително внесете пол")]
+        [Display(Name = "Пол")]
             public Gender Gender { get; set; }
 
-            [Required]
-            [Display(Name = "Датум на раѓање")]
+        [Required(ErrorMessage = "Задолжително внесете датум на раѓање")]
+        [Display(Name = "Датум на раѓање")]
             [DataType(DataType.Date)]
             [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
             public DateTime DateOfBirth { get; set; }
-            [Required]
-            [Display(Name = "Град")]
+        [Required(ErrorMessage = "Задолжително внесете град")]
+        [Display(Name = "Град")]
             public string City { get; set; }
             
 

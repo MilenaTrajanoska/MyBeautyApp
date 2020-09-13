@@ -16,22 +16,22 @@
     <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.TypeOfService)
         @Html.DropDownListFor(m => m.Service.TypeOfService, new SelectList(ViewBag.Services, "TypeOfService", "Name"), new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.TypeOfService)
+        @Html.ValidationMessageFor(m => m.Service.TypeOfService, "", new { @class = "text-danger" })
     </div>
     <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.Name)
         @Html.TextBoxFor(m => m.Service.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.Name)
+        @Html.ValidationMessageFor(m => m.Service.Name, "", new { @class = "text-danger" })
     </div>
     <div class="form-group" style="padding-left:15%">
-        @Html.DisplayNameFor(m => m.Service.Price)
-        @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Service.Price)
+        @Html.DisplayNameFor(m => m.Service.Price) (денари)
+        @Html.TextBoxFor(m => m.Service.Price, new { @class = "form-control" }) 
+        @Html.ValidationMessageFor(m => m.Service.Price, "", new { @class = "text-danger" })
     </div>
     <div class="form-group" style="padding-left:15%">
         @Html.DisplayNameFor(m => m.Service.Duration)<br />
         @Html.EditorFor(m => m.Service.Duration, new { htmlAtrributes = new { @class = "form-control" } }) минути
-        @Html.ValidationMessageFor(m => m.Service.Duration)
+        @Html.ValidationMessageFor(m => m.Service.Duration, "", new { @class = "text-danger" })
     </div>
     <div class="form-group" style="padding-left:15%">
         
@@ -39,7 +39,7 @@
             @Html.LabelFor(model => model.Service.files, htmlAttributes: new { @class = "control-label col-md-2" })
             <input type="file" id="Service.files" multiple="multiple" name="Service.files" class="btn btn-block default kopce-formi" />
         </div>
-        @Html.ValidationMessageFor(m => m.Service.files)
+        @Html.ValidationMessageFor(m => m.Service.files, "", new { @class = "text-danger" })
     </div>
     
     <div style="padding-left: 15%; padding-top:7%">

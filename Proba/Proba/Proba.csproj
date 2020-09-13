@@ -539,6 +539,26 @@
     <Compile Include="Migrations\202009121544216_phone1.Designer.cs">
       <DependentUpon>202009121544216_phone1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009131501019_changeMKD.cs" />
+    <Compile Include="Migrations\202009131501019_changeMKD.Designer.cs">
+      <DependentUpon>202009131501019_changeMKD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131506167_changeMKD2.cs" />
+    <Compile Include="Migrations\202009131506167_changeMKD2.Designer.cs">
+      <DependentUpon>202009131506167_changeMKD2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131512129_changeMKD3.cs" />
+    <Compile Include="Migrations\202009131512129_changeMKD3.Designer.cs">
+      <DependentUpon>202009131512129_changeMKD3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131532177_changeMKD4.cs" />
+    <Compile Include="Migrations\202009131532177_changeMKD4.Designer.cs">
+      <DependentUpon>202009131532177_changeMKD4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131547215_changeMKD5.cs" />
+    <Compile Include="Migrations\202009131547215_changeMKD5.Designer.cs">
+      <DependentUpon>202009131547215_changeMKD5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddServicesViewModel.cs" />
@@ -952,6 +972,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009121544216_phone1.resx">
       <DependentUpon>202009121544216_phone1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131501019_changeMKD.resx">
+      <DependentUpon>202009131501019_changeMKD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131506167_changeMKD2.resx">
+      <DependentUpon>202009131506167_changeMKD2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131512129_changeMKD3.resx">
+      <DependentUpon>202009131512129_changeMKD3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131532177_changeMKD4.resx">
+      <DependentUpon>202009131532177_changeMKD4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131547215_changeMKD5.resx">
+      <DependentUpon>202009131547215_changeMKD5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,13 +12,13 @@ namespace Proba.Models
 {
     public class Salon
     {
-        [Required]
+        [Required(ErrorMessage ="Задолжително внесете име")]
         [Display(Name="Име")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете адреса")]
         [Display(Name="Адреса")]
         public string Address { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете град")]
         [Display(Name = "Град")]
         public string City { get; set; }
         [Display(Name="Број на вработени")]
@@ -46,13 +46,14 @@ namespace Proba.Models
         public Dictionary<string,int> VotersMap { get; set; }
         public virtual List<Vote> votes { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Задолжително внесете почеток на работното време")]
         [DataType(DataType.Time)]
         [Display(Name="Почеток на работно време")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime StartTime { get; set; }
         [Display(Name="Крај на работно време")]
-        [DataType(DataType.Time)]      
+        [DataType(DataType.Time)]
+        [Required(ErrorMessage = "Задолжително внесете крај на работното време")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime EndTime { get; set; }
 
